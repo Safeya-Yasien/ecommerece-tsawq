@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
-import { CiMenuBurger, CiSearch, CiShoppingCart } from "react-icons/ci";
+import { CiSearch, CiShoppingCart } from "react-icons/ci";
+import { MobileMenu } from "@components/ecommerece";
 
 const Header = () => {
   return (
     <header className="h-24 flex items-center justify-between border-b border-[#EBEEFF] px-12">
       <div className="flex items-center gap-4">
         {/* mobile menu */}
-        <button className="md:hidden" aria-label="mobile menu">
-          <CiMenuBurger size={24} />
-        </button>
+        <MobileMenu />
         {/* logo */}
         <div className="h-full flex items-center ">
           <Link to="/" className="flex items-center gap-2">
@@ -22,7 +21,7 @@ const Header = () => {
         </div>
       </div>
       {/* links */}
-      <nav className="hidden md:flex">
+      <nav className="hidden lg:flex">
         <ul className="flex items-center gap-10">
           <li>
             <Link to="/" className="text-[#2B2B2B] text-lg font-medium">
@@ -49,6 +48,7 @@ const Header = () => {
           </li>
         </ul>
       </nav>
+
       {/* icons */}
       <div className="flex items-center gap-4">
         <button className="text-[#5F6377]" aria-label="Search">
