@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { CiSearch, CiShoppingCart } from "react-icons/ci";
 import { MobileMenu } from "@components/ecommerece";
 
@@ -24,27 +24,60 @@ const Header = () => {
       <nav className="hidden lg:flex">
         <ul className="flex items-center gap-10">
           <li>
-            <Link to="/" className="text-[#2B2B2B] text-lg font-medium">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `text-lg ${
+                  isActive
+                    ? "text-[#2B2B2B]  font-medium"
+                    : "text-[#454545]  font-normal"
+                }`
+              }
+            >
               الصفحة الرئيسية
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link
+            <NavLink
               to="products-list"
-              className="text-[#454545] text-lg font-normal"
+              className={({ isActive }) =>
+                `text-lg ${
+                  isActive
+                    ? "text-[#2B2B2B]  font-medium"
+                    : "text-[#454545]  font-normal"
+                }`
+              }
             >
               منتجاتنا{" "}
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/" className="text-[#454545] text-lg font-normal">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `text-lg ${
+                  isActive
+                    ? "text-[#2B2B2B]  font-medium"
+                    : "text-[#454545]  font-normal"
+                }`
+              }
+            >
               معلومات عنا{" "}
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/" className="text-[#454545] text-lg font-normal">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `text-lg ${
+                  isActive
+                    ? "text-[#2B2B2B]  font-medium"
+                    : "text-[#454545]  font-normal"
+                }`
+              }
+            >
               تواصل معنا{" "}
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </nav>
