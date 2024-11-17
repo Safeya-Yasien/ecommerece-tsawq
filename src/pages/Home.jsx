@@ -49,7 +49,10 @@ const Home = () => {
                 تمتع بافضل تشكيلة جديدة وحصريه من سماعات الرأس اللاسلكية
                 للالعاب. عروض وخصومات في انتظارك
               </p>
-              <button className="bg-custom-blue text-white rounded-md font-bold text-lg leading-[26px] w-[121px] h-[43px]">
+              <button
+                className="bg-custom-blue text-white rounded-md font-bold text-lg leading-[26px] w-[121px] h-[43px]"
+                aria-label="اطلب الان"
+              >
                 أطلب الان
               </button>
             </div>
