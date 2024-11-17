@@ -12,5 +12,5 @@ Currently, two official plugins are available:
 - slider need the dots to be bg blue <br>
 - slider before and after<br>
 - slider need to be at center of bg <br>
-- <br>
+- slider dots active one <br>
 - <br>
