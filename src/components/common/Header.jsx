@@ -6,13 +6,17 @@ const Header = () => {
     <header className="h-24 flex items-center justify-between border-b border-[#EBEEFF] px-12">
       <div className="flex items-center gap-4">
         {/* mobile menu */}
-        <button className="md:hidden">
+        <button className="md:hidden" aria-label="mobile menu">
           <CiMenuBurger size={24} />
         </button>
         {/* logo */}
         <div className="h-full flex items-center ">
           <Link to="/" className="flex items-center gap-2">
-            <img src="/logo.svg" alt="تسوق" className="w-[41px] h-[41px] " />
+            <img
+              src="/logo.svg"
+              alt="شعار موقع تسوق"
+              className="w-[41px] h-[41px] "
+            />
             <span className="font-bold text-[30px] text-[#212328]">تسوق</span>
           </Link>
         </div>
@@ -26,7 +30,10 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link to="/" className="text-[#454545] text-lg font-normal">
+            <Link
+              to="products-list"
+              className="text-[#454545] text-lg font-normal"
+            >
               منتجاتنا{" "}
             </Link>
           </li>
@@ -44,10 +51,10 @@ const Header = () => {
       </nav>
       {/* icons */}
       <div className="flex items-center gap-4">
-        <button className="text-[#5F6377]">
+        <button className="text-[#5F6377]" aria-label="Search">
           <CiSearch size={24} />
         </button>
-        <button className="text-[#5F6377]">
+        <button className="text-[#5F6377]" aria-label="Cart">
           <CiShoppingCart size={24} />
         </button>
       </div>
