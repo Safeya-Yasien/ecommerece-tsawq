@@ -15,8 +15,8 @@ const Home = () => {
   return (
     <>
       {/* slider */}
-      <section className="bg-[#F8F9FF] h-[calc(100vh-96px)] rounded-md px-8 text-right ">
-        <Slider {...settings} className="h-full">
+      <section className="bg-[#F8F9FF] h-full rounded-md px-8 text-right overflow-hidden">
+        <Slider {...settings} className="">
           <div className="!flex items-center justify-between h-full">
             {/* left side */}
             <div className="hidden lg:flex flex-1">
