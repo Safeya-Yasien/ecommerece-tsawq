@@ -7,6 +7,10 @@ export default {
         center: true,
         padding: "1rem",
       },
+      colors: {
+        "custom-blue": "#3074F0",
+        "custom-dark": "#212328",
+      },
     },
   },
   plugins: [],

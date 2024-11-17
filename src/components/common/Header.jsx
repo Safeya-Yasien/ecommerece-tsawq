@@ -16,7 +16,7 @@ const Header = () => {
               alt="شعار موقع تسوق"
               className="w-[41px] h-[41px] "
             />
-            <span className="font-bold text-[30px] text-[#212328]">تسوق</span>
+            <span className="font-bold text-[30px] text-custom-dark">تسوق</span>
           </Link>
         </div>
       </div>
