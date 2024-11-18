@@ -2,11 +2,18 @@ import { FaStar } from "react-icons/fa";
 import { CiShoppingCart } from "react-icons/ci";
 import PropTypes from "prop-types";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, label = true }) => {
   return (
     <div className="bg-white shadow-[0px_4px_26.8px_0px_#0000000D] rounded-lg  flex flex-col">
       {/* img */}
       <div className="p-8 mx-auto relative">
+        {label ? (
+          <div className="flex items-center justify-center text-white font-medium text-sm bg-[#FF2828] w-20 h-6 rounded-2xl">
+            خصم 50%
+          </div>
+        ) : (
+          ""
+        )}
         <img
           src={product.imgSrc}
           alt={product.name}
@@ -56,6 +63,7 @@ ProductCard.propTypes = {
     originalPrice: PropTypes.number.isRequired,
     rating: PropTypes.number.isRequired,
   }),
+  label: PropTypes.bool,
 };
 
 export default ProductCard;
