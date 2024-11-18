@@ -24,6 +24,7 @@
 
 body {
   font-family: "DIN Next LT W23", sans-serif;
+  font-display: swap;
 }
 .slick-dots {
   bottom: 20px !important;
