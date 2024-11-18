@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from "react";
+import React, { useMemo, useRef } from "react";
 import PropTypes from "prop-types";
 import { FaStar } from "react-icons/fa";
 import Slider from "react-slick";
