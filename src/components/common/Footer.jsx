@@ -24,6 +24,7 @@ const Footer = () => {
             <li>
               <a
                 href=""
+                aria-label="Visit our Facebook page"
                 className="flex items-center justify-center  rounded-md w-10 h-10 bg-[#FFFFFF21]"
               >
                 <FaFacebookF size={24} />
@@ -32,6 +33,7 @@ const Footer = () => {
             <li>
               <a
                 href=""
+                aria-label="Visit our Linkedin page"
                 className="flex items-center justify-center text-white rounded-md w-10 h-10 bg-[#FFFFFF21]"
               >
                 <FaLinkedin size={24} />
@@ -40,6 +42,7 @@ const Footer = () => {
             <li>
               <a
                 href=""
+                aria-label="Visit our Twitter page"
                 className="flex items-center justify-center text-white rounded-md w-10 h-10 bg-[#FFFFFF21]"
               >
                 {" "}
@@ -49,6 +52,7 @@ const Footer = () => {
             <li>
               <a
                 href=""
+                aria-label="Visit our Instagram page"
                 className="flex items-center justify-center text-white rounded-md w-10 h-10 bg-[#FFFFFF21]"
               >
                 {" "}
