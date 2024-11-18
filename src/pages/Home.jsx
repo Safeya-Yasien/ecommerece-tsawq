@@ -3,9 +3,10 @@ import Slider from "react-slick";
 
 const Home = () => {
   return (
-    <>
+    <div className="flex flex-col gap-12">
       <HeroSlider />
-    </>
+      <Features />
+    </div>
   );
 };
 export default Home;
@@ -66,6 +67,92 @@ const HeroSlider = () => {
         <div>2</div>
         <div>3</div>
       </Slider>
+    </section>
+  );
+};
+
+const Features = () => {
+  return (
+    <section>
+      <div
+        className="flex flex-wrap  items-center justify-around gap-8 p-8 bg-white shadow-[0px_4px_29px_0px_#2123280F]
+    "
+      >
+        <div className="flex gap-4 relative">
+          <div className="w-12">
+            <img
+              src="src/assets/images/delivery.svg"
+              alt="delivery"
+              className="object-fill w-full h-full "
+              loading="lazy"
+            />
+          </div>
+          <div className="flex flex-col">
+            <h2 className="font-bold text-lg text-[#454545]"> توصيل مجاني</h2>
+            <p className="text-sm text-[#787878] font-normal">
+              طلبات حتي 1500ج{" "}
+            </p>
+          </div>
+        </div>
+
+        <div className="hidden md:block border-l md:border-[#ECECEC] h-16"></div>
+
+        <div className="flex gap-4">
+          <div className="w-12">
+            <img
+              src="src/assets/images/coupon.svg"
+              alt="delivery"
+              className="object-cover w-full h-full "
+              loading="lazy"
+            />
+          </div>
+          <div className="flex flex-col">
+            <h2 className="font-bold text-lg text-[#454545]"> عروض وخصومات</h2>
+            <p className="text-sm text-[#787878] font-normal">
+              عروض وخصومات دائمة{" "}
+            </p>
+          </div>
+        </div>
+
+        <div className="hidden md:block border-l md:border-[#ECECEC] h-16"></div>
+
+        <div className="flex gap-4 ">
+          <div className="w-12">
+            <img
+              src="src/assets/images/money.svg"
+              alt="delivery"
+              className="object-cover w-full h-full "
+              loading="lazy"
+            />
+          </div>
+          <div className="flex flex-col">
+            <h2 className="font-bold text-lg text-[#454545]">
+              {" "}
+              الدفع عند الاستلام
+            </h2>
+            <p className="text-sm text-[#787878] font-normal">
+              ميزة الدفع عند الاستلام{" "}
+            </p>
+          </div>
+        </div>
+
+        <div className="hidden md:block border-l md:border-[#ECECEC] h-16"></div>
+
+        <div className="flex gap-4">
+          <div className="w-12">
+            <img
+              src="src/assets/images/headphone.svg"
+              alt="delivery"
+              className="object-cover w-full h-full "
+              loading="lazy"
+            />
+          </div>
+          <div className="flex flex-col">
+            <h2 className="font-bold text-lg text-[#454545]"> خدمة العملاء</h2>
+            <p className="text-sm text-[#787878] font-normal">متوفرة 24/7 </p>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
