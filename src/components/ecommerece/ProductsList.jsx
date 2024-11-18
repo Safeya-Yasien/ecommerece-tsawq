@@ -77,8 +77,10 @@ const ProductsListSwiper = ({ showCountdown }) => {
   return (
     <section className="flex flex-col gap-8">
       <div className="flex items-center gap-4 justify-between">
-        <CustomTitle title={"خصم لفترة محدودة"} />
-        {showCountdown ? "countdown" : ""}
+        <div className="flex items-center gap-3">
+          <CustomTitle title={"خصم لفترة محدودة"} />
+          {showCountdown ? "countdown" : ""}
+        </div>
         {/* swiper arrows control */}
         <div className="flex items-center gap-2">
           <button
