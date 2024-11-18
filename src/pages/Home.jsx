@@ -133,7 +133,7 @@ const Features = () => {
   );
 
   return (
-    <section className="w-[90%] mx-auto">
+    <section className="sm:w-[90%] mx-auto">
       <div className="flex flex-wrap items-center justify-around gap-8 p-8 bg-white shadow-[0px_4px_29px_0px_#2123280F]">
         {featuresData.map((feature, index) => (
           <React.Fragment key={index}>
