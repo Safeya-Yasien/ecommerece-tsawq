@@ -1,6 +1,7 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { CiSearch, CiShoppingCart } from "react-icons/ci";
 import { MobileMenu } from "@components/ecommerece";
+import { Logo } from ".";
 
 const Header = () => {
   return (
@@ -10,14 +11,7 @@ const Header = () => {
         <MobileMenu />
         {/* logo */}
         <div className="h-full flex items-center ">
-          <Link to="/" className="flex items-center gap-2">
-            <img
-              src="/logo.svg"
-              alt="شعار موقع تسوق"
-              className="w-[41px] h-[41px] "
-            />
-            <span className="font-bold text-[30px] text-custom-dark">تسوق</span>
-          </Link>
+          <Logo isLogoWhite={false}  />
         </div>
       </div>
       {/* links */}
