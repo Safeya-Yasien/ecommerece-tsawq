@@ -2,12 +2,12 @@ import { FaStar } from "react-icons/fa";
 import { CiShoppingCart } from "react-icons/ci";
 import PropTypes from "prop-types";
 
-const ProductCard = ({ product, label = true }) => {
+const ProductCard = ({ product, showLabel }) => {
   return (
     <div className="bg-white shadow-[0px_4px_26.8px_0px_#0000000D] rounded-lg  flex flex-col">
       {/* img */}
       <div className="p-8 mx-auto relative">
-        {label ? (
+        {showLabel ? (
           <div className="flex items-center justify-center text-white font-medium text-sm bg-[#FF2828] w-20 h-6 rounded-2xl">
             خصم 50%
           </div>
@@ -24,15 +24,16 @@ const ProductCard = ({ product, label = true }) => {
         <button
           className="w-9 h-[34px] bg-custom-blue rounded-md text-white flex items-center justify-center
         absolute left-[15px]"
+        aria-label="shopping cart"
         >
           <CiShoppingCart size={24} />
         </button>
       </div>
       {/* info */}
       <div className="flex flex-col gap-4 p-4">
-        <h4 className="font-normal text-lg text-custom-gray ">
+        <h2 className="font-normal text-lg text-custom-gray ">
           {product.name}{" "}
-        </h4>
+        </h2>
         <div className="flex items-center justify-between gap-4">
           <p>
             <span className="text-[#E02954] font-bold text-[20px]">
@@ -63,7 +64,7 @@ ProductCard.propTypes = {
     originalPrice: PropTypes.number.isRequired,
     rating: PropTypes.number.isRequired,
   }),
-  label: PropTypes.bool,
+  showLabel: PropTypes.bool,
 };
 
 export default ProductCard;
