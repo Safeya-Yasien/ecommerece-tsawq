@@ -13,4 +13,10 @@ Currently, two official plugins are available:
 - slider before and after<br>
 - slider need to be at center of bg <br>
 - slider dots active one <br>
+- remove slick and use swiper<br>
+- count down timer beside limited time products<br>
+- enhance swiper in limited time products<br>
+- <br>
+- <br>
+- <br>
 - <br>

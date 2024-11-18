@@ -24,7 +24,7 @@ const Header = () => {
                 `text-lg ${
                   isActive
                     ? "text-[#2B2B2B]  font-medium"
-                    : "text-[#454545]  font-normal"
+                    : "text-custom-gray  font-normal"
                 }`
               }
             >
@@ -38,7 +38,7 @@ const Header = () => {
                 `text-lg ${
                   isActive
                     ? "text-[#2B2B2B]  font-medium"
-                    : "text-[#454545]  font-normal"
+                    : "text-custom-gray  font-normal"
                 }`
               }
             >
@@ -52,7 +52,7 @@ const Header = () => {
                 `text-lg ${
                   isActive
                     ? "text-[#2B2B2B]  font-medium"
-                    : "text-[#454545]  font-normal"
+                    : "text-custom-gray  font-normal"
                 }`
               }
             >
@@ -66,7 +66,7 @@ const Header = () => {
                 `text-lg ${
                   isActive
                     ? "text-[#2B2B2B]  font-medium"
-                    : "text-[#454545]  font-normal"
+                    : "text-custom-gray  font-normal"
                 }`
               }
             >

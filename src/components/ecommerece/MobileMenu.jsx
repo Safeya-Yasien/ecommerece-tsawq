@@ -33,18 +33,18 @@ const MobileMenu = () => {
             <li>
               <Link
                 to="products-list"
-                className="text-[#454545] text-lg font-normal"
+                className="text-custom-gray text-lg font-normal"
               >
                 منتجاتنا{" "}
               </Link>
             </li>
             <li>
-              <Link to="/" className="text-[#454545] text-lg font-normal">
+              <Link to="/" className="text-custom-gray text-lg font-normal">
                 معلومات عنا{" "}
               </Link>
             </li>
             <li>
-              <Link to="/" className="text-[#454545] text-lg font-normal">
+              <Link to="/" className="text-custom-gray text-lg font-normal">
                 تواصل معنا{" "}
               </Link>
             </li>
