@@ -5,7 +5,7 @@ const MainLayout = () => {
   return (
     <div className="h-screen ">
       <Header />
-      <main className="px-12 py-4 pb-12">
+      <main className="">
         <Outlet />
       </main>
       <Footer />

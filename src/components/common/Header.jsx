@@ -11,7 +11,7 @@ const Header = () => {
         <MobileMenu />
         {/* logo */}
         <div className="h-full flex items-center ">
-          <Logo isLogoWhite={false}  />
+          <Logo isLogoWhite={false} />
         </div>
       </div>
       {/* links */}
@@ -23,7 +23,7 @@ const Header = () => {
               className={({ isActive }) =>
                 `text-lg ${
                   isActive
-                    ? "text-[#2B2B2B]  font-medium"
+                    ? "text-custom-blue  font-medium"
                     : "text-custom-gray  font-normal"
                 }`
               }
@@ -37,7 +37,7 @@ const Header = () => {
               className={({ isActive }) =>
                 `text-lg ${
                   isActive
-                    ? "text-[#2B2B2B]  font-medium"
+                    ? "text-custom-blue  font-medium"
                     : "text-custom-gray  font-normal"
                 }`
               }

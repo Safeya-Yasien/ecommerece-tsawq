@@ -1,8 +1,209 @@
+import { useMemo } from "react";
+import { CiFilter } from "react-icons/ci";
+import { Link } from "react-router-dom";
+import { TbArrowsDownUp } from "react-icons/tb";
+import { phonesList } from "@data/AllProducts";
+import { ProductCard } from "@components/ecommerece";
+import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
+import {
+  MdOutlineKeyboardDoubleArrowRight,
+  MdOutlineKeyboardDoubleArrowLeft,
+} from "react-icons/md";
 
 const ProductsList = () => {
-  return (
-    <div>ProductsList</div>
-  )
-}
+  const categories = useMemo(
+    () => [
+      {
+        id: 1,
+        name: "هواتف",
+      },
+      {
+        id: 2,
+        name: "لابتوب",
+      },
+      {
+        id: 3,
+        name: "ساعات ذكية",
+      },
+      {
+        id: 4,
+        name: "سماعات وايرلس",
+      },
+      {
+        id: 5,
+        name: "ايباد",
+      },
+      {
+        id: 6,
+        name: "تابليت",
+      },
+      {
+        id: 7,
+        name: "شاشات ذكية",
+      },
+      {
+        id: 8,
+        name: "ايربودز",
+      },
+    ],
+    []
+  );
 
-export default ProductsList
+  const memoizedProducts = useMemo(() => phonesList, []);
+
+  return (
+    <div className="">
+      {/* breadcrumb  */}
+      <div className="bg-[#F5F5F5]  h-[54px] w-full px-12 ">
+        <div className="flex items-center justify-between h-full">
+          <div className="flex gap-4">
+            <Link to="/" className="text-[#767676] font-normal text-[16px]">
+              الصفحة الرئيسية
+            </Link>
+            <span className="text-[#767676]">/</span>
+            <span className="text-custom-blue font-bold text-[16px]">
+              المنتجات
+            </span>
+          </div>
+        </div>
+      </div>
+      {/* content */}
+      <div className="px-12 py-8 flex justify-between gap-8">
+        {/* right: filter */}
+        <div className="hidden lg:flex flex-col gap-6 w-[30%] shadow-[0px_4px_23.3px_0px_#0000000D] border border-[#EDEDED] p-8 rounded-2xl  ">
+          <h2 className="text-custom-dark font-bold text-[20px] ">الاقسام</h2>
+          <div className="flex flex-col gap-4">
+            {categories.map((category) => (
+              <div
+                className="flex items-center gap-2 relative"
+                key={category.id}
+              >
+                <input
+                  type="checkbox"
+                  id={category.name}
+                  className="w-[21px] h-[21px] border border-[#6D6D6D] rounded-lg!  cursor-pointer"
+                />
+                <label
+                  htmlFor={category.name}
+                  className="font-normal text-[16px] text-[#5C5C5C] relative  cursor-pointer"
+                >
+                  {category.name}
+                </label>
+                {/* <label
+                  htmlFor={category.name}
+                  className="font-normal text-[16px] text-[#5C5C5C] ps-8 relative
+                  before:content-[''] before:absolute before:right-0 before:top-0 before:w-[21px] before:h-[21px] before:border before:border-[#6D6D6D] before:rounded-md 
+                  after:content['\f00c'] after:absolute after:right-0 after:top-1/2 after:w-[12px] after:h-[12px]  after:font-black after:bg-custom-blue after:text-white"
+                >
+                  {category.name}
+                </label> */}
+              </div>
+            ))}
+          </div>
+          {/* price */}
+        </div>
+        {/* left: products */}
+        <div className="w-full lg:w-[70%] flex flex-col gap-8">
+          {/* title */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-1">
+              <h2 className="text-custom-dark text-2xl font-medium">
+                قائمة المنتجات
+              </h2>
+              <span className="text-[#767676] font-medium text-lg"> (230)</span>
+            </div>
+            <div className="hidden lg:flex items-center gap-2">
+              <span className="font-normal text-[16px] text-[#5C5C5C]">
+                ترتيب حسب
+              </span>
+              <select
+                aria-label="Sort by rating"
+                className="text-[#5C5C5C] font-normal text-[16px] border border-[#EDEDED] outline-none rounded-lg w-[150px] h-10 px-2"
+              >
+                <option className="">الاعلي تقييماً</option>
+              </select>
+            </div>
+            <div className="lg:hidden flex items-center gap-2">
+              <button className="border-[1.08px] border-[#F4F4F4] w-[35px] h-[35px] rounded-lg bg-white shadow-[0px_4.33px_13px_0px_#0000000D] flex items-center justify-center">
+                <CiFilter size={20} color="#54585E" />
+              </button>
+              <button className="border-[1.08px] border-[#F4F4F4] w-[35px] h-[35px] rounded-lg bg-white shadow-[0px_4.33px_13px_0px_#0000000D] flex items-center justify-center">
+                <TbArrowsDownUp size={20} color="#54585E" />
+              </button>
+            </div>
+          </div>
+
+          {/* products */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8">
+            {memoizedProducts.map((product) => (
+              <div
+                key={product.id}
+                className="col-span-1 sm:col-span-1 lg:col-span-6 xl:col-span-4"
+              >
+                <ProductCard
+                  product={product}
+                  buttonPosition={"-left-[25px]"}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* pagination */}
+          <div className="flex items-center justify-center gap-2 ">
+            <button
+              aria-label="Next page"
+              className=" bg-white rounded-lg text-[#CACACA] hover:text-custom-blue border border-[#EDEDED] shadow-[0px_4px_13.8px_0px_#00000014] flex items-center justify-center w-[29px] h-[29px]"
+            >
+              <MdKeyboardArrowRight />
+            </button>
+            <button
+              aria-label="Next page (double)"
+              className=" bg-white rounded-lg text-[#CACACA] hover:text-custom-blue border border-[#EDEDED] shadow-[0px_4px_13.8px_0px_#00000014] flex items-center justify-center w-[29px] h-[29px]"
+            >
+              <MdOutlineKeyboardDoubleArrowRight />
+            </button>
+            <button
+              aria-label="Page 1"
+              className=" bg-custom-blue rounded-lg text-white text-[16px] font-medium  hover:text-white  shadow-[0px_4px_13.8px_0px_#00000014] flex items-center justify-center w-[29px] h-[29px]"
+            >
+              1
+            </button>
+            <button
+              aria-label="Page 2"
+              className="transition-all duration-300 rounded-lg text-[#6D6D6D] text-[16px] font-medium hover:bg-custom-blue hover:text-white  hover:shadow-[0px_4px_13.8px_0px_#00000014]  flex items-center justify-center w-[29px] h-[29px]"
+            >
+              2
+            </button>
+            <button
+              aria-label="Page 3"
+              className="transition-all duration-300 rounded-lg text-[#6D6D6D] text-[16px] font-medium hover:bg-custom-blue hover:text-white  hover:shadow-[0px_4px_13.8px_0px_#00000014]  flex items-center justify-center w-[29px] h-[29px]"
+            >
+              3
+            </button>
+            ...
+            <button
+              aria-label="Page 14"
+              className="transition-all duration-300 rounded-lg text-[#6D6D6D] text-[16px] font-medium hover:bg-custom-blue hover:text-white  hover:shadow-[0px_4px_13.8px_0px_#00000014]  flex items-center justify-center w-[29px] h-[29px]"
+            >
+              14
+            </button>
+            <button
+              aria-label="Previous page"
+              className=" bg-white rounded-lg text-[#CACACA] hover:text-custom-blue border border-[#EDEDED] shadow-[0px_4px_13.8px_0px_#00000014] flex items-center justify-center w-[29px] h-[29px]"
+            >
+              <MdKeyboardArrowLeft />
+            </button>
+            <button
+              aria-label="Previous page (double)"
+              className=" bg-white rounded-lg text-[#CACACA] hover:text-custom-blue border border-[#EDEDED] shadow-[0px_4px_13.8px_0px_#00000014] flex items-center justify-center w-[29px] h-[29px]"
+            >
+              <MdOutlineKeyboardDoubleArrowLeft />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ProductsList;

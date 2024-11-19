@@ -2,9 +2,9 @@ import { FaStar } from "react-icons/fa";
 import { CiShoppingCart } from "react-icons/ci";
 import PropTypes from "prop-types";
 
-const ProductCard = ({ product, showLabel }) => {
+const ProductCard = ({ product, showLabel, buttonPosition }) => {
   return (
-    <div className="bg-white shadow-[0px_4px_26.8px_0px_#0000000D] rounded-lg  flex flex-col">
+    <div className="bg-white shadow-[0px_4px_26.8px_0px_#0000000D] border border-[#F0F3F6] rounded-lg  flex flex-col">
       {/* img */}
       <div className="p-8 mx-auto relative">
         {showLabel ? (
@@ -22,9 +22,8 @@ const ProductCard = ({ product, showLabel }) => {
           className="object-cover"
         />
         <button
-          className="w-9 h-[34px] bg-custom-blue rounded-md text-white flex items-center justify-center
-        absolute left-[15px]"
-        aria-label="shopping cart"
+          className={`w-9 h-[34px] bg-custom-blue rounded-md text-white flex items-center justify-center absolute ${buttonPosition}`}
+          aria-label="shopping cart"
         >
           <CiShoppingCart size={24} />
         </button>
@@ -65,6 +64,11 @@ ProductCard.propTypes = {
     rating: PropTypes.number.isRequired,
   }),
   showLabel: PropTypes.bool,
+  buttonPosition: PropTypes.string,
+};
+
+ProductCard.defaultProps = {
+  buttonPosition: "left-[15px]",
 };
 
 export default ProductCard;
