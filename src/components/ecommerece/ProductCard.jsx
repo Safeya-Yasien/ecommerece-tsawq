@@ -1,10 +1,17 @@
+import { Link } from "react-router-dom";
+
 import { FaStar } from "react-icons/fa";
 import { CiShoppingCart } from "react-icons/ci";
+
 import PropTypes from "prop-types";
 
-const ProductCard = ({ product, showLabel, buttonPosition }) => {
+const ProductCard = ({
+  product,
+  showLabel,
+  buttonPosition = "left-[15px]",
+}) => {
   return (
-    <div className="bg-white shadow-[0px_4px_26.8px_0px_#0000000D] border border-[#F0F3F6] rounded-lg  flex flex-col">
+    <div className="bg-white shadow-[0px_4px_26.8px_0px_#0000000D] border border-[#F0F3F6] rounded-[14px]  flex flex-col">
       {/* img */}
       <div className="p-8 mx-auto relative">
         {showLabel ? (
@@ -30,10 +37,13 @@ const ProductCard = ({ product, showLabel, buttonPosition }) => {
       </div>
       {/* info */}
       <div className="flex flex-col gap-4 p-4">
-        <h2 className="font-normal text-lg text-custom-gray ">
+        <Link
+          to="/products-list/product"
+          className="font-normal text-lg text-custom-gray line-clamp-2 h-14"
+        >
           {product.name}{" "}
-        </h2>
-        <div className="flex items-center justify-between gap-4">
+        </Link>
+        <div className="flex items-center justify-between gap-4 whitespace-nowrap">
           <p>
             <span className="text-[#E02954] font-bold text-[20px]">
               {product.price}ج{" "}
@@ -65,10 +75,6 @@ ProductCard.propTypes = {
   }),
   showLabel: PropTypes.bool,
   buttonPosition: PropTypes.string,
-};
-
-ProductCard.defaultProps = {
-  buttonPosition: "left-[15px]",
 };
 
 export default ProductCard;
