@@ -100,7 +100,27 @@ const ProductsList = () => {
               </div>
             ))}
           </div>
+          <div className="border border-[#EEEEEE] w-full" />
           {/* price */}
+          <div className="flex flex-col gap-6">
+            <h2 className="text-custom-dark font-bold text-[20px] ">السعر</h2>
+            <div className="flex items-center justify-between gap-8">
+              <div className="flex flex-col p-2 flex-1 rounded-lg border border-[#EAEAEA]">
+                <span className="font-normal text-[12px] text-[#454545] ">
+                  من
+                </span>
+                <p className="font-medium text-[16px] text-[#454545] ">600ج</p>
+              </div>
+              <div className="flex flex-col px-2 flex-1 rounded-lg border border-[#EAEAEA]">
+                <span className="font-normal text-[12px] text-[#454545] ">
+                  حتي
+                </span>
+                <p className="font-medium text-[16px] text-[#454545] ">6500ج</p>
+              </div>
+            </div>
+
+            {/* seekBar */}
+          </div>
         </div>
         {/* left: products */}
         <div className="w-full lg:w-[70%] flex flex-col gap-8">
