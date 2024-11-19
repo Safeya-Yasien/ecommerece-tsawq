@@ -70,7 +70,7 @@ const ProductsList = () => {
       {/* content */}
       <div className="px-12 py-8 flex justify-between gap-8">
         {/* right: filter */}
-        <div className="hidden lg:flex flex-col gap-6 w-[30%] shadow-[0px_4px_23.3px_0px_#0000000D] border border-[#EDEDED] p-8 rounded-2xl  ">
+        <div className="hidden lg:flex flex-col gap-6 w-[20%] shadow-[0px_4px_23.3px_0px_#0000000D] border border-[#EDEDED] p-8 rounded-2xl  ">
           <h2 className="text-custom-dark font-bold text-[20px] ">الاقسام</h2>
           <div className="flex flex-col gap-4">
             {categories.map((category) => (
@@ -123,7 +123,7 @@ const ProductsList = () => {
           </div>
         </div>
         {/* left: products */}
-        <div className="w-full lg:w-[70%] flex flex-col gap-8">
+        <div className="w-full lg:w-[80%] flex flex-col gap-8">
           {/* title */}
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1">
