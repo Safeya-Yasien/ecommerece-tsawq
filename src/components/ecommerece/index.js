@@ -1,6 +1,19 @@
 import MobileMenu from "./MobileMenu";
 import CustomTitle from "./CustomTitle";
 import ProductCard from "./ProductCard";
-import ProductsListSwiper from "@pages/ProductsList";
+import ProductsCarousel from "./ProductsCarousel";
+import HeroSlider from "./HeroSlider";
+import Features from "./Features";
+import CategoriesCarousel from "./CategoriesCarousel";
+import SpecialOffersCarousel from "./SpecialOffersCarousel";
 
-export { MobileMenu, CustomTitle, ProductCard, ProductsListSwiper };
+export {
+  MobileMenu,
+  CustomTitle,
+  ProductCard,
+  ProductsCarousel,
+  HeroSlider,
+  Features,
+  CategoriesCarousel,
+  SpecialOffersCarousel,
+};
