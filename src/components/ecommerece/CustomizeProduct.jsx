@@ -1,3 +1,5 @@
+import { CiShoppingCart } from "react-icons/ci";
+
 const CustomizeProduct = () => {
   return (
     <>
@@ -65,6 +67,29 @@ const CustomizeProduct = () => {
               بنفسجي{" "}
             </li>
           </ul>
+        </div>
+
+        {/* add to cart */}
+        <div className="flex items-center gap-4 ">
+          <button
+            className="ring-1 ring-[#ECECEC] bg-[#141D2E] w-[358px] h-[49px] rounded-[61px] flex items-center justify-center
+            text-white font-bold text-lg gap-1"
+          >
+            <CiShoppingCart size={22} /> <span>اضف الي السلة </span>
+          </button>
+          <div className="flex items-center ring-1 ring-[#ECECEC] h-[49px] rounded-[61px] px-4">
+            <button className="w-[12px] text-custom-blue flex items-center justify-center">
+              +
+            </button>
+            <div className="hidden md:block border-l border-[#ECECEC] h-full mx-3"></div>
+            <input
+              type="number"
+              defaultValue={1}
+              className="text-[#666666] font-medium text-lg outline-none border-none text-center h-full w-[91px]"
+            />
+            <div className="hidden md:block border-l border-[#ECECEC] h-full mx-3"></div>
+            <button className="text-[#979797] w-[12px] ">-</button>
+          </div>
         </div>
       </div>
     </>
