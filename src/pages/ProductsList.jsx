@@ -1,15 +1,20 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { CiFilter } from "react-icons/ci";
 import { TbArrowsDownUp } from "react-icons/tb";
-import { phonesList } from "@data/AllProducts";
+import { productsList } from "@data/AllProducts";
 import { Breadcrumb, ProductCard } from "@components/ecommerece";
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
 import {
   MdOutlineKeyboardDoubleArrowRight,
   MdOutlineKeyboardDoubleArrowLeft,
 } from "react-icons/md";
+import { useParams } from "react-router-dom";
 
 const ProductsList = () => {
+  const { categoryName } = useParams();
+
+  const [checkCategories, setCheckCategories] = useState([]);
+
   const categories = useMemo(
     () => [
       {
@@ -48,7 +53,30 @@ const ProductsList = () => {
     []
   );
 
-  const memoizedProducts = useMemo(() => phonesList, []);
+  const memoizedProducts = useMemo(() => productsList, []);
+
+  const filteredProducts = useMemo(() => {
+    if (checkCategories.length === 0) return memoizedProducts;
+
+    return memoizedProducts.filter((product) =>
+      checkCategories.some((category) => product.category === category)
+    );
+  }, [memoizedProducts, checkCategories]);
+
+  useEffect(() => {
+    if (categoryName) setCheckCategories([categoryName]);
+    else setCheckCategories([]);
+  }, [categoryName]);
+
+  const handleOnChange = (selectedCategory) => {
+    if (checkCategories.includes(selectedCategory)) {
+      setCheckCategories(
+        checkCategories.filter((name) => name !== selectedCategory)
+      );
+    } else {
+      setCheckCategories([...checkCategories, selectedCategory]);
+    }
+  };
 
   return (
     <div className="">
@@ -68,6 +96,9 @@ const ProductsList = () => {
                 <input
                   type="checkbox"
                   id={category.name}
+                  checked={checkCategories.includes(category.name)}
+                  name={category.name}
+                  onChange={() => handleOnChange(category.name)}
                   className="w-[21px] h-[21px] border border-[#6D6D6D] rounded-lg!  cursor-pointer"
                 />
                 <label
@@ -76,6 +107,7 @@ const ProductsList = () => {
                 >
                   {category.name}
                 </label>
+                {/* custom checkbox */}
                 {/* <label
                   htmlFor={category.name}
                   className="font-normal text-[16px] text-[#5C5C5C] ps-8 relative
@@ -98,7 +130,7 @@ const ProductsList = () => {
                 </span>
                 <p className="font-medium text-[16px] text-[#454545] ">600ج</p>
               </div>
-              <div className="flex flex-col px-2 flex-1 rounded-lg border border-[#EAEAEA]">
+              <div className="flex flex-col p-2 flex-1 rounded-lg border border-[#EAEAEA]">
                 <span className="font-normal text-[12px] text-[#454545] ">
                   حتي
                 </span>
@@ -142,7 +174,7 @@ const ProductsList = () => {
 
           {/* products */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8">
-            {memoizedProducts.map((product) => (
+            {filteredProducts.map((product) => (
               <div
                 key={product.id}
                 className="col-span-1 sm:col-span-1 lg:col-span-6 xl:col-span-4"
