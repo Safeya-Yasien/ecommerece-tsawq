@@ -73,6 +73,7 @@ const Home = () => {
       <Features />
       <Suspense fallback={"Loading..."}>
         <ProductsCarousel
+          title="خصم لفترة محدودة"
           products={productsList}
           showArrows={true}
           showLabel={true}
@@ -81,6 +82,7 @@ const Home = () => {
       <CategoriesCarousel />
       <Suspense fallback={"Loading..."}>
         <ProductsCarousel
+          title="أفضل المبيعات"
           products={productsList}
           showArrows={true}
           showLabel={false}
@@ -89,6 +91,7 @@ const Home = () => {
       <SpecialOffersCarousel />
       <Suspense fallback={"Loading..."}>
         <ProductsCarousel
+          title="الهواتف"
           products={memoizedPhonesList}
           showArrows={false}
           showLabel={false}
