@@ -42,3 +42,6 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+.thumbs-gallery .swiper-pagination {
+  bottom: -10px !important;
+}
