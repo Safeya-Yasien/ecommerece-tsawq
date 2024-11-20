@@ -7,7 +7,6 @@ import "swiper/css/thumbs";
 
 import { FreeMode, Thumbs, Navigation, Pagination } from "swiper/modules";
 
-// Importing local images
 import phoneImage from "../../assets/images/apple-iphone.png";
 
 const ThumbsGallery = () => {
