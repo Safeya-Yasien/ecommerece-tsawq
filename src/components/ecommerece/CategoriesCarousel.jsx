@@ -34,7 +34,7 @@ const CategoriesCarousel = () => {
     () => [
       {
         id: 1,
-        name: "لابتوب",
+        name: "هواتف",
         imgSrc: "src/assets/images/category.png",
       },
       {
@@ -44,17 +44,17 @@ const CategoriesCarousel = () => {
       },
       {
         id: 3,
-        name: "لابتوب",
+        name: "تابليت",
         imgSrc: "src/assets/images/category.png",
       },
       {
         id: 4,
-        name: "لابتوب",
+        name: "سماعات",
         imgSrc: "src/assets/images/category.png",
       },
       {
         id: 5,
-        name: "لابتوب",
+        name: "ايباد",
         imgSrc: "src/assets/images/category.png",
       },
       {
@@ -96,7 +96,10 @@ const Category = memo(({ category }) => {
         loading="lazy"
         className="object-cover"
       />
-      <Link to="" className="text-custom-dark font-bold text-[20px]">
+      <Link
+        to={`/products-list/${category.name}`}
+        className="text-custom-dark font-bold text-[20px]"
+      >
         {category.name}
       </Link>
     </div>
