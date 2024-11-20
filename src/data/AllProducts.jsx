@@ -1,7 +1,9 @@
+import phoneSection from "../assets/images/phone-section.png";
+
 export const phonesList = [
   {
     id: 1,
-    imgSrc: "src/assets/images/phone-section.png",
+    imgSrc: phoneSection,
     name: "هواوي P40 برو 128 جيجا",
     price: 6500,
     originalPrice: 7000,
@@ -9,7 +11,7 @@ export const phonesList = [
   },
   {
     id: 2,
-    imgSrc: "src/assets/images/phone-section.png",
+    imgSrc: phoneSection,
     name: "هواوي P40 برو 128 جيجا",
     price: 12000,
     originalPrice: 13000,
@@ -17,7 +19,7 @@ export const phonesList = [
   },
   {
     id: 3,
-    imgSrc: "src/assets/images/phone-section.png",
+    imgSrc: phoneSection,
     name: "هواوي P40 برو 128 جيجا",
     price: 9800,
     originalPrice: 10500,
@@ -25,7 +27,7 @@ export const phonesList = [
   },
   {
     id: 4,
-    imgSrc: "src/assets/images/phone-section.png",
+    imgSrc: phoneSection,
     name: "هواوي P40 برو 128 جيجا",
     price: 7400,
     originalPrice: 7800,
@@ -33,7 +35,7 @@ export const phonesList = [
   },
   {
     id: 5,
-    imgSrc: "src/assets/images/phone-section.png",
+    imgSrc: phoneSection,
     name: "هواوي P40 برو 128 جيجا",
     price: 5500,
     originalPrice: 6000,
@@ -41,7 +43,7 @@ export const phonesList = [
   },
   {
     id: 6,
-    imgSrc: "src/assets/images/phone-section.png",
+    imgSrc: phoneSection,
     name: "هواوي P40 برو 128 جيجا",
     price: 6200,
     originalPrice: 6600,
