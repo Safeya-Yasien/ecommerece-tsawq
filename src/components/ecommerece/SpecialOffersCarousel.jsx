@@ -7,6 +7,7 @@ import { GoArrowUpLeft } from "react-icons/go";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
+import { Link } from "react-router-dom";
 
 const SpecialOffersCarousel = () => {
   const offers = useMemo(
@@ -89,9 +90,9 @@ const Offer = memo(({ product }) => {
     <div className="flex flex-col gap-2 bg-[#F6F6F6] rounded-md p-8 col-span-12 lg:col-span-3">
       {/* info */}
       <div className="flex flex-col gap-3">
-        <h3 className="font-medium text-[28px] text-custom-dark">
+        <Link to='/products-list/product' className="font-medium text-[28px] text-custom-dark">
           {product.name}{" "}
-        </h3>
+        </Link>
         <p className="font-normal text-lg">خصم يصل حتي %{product.discount}</p>
         <a
           href="#"
