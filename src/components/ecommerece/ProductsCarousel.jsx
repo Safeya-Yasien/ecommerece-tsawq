@@ -10,6 +10,7 @@ import { GoArrowLeft } from "react-icons/go";
 import { Link } from "react-router-dom";
 
 const ProductsCarousel = ({
+  title,
   products,
   showArrows,
   showLabel,
@@ -55,7 +56,7 @@ const ProductsCarousel = ({
   return (
     <section className="flex flex-col gap-8">
       <div className="flex items-center gap-4 justify-between">
-        <CustomTitle title={"خصم لفترة محدودة"} />
+        <CustomTitle title={title} />
         {/* <Countdown /> */}
         {/* swiper arrows control */}
         {showArrows ? (
@@ -109,6 +110,7 @@ const ProductsCarousel = ({
 };
 
 ProductsCarousel.propTypes = {
+  title: PropTypes.string.isRequired,
   products: PropTypes.arrayOf(PropTypes.object).isRequired,
   showArrows: PropTypes.bool,
   showLabel: PropTypes.bool,

@@ -8,17 +8,22 @@
 
 @font-face {
   font-family: "DIN Next LT W23";
-  src: url("./assets/fonts/din-next-lt-w23-regular.woff2") format("woff2"),
-    url("./assets/fonts/din-next-lt-w23-regular.woff") format("woff");
+  src: url("./assets/fonts/DIN Next LT W23 Regular-29d5cc9399fee3fea467ed7bcb64db8591092806574f0c4c583b57c48bfccaf6.ttf")
+    format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "DIN Next LT W23";
-  src: url("./assets/fonts/din-next-lt-w23-regular.woff2") format("woff2"),
-    url("./assets/fonts/DINNextLTW23-Bold.woff") format("woff");
+  src: url("./assets/fonts/din-next-lt-w23-bold.ttf") format("truetype");
   font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "DIN Next LT W23";
+  src: url("./assets/fonts/din-next-lt-w23-medium.ttf") format("truetype");
+  font-weight: medium;
   font-style: normal;
 }
 
@@ -44,4 +49,11 @@ input::-webkit-inner-spin-button {
 }
 .thumbs-gallery .swiper-pagination {
   bottom: -10px !important;
+}
+.reviews-grid-swiper {
+  height: 500px;
+}
+.reviews-grid-swiper .swiper-slide {
+  /* height: calc((100% - 30px) / 2) !important; */
+  border: 1px solid;
 }
