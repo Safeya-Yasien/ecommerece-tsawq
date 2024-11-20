@@ -1,9 +1,8 @@
 import { useMemo } from "react";
 import { CiFilter } from "react-icons/ci";
-import { Link } from "react-router-dom";
 import { TbArrowsDownUp } from "react-icons/tb";
 import { phonesList } from "@data/AllProducts";
-import { ProductCard } from "@components/ecommerece";
+import { Breadcrumb, ProductCard } from "@components/ecommerece";
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
 import {
   MdOutlineKeyboardDoubleArrowRight,
@@ -54,19 +53,7 @@ const ProductsList = () => {
   return (
     <div className="">
       {/* breadcrumb  */}
-      <div className="bg-[#F5F5F5]  h-[54px] w-full px-12 ">
-        <div className="flex items-center justify-between h-full">
-          <div className="flex gap-4">
-            <Link to="/" className="text-[#767676] font-normal text-[16px]">
-              الصفحة الرئيسية
-            </Link>
-            <span className="text-[#767676]">/</span>
-            <span className="text-custom-blue font-bold text-[16px]">
-              المنتجات
-            </span>
-          </div>
-        </div>
-      </div>
+      <Breadcrumb />
       {/* content */}
       <div className="px-12 py-8 flex justify-between gap-8">
         {/* right: filter */}
