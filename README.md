@@ -20,3 +20,7 @@ Currently, two official plugins are available:
 - <br>
 - <br>
 - <br>
+- <br>
+- swiper in single product page customize pagination and arrows <br>
+- <br>
+- <br>
