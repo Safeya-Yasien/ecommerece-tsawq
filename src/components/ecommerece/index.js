@@ -6,6 +6,9 @@ import HeroSlider from "./HeroSlider";
 import Features from "./Features";
 import CategoriesCarousel from "./CategoriesCarousel";
 import SpecialOffersCarousel from "./SpecialOffersCarousel";
+import Breadcrumb from "./Breadcrumb";
+import ThumbsGallery from "./ThumbsGallery";
+import CustomizeProduct from "./CustomizeProduct";
 
 export {
   MobileMenu,
@@ -15,5 +18,6 @@ export {
   HeroSlider,
   Features,
   CategoriesCarousel,
-  SpecialOffersCarousel,
+  SpecialOffersCarousel,Breadcrumb,ThumbsGallery,CustomizeProduct
+  ,
 };
