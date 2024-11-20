@@ -1,9 +1,13 @@
 import { Footer, Header } from "@components/common";
-import { Outlet } from "react-router-dom";
+import { useEffect } from "react";
+import { Outlet, useLocation } from "react-router-dom";
+
+
 
 const MainLayout = () => {
   return (
     <div className="h-screen ">
+      <ScrollToTop />
       <Header />
       <main className="">
         <Outlet />
@@ -14,3 +18,14 @@ const MainLayout = () => {
 };
 
 export default MainLayout;
+
+
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+}
+
