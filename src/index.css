@@ -55,5 +55,4 @@ input::-webkit-inner-spin-button {
 }
 .reviews-grid-swiper .swiper-slide {
   /* height: calc((100% - 30px) / 2) !important; */
-  border: 1px solid;
 }
