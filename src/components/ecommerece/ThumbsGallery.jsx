@@ -26,16 +26,16 @@ const ThumbsGallery = () => {
         >
           {/* Using local image for SwiperSlide */}
           <SwiperSlide className="">
-            <img src={phoneImage} alt="Phone Image 1" />
+            <img src={phoneImage} alt="Phone Image 1" className=" mx-auto" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src={phoneImage} alt="Phone Image 2" />
+            <img src={phoneImage} alt="Phone Image 2" className=" mx-auto"  />
           </SwiperSlide>
           <SwiperSlide>
-            <img src={phoneImage} alt="Phone Image 3" />
+            <img src={phoneImage} alt="Phone Image 3" className=" mx-auto" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src={phoneImage} alt="Phone Image 4" />
+            <img src={phoneImage} alt="Phone Image 4" className=" mx-auto" />
           </SwiperSlide>
         </Swiper>
       </div>
