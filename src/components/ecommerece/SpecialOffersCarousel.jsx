@@ -9,37 +9,39 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import { Link } from "react-router-dom";
 
+import specialOffer from '../../assets/images/special-offer.png'
+
 const SpecialOffersCarousel = () => {
   const offers = useMemo(
     () => [
       {
         id: 1,
         name: "سماعات وايرلس",
-        imgSrc: "src/assets/images/special-offer.png",
+        imgSrc: specialOffer,
         discount: 50,
       },
       {
         id: 2,
         name: "سماعات وايرلس",
-        imgSrc: "src/assets/images/special-offer.png",
+        imgSrc: specialOffer,
         discount: 50,
       },
       {
         id: 3,
         name: "سماعات وايرلس",
-        imgSrc: "src/assets/images/special-offer.png",
+        imgSrc: specialOffer,
         discount: 20,
       },
       {
         id: 4,
         name: "سماعات وايرلس",
-        imgSrc: "src/assets/images/special-offer.png",
+        imgSrc: specialOffer,
         discount: 70,
       },
       {
         id: 5,
         name: "سماعات وايرلس",
-        imgSrc: "src/assets/images/special-offer.png",
+        imgSrc: specialOffer,
         discount: 70,
       },
     ],
@@ -107,7 +109,7 @@ const Offer = memo(({ product }) => {
       {/* img */}
       <div className="">
         <img
-          src="src/assets/images/special-offer.png"
+          src={specialOffer}
           alt="special offers"
           loading="lazy"
           className="object-cover"

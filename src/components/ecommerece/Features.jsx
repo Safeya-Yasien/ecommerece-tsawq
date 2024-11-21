@@ -1,26 +1,31 @@
 import React, { useMemo } from "react";
 import PropTypes from "prop-types";
 
+import delivery from "../../assets/images/delivery.svg";
+import coupon from "../../assets/images/coupon.svg";
+import money from "../../assets/images/money.svg";
+import headphone from '../../assets/images/headphone.svg'
+
 const Features = () => {
   const featuresData = useMemo(
     () => [
       {
-        icon: "src/assets/images/delivery.svg",
+        icon: delivery,
         title: "توصيل مجاني",
         description: "طلبات حتي 1500ج",
       },
       {
-        icon: "src/assets/images/coupon.svg",
+        icon: coupon,
         title: "عروض وخصومات",
         description: "عروض وخصومات دائمة",
       },
       {
-        icon: "src/assets/images/money.svg",
+        icon: money,
         title: "الدفع عند الاستلام",
         description: "ميزة الدفع عند الاستلام",
       },
       {
-        icon: "src/assets/images/headphone.svg",
+        icon: headphone,
         title: "خدمة العملاء",
         description: "متوفرة 24/7",
       },

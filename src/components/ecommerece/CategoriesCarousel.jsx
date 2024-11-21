@@ -6,6 +6,8 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import { Link } from "react-router-dom";
 
+import category from '../../assets/images/category.png'
+
 const CategoriesCarousel = () => {
   const swiperSettings = {
     slidesPerView: 6,
@@ -35,37 +37,37 @@ const CategoriesCarousel = () => {
       {
         id: 1,
         name: "هواتف",
-        imgSrc: "src/assets/images/category.png",
+        imgSrc: category,
       },
       {
         id: 2,
         name: "لابتوب",
-        imgSrc: "src/assets/images/category.png",
+        imgSrc: category,
       },
       {
         id: 3,
         name: "تابليت",
-        imgSrc: "src/assets/images/category.png",
+        imgSrc: category,
       },
       {
         id: 4,
         name: "سماعات",
-        imgSrc: "src/assets/images/category.png",
+        imgSrc: category,
       },
       {
         id: 5,
         name: "ايباد",
-        imgSrc: "src/assets/images/category.png",
+        imgSrc: category,
       },
       {
         id: 6,
         name: "لابتوب",
-        imgSrc: "src/assets/images/category.png",
+        imgSrc: category,
       },
       {
         id: 7,
         name: "لابتوب",
-        imgSrc: "src/assets/images/category.png",
+        imgSrc: category,
       },
     ],
     []
