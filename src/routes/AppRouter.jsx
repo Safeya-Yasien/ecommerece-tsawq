@@ -1,3 +1,6 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import CheckoutLayout from "@layouts/CheckoutLayout";
 import MainLayout from "@layouts/MainLayout/MainLayout";
 import Cart from "@pages/Cart";
 import Checkout from "@pages/Checkout";
@@ -5,7 +8,6 @@ import Home from "@pages/Home";
 import Product from "@pages/Product";
 import ProductsList from "@pages/ProductsList";
 import ThankYou from "@pages/ThankYou";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter(
   [
@@ -33,6 +35,12 @@ const router = createBrowserRouter(
           path: "cart",
           element: <Cart />,
         },
+      ],
+    },
+    {
+      path: "checkout",
+      element: <CheckoutLayout />,
+      children: [
         {
           path: "checkout",
           element: <Checkout />,
