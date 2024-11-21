@@ -10,7 +10,7 @@ const Breadcrumb = () => {
           </Link>
           <span className="text-[#767676]">/</span>
           <span className="text-custom-blue font-bold text-[16px]">
-            المنتجات
+            منتجاتنا{" "}
           </span>
         </div>
       </div>
