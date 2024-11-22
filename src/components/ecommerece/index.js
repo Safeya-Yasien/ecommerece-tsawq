@@ -2,7 +2,7 @@ import MobileMenu from "./MobileMenu";
 import CustomTitle from "./CustomTitle";
 import ProductCard from "./ProductCard";
 import ProductsCarousel from "./ProductsCarousel";
-import HeroSlider from "./HeroSlider";
+import Hero from "./Hero";
 import Features from "./Features";
 import CategoriesCarousel from "./CategoriesCarousel";
 import SpecialOffersCarousel from "./SpecialOffersCarousel";
@@ -17,12 +17,13 @@ export {
   CustomTitle,
   ProductCard,
   ProductsCarousel,
-  HeroSlider,
+  Hero,
   Features,
   CategoriesCarousel,
   SpecialOffersCarousel,
   Breadcrumb,
   ThumbsGallery,
   CustomizeProduct,
-  ClientReviews,OfferOptions
+  ClientReviews,
+  OfferOptions,
 };
