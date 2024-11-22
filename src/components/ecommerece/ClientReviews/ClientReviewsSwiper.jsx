@@ -1,228 +1,82 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Grid, Pagination } from "swiper/modules";
-
-import "swiper/css";
-import "swiper/css/grid";
-import "swiper/css/pagination";
+import Marquee from "@/components/ui/marquee";
+import { cn } from "@/lib/utils";
 
 import client from "../../../assets/images/client.svg";
 
-const ClientReviewsSwiper = () => {
+const reviews = [
+  {
+    name: "Mohamed Ahmed",
+    username: "112/3/24",
+    body: "“تجربة رائعة ومميزة. لقد أعجبني هذا المنتج حقًا، ويستحق التجربة. إذا كنت ترغب بشرائه لا تتردد، أنصح به بشدة.”",
+    img: client,
+  },
+  {
+    name: "فاطمة علي",
+    username: "215/5/24",
+    body: "“المنتج ممتاز جدًا! الجودة رائعة وخدمة التوصيل كانت سريعة. أنصح الجميع بتجربته.”",
+    img: client,
+  },
+  {
+    name: "أحمد السعيد",
+    username: "318/7/24",
+    body: "“أعجبني المنتج كثيرًا. كان كما هو موصوف تمامًا، سأقوم بشراء المزيد.”",
+    img: client,
+  },
+  {
+    name: "سارة محمد",
+    username: "421/9/24",
+    body: "“خدمة العملاء كانت ممتازة، والمنتج فاق توقعاتي. أنصح به بشدة.”",
+    img: client,
+  },
+  {
+    name: "خالد حسن",
+    username: "527/11/24",
+    body: "“منتج رائع! سعر مناسب وجودة عالية. سأقوم بشراءه مجددًا.”",
+    img: client,
+  },
+];
+
+const firstRow = reviews.slice(0, reviews.length / 2);
+const secondRow = reviews.slice(reviews.length / 2);
+
+const ReviewCard = ({ img, name, username, body }) => {
   return (
-    <>
-      <Swiper
-        slidesPerView={3}
-        grid={{
-          rows: 2,
-        }}
-        spaceBetween={30}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Grid, Pagination]}
-        dir="rtl"
-        className="w-full h-full mx-auto reviews-grid-swiper"
-      >
-        <SwiperSlide className="text-center text-lg bg-[#F3F5F9] rounded-3xl p-4 !flex !flex-col gap-6 ">
-          <div className="flex items-center gap-2">
-            <div className="w-[53px] h-[53px] ">
-              <img
-                src={client}
-                className="w-full h-full"
-                alt=""
-                loading="lazy"
-              />
-            </div>
-            <div className="flex flex-col items-start">
-              <h3 className="text-custom-blue font-medium text-sm">
-                Mohamed Ahmed
-              </h3>
-              <p className="text-[#282A2B] font-normal text-[12px]">112/3/24</p>
-            </div>
-          </div>
-          <p className="font-normal text-lg leading-6 text-[#262D35] text-right">
-            &quot;تجربه رائعة ومميزه. لقد أعجبني هذا المنتج حقًا، ويستحق
-            التجربة. اذا كنت ترغب بشرائه لا تتردد انا انصح به وبشدة&quot;
-          </p>
-        </SwiperSlide>
-        <SwiperSlide className="text-center text-lg bg-[#F3F5F9] rounded-3xl p-4 !flex !flex-col gap-6 ">
-          <div className="flex items-center gap-2">
-            <div className="w-[53px] h-[53px] ">
-              <img
-                src={client}
-                className="w-full h-full"
-                alt=""
-                loading="lazy"
-              />
-            </div>
-            <div className="flex flex-col items-start">
-              <h3 className="text-custom-blue font-medium text-sm">
-                Mohamed Ahmed
-              </h3>
-              <p className="text-[#282A2B] font-normal text-[12px]">112/3/24</p>
-            </div>
-          </div>
-          <p className="font-normal text-lg leading-6 text-[#262D35] text-right">
-            &quot;تجربه رائعة ومميزه. لقد أعجبني هذا المنتج حقًا، ويستحق
-            التجربة. اذا كنت ترغب بشرائه لا تتردد انا انصح به وبشدة&quot;
-          </p>
-        </SwiperSlide>
-        <SwiperSlide className="text-center text-lg bg-[#F3F5F9] rounded-3xl p-4 !flex !flex-col gap-6 ">
-          <div className="flex items-center gap-2">
-            <div className="w-[53px] h-[53px] ">
-              <img
-                src={client}
-                className="w-full h-full"
-                alt=""
-                loading="lazy"
-              />
-            </div>
-            <div className="flex flex-col items-start">
-              <h3 className="text-custom-blue font-medium text-sm">
-                Mohamed Ahmed
-              </h3>
-              <p className="text-[#282A2B] font-normal text-[12px]">112/3/24</p>
-            </div>
-          </div>
-          <p className="font-normal text-lg leading-6 text-[#262D35] text-right">
-            &quot;تجربه رائعة ومميزه. لقد أعجبني هذا المنتج حقًا، ويستحق
-            التجربة. اذا كنت ترغب بشرائه لا تتردد انا انصح به وبشدة&quot;
-          </p>
-        </SwiperSlide>
-        <SwiperSlide className="text-center text-lg bg-[#F3F5F9] rounded-3xl p-4 !flex !flex-col gap-6 ">
-          <div className="flex items-center gap-2">
-            <div className="w-[53px] h-[53px] ">
-              <img
-                src={client}
-                className="w-full h-full"
-                alt=""
-                loading="lazy"
-              />
-            </div>
-            <div className="flex flex-col items-start">
-              <h3 className="text-custom-blue font-medium text-sm">
-                Mohamed Ahmed
-              </h3>
-              <p className="text-[#282A2B] font-normal text-[12px]">112/3/24</p>
-            </div>
-          </div>
-          <p className="font-normal text-lg leading-6 text-[#262D35] text-right">
-            &quot;تجربه رائعة ومميزه. لقد أعجبني هذا المنتج حقًا، ويستحق
-            التجربة. اذا كنت ترغب بشرائه لا تتردد انا انصح به وبشدة&quot;
-          </p>
-        </SwiperSlide>
-        <SwiperSlide className="text-center text-lg bg-[#F3F5F9] rounded-3xl p-4 !flex !flex-col gap-6 ">
-          <div className="flex items-center gap-2">
-            <div className="w-[53px] h-[53px] ">
-              <img
-                src={client}
-                className="w-full h-full"
-                alt=""
-                loading="lazy"
-              />
-            </div>
-            <div className="flex flex-col items-start">
-              <h3 className="text-custom-blue font-medium text-sm">
-                Mohamed Ahmed
-              </h3>
-              <p className="text-[#282A2B] font-normal text-[12px]">112/3/24</p>
-            </div>
-          </div>
-          <p className="font-normal text-lg leading-6 text-[#262D35] text-right">
-            &quot;تجربه رائعة ومميزه. لقد أعجبني هذا المنتج حقًا، ويستحق
-            التجربة. اذا كنت ترغب بشرائه لا تتردد انا انصح به وبشدة&quot;
-          </p>
-        </SwiperSlide>
-        <SwiperSlide className="text-center text-lg bg-[#F3F5F9] rounded-3xl p-4 !flex !flex-col gap-6 ">
-          <div className="flex items-center gap-2">
-            <div className="w-[53px] h-[53px] ">
-              <img
-                src={client}
-                className="w-full h-full"
-                alt=""
-                loading="lazy"
-              />
-            </div>
-            <div className="flex flex-col items-start">
-              <h3 className="text-custom-blue font-medium text-sm">
-                Mohamed Ahmed
-              </h3>
-              <p className="text-[#282A2B] font-normal text-[12px]">112/3/24</p>
-            </div>
-          </div>
-          <p className="font-normal text-lg leading-6 text-[#262D35] text-right">
-            &quot;تجربه رائعة ومميزه. لقد أعجبني هذا المنتج حقًا، ويستحق
-            التجربة. اذا كنت ترغب بشرائه لا تتردد انا انصح به وبشدة&quot;
-          </p>
-        </SwiperSlide>
-        <SwiperSlide className="text-center text-lg bg-[#F3F5F9] rounded-3xl p-4 !flex !flex-col gap-6 ">
-          <div className="flex items-center gap-2">
-            <div className="w-[53px] h-[53px] ">
-              <img
-                src={client}
-                className="w-full h-full"
-                alt=""
-                loading="lazy"
-              />
-            </div>
-            <div className="flex flex-col items-start">
-              <h3 className="text-custom-blue font-medium text-sm">
-                Mohamed Ahmed
-              </h3>
-              <p className="text-[#282A2B] font-normal text-[12px]">112/3/24</p>
-            </div>
-          </div>
-          <p className="font-normal text-lg leading-6 text-[#262D35] text-right">
-            &quot;تجربه رائعة ومميزه. لقد أعجبني هذا المنتج حقًا، ويستحق
-            التجربة. اذا كنت ترغب بشرائه لا تتردد انا انصح به وبشدة&quot;
-          </p>
-        </SwiperSlide>
-        <SwiperSlide className="text-center text-lg bg-[#F3F5F9] rounded-3xl p-4 !flex !flex-col gap-6 ">
-          <div className="flex items-center gap-2">
-            <div className="w-[53px] h-[53px] ">
-              <img
-                src={client}
-                className="w-full h-full"
-                alt=""
-                loading="lazy"
-              />
-            </div>
-            <div className="flex flex-col items-start">
-              <h3 className="text-custom-blue font-medium text-sm">
-                Mohamed Ahmed
-              </h3>
-              <p className="text-[#282A2B] font-normal text-[12px]">112/3/24</p>
-            </div>
-          </div>
-          <p className="font-normal text-lg leading-6 text-[#262D35] text-right">
-            &quot;تجربه رائعة ومميزه. لقد أعجبني هذا المنتج حقًا، ويستحق
-            التجربة. اذا كنت ترغب بشرائه لا تتردد انا انصح به وبشدة&quot;
-          </p>
-        </SwiperSlide>
-        <SwiperSlide className="text-center text-lg bg-[#F3F5F9] rounded-3xl p-4 !flex !flex-col gap-6 ">
-          <div className="flex items-center gap-2">
-            <div className="w-[53px] h-[53px] ">
-              <img
-                src={client}
-                className="w-full h-full"
-                alt=""
-                loading="lazy"
-              />
-            </div>
-            <div className="flex flex-col items-start">
-              <h3 className="text-custom-blue font-medium text-sm">
-                Mohamed Ahmed
-              </h3>
-              <p className="text-[#282A2B] font-normal text-[12px]">112/3/24</p>
-            </div>
-          </div>
-          <p className="font-normal text-lg leading-6 text-[#262D35] text-right">
-            &quot;تجربه رائعة ومميزه. لقد أعجبني هذا المنتج حقًا، ويستحق
-            التجربة. اذا كنت ترغب بشرائه لا تتردد انا انصح به وبشدة&quot;
-          </p>
-        </SwiperSlide>
-      </Swiper>
-    </>
+    <figure
+      className={cn(
+        "relative w-64 cursor-pointer overflow-hidden rounded-xl  p-4",
+        "bg-[#F3F5F9] "
+      )}
+    >
+      <div className="flex flex-row items-center gap-2">
+        <img className="rounded-full" width="32" height="32" alt="" src={img} />
+        <div className="flex flex-col">
+          <figcaption className="text-custom-blue font-medium text-sme">
+            {name}
+          </figcaption>
+          <p className="text-[#282A2B] font-normal text-xs">{username}</p>
+        </div>
+      </div>
+      <blockquote className="mt-2 text-sm">{body}</blockquote>
+    </figure>
   );
 };
+
+export function ClientReviewsSwiper() {
+  return (
+    <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg  ">
+      <Marquee pauseOnHover className="[--duration:20s]">
+        {firstRow.map((review) => (
+          <ReviewCard key={review.username} {...review} />
+        ))}
+      </Marquee>
+      <Marquee reverse pauseOnHover className="[--duration:20s]">
+        {secondRow.map((review) => (
+          <ReviewCard key={review.username} {...review} />
+        ))}
+      </Marquee>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"></div>
+    </div>
+  );
+}
 export default ClientReviewsSwiper;
