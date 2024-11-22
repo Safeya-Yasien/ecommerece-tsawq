@@ -3,7 +3,7 @@ import { Suspense, useMemo } from "react";
 import {
   CategoriesCarousel,
   Features,
-  HeroSlider,
+  Hero,
   ProductsCarousel,
   SpecialOffersCarousel,
 } from "@components/ecommerece";
@@ -17,7 +17,7 @@ const Home = () => {
 
   return (
     <div className="flex flex-col gap-12 px-12 py-4 pb-12">
-      <HeroSlider />
+      <Hero />
       <Features />
       <Suspense fallback={"Loading..."}>
         <ProductsCarousel
