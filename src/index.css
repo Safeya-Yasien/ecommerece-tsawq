@@ -56,3 +56,8 @@ input::-webkit-inner-spin-button {
 .reviews-grid-swiper .swiper-slide {
   /* height: calc((100% - 30px) / 2) !important; */
 }
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
