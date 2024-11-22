@@ -1,85 +1,44 @@
-import { useRef } from "react";
-import PropTypes from "prop-types";
-import { CustomTitle, ProductCard } from "@components/ecommerece";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css/free-mode";
-import "swiper/css/pagination";
-
-import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
-import { GoArrowLeft } from "react-icons/go";
 import { Link } from "react-router-dom";
 
-const ProductsCarousel = ({
-  title,
-  products,
-  showArrows,
-  showLabel,
-  buttonPosition,
-}) => {
-  const swiperRef = useRef(null);
+import { CustomTitle, ProductCard } from "@components/ecommerece";
 
-  const goToNextSlide = () => {
-    if (swiperRef.current) {
-      swiperRef.current.swiper.slideNext();
-    }
-  };
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { GoArrowLeft } from "react-icons/go";
 
-  const goToPrevSlide = () => {
-    if (swiperRef.current) {
-      swiperRef.current.swiper.slidePrev();
-    }
-  };
-
-  const swiperSettings = {
-    slidesPerView: 5,
-    spaceBetween: 30,
-    loop: true,
-    breakpoints: {
-      1280: {
-        slidesPerView: 5,
-      },
-      1024: {
-        slidesPerView: 4,
-      },
-      768: {
-        slidesPerView: 3,
-      },
-      640: {
-        slidesPerView: 2,
-      },
-      0: {
-        slidesPerView: 1,
-      },
-    },
-  };
-
+const ProductsCarousel = ({ title, products, showArrows, showLabel }) => {
   return (
     <section className="flex flex-col gap-8">
-      <div className="flex items-center gap-4 justify-between">
-        <CustomTitle title={title} />
-        {/* <Countdown /> */}
-        {/* swiper arrows control */}
+      <CustomTitle title={title} />
+      {/* countdown */}
+
+      <Carousel className="w-full relative">
+        <CarouselContent className="-ml-1 gap-[30px]">
+          {products.map((product, index) => (
+            <CarouselItem
+              key={product.id || index}
+              className="pl-1 md:basis-1/2 lg:basis-1/3 xl:basis-1/5"
+            >
+              <div className="p-1 ">
+                <ProductCard product={product} showLabel={showLabel} />
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
         {showArrows ? (
-          <div className="flex items-center gap-2">
-            <button
-              aria-label="Next"
-              className=" w-8 h-8 rounded-full text-white  bg-custom-blue flex items-center justify-center"
-              onClick={goToNextSlide}
-            >
-              <FaArrowRightLong />
-            </button>
-            <button
-              aria-label="Previous"
-              className=" w-8 h-8 rounded-full text-custom-blue  bg-white shadow-[0px_4px_16.3px_0px_#0000001A] flex items-center justify-center"
-              onClick={goToPrevSlide}
-            >
-              <FaArrowLeftLong />
-            </button>
-          </div>
+          <>
+            <CarouselPrevious className="cursor-pointer absolute left-0 -top-[53px] transform -translate-y-1/2 disabled:pointer-events-auto" />
+            <CarouselNext className="cursor-pointer absolute left-0 -top-[53px] transform -translate-y-1/2 ml-10 right-auto disabled:pointer-events-auto" />
+          </>
         ) : (
           <Link
             to=""
-            className="flex items-center text-custom-blue gap-1 underline"
+            className="flex items-center text-custom-blue gap-1 underline absolute left-0 -top-[53px] transform -translate-y-1/2"
           >
             عرض المزيد{" "}
             <span>
@@ -87,33 +46,9 @@ const ProductsCarousel = ({
             </span>
           </Link>
         )}
-      </div>
-
-      {/* products */}
-      <div className="">
-        <Swiper ref={swiperRef} {...swiperSettings}>
-          {products.map((product) => {
-            return (
-              <SwiperSlide key={product.id} className="">
-                <ProductCard
-                  product={product}
-                  showLabel={showLabel}
-                  buttonPosition={buttonPosition}
-                />
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
-      </div>
+      </Carousel>
     </section>
   );
 };
 
-ProductsCarousel.propTypes = {
-  title: PropTypes.string.isRequired,
-  products: PropTypes.arrayOf(PropTypes.object).isRequired,
-  showArrows: PropTypes.bool,
-  showLabel: PropTypes.bool,
-  buttonPosition: PropTypes.string,
-};
 export default ProductsCarousel;

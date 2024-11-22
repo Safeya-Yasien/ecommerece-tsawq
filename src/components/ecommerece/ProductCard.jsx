@@ -1,49 +1,42 @@
 import { Link } from "react-router-dom";
-
 import { FaStar } from "react-icons/fa";
 import { CiShoppingCart } from "react-icons/ci";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
-import PropTypes from "prop-types";
-
-const ProductCard = ({
-  product,
-  showLabel,
-  buttonPosition = "left-[15px]",
-}) => {
+const ProductCard = ({ product, showLabel }) => {
   return (
-    <div className="bg-white shadow-[0px_4px_26.8px_0px_#0000000D] border border-[#F0F3F6] rounded-[14px]  flex flex-col">
-      {/* img */}
+    <Card className="bg-white shadow-[0px_4px_26.8px_0px_#0000000D] rounded-lg flex flex-col border-none">
+      {/* Image */}
       <div className="p-8 mx-auto relative">
-        {showLabel ? (
-          <div className="flex items-center justify-center text-white font-medium text-sm bg-[#FF2828] w-20 h-6 rounded-2xl">
+        {showLabel && (
+          <div className="absolute top-2 left-2 text-white font-medium text-sm bg-[#FF2828] w-20 h-6 rounded-2xl flex items-center justify-center">
             خصم 50%
           </div>
-        ) : (
-          ""
         )}
         <img
           src={product.imgSrc}
           alt={product.name}
-          aria-label="shopping cart"
           loading="lazy"
-          className="object-cover"
+          className="object-cover w-full h-48 rounded-t-lg"
         />
-        <button
-          className={`w-9 h-[34px] bg-custom-blue rounded-md text-white flex items-center justify-center absolute ${buttonPosition}`}
-          aria-label="shopping cart"
+        <Button
+          aria-label="Add to cart"
+          className={`absolute left-0 w-9 h-9 bg-custom-blue rounded-md text-white flex items-center justify-center hover:bg-custom-blue`}
         >
           <CiShoppingCart size={24} />
-        </button>
+        </Button>
       </div>
-      {/* info */}
-      <div className="flex flex-col gap-4 p-4">
+
+      {/* Product Info */}
+      <CardContent className="flex flex-col gap-4 p-4">
         <Link
           to="/products-list/product"
           className="font-normal text-lg text-custom-gray line-clamp-2 h-14"
         >
-          {product.name}{" "}
+          {product.name}
         </Link>
-        <div className="flex items-center justify-between gap-4 whitespace-nowrap">
+        <div className="flex items-center justify-between gap-4">
           <p>
             <span className="text-[#E02954] font-bold text-[20px]">
               {product.price}ج{" "}
@@ -59,22 +52,9 @@ const ProductCard = ({
             <FaStar color="#FFAF13" />
           </p>
         </div>
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
-};
-
-ProductCard.propTypes = {
-  product: PropTypes.shape({
-    id: PropTypes.number,
-    imgSrc: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    originalPrice: PropTypes.number.isRequired,
-    rating: PropTypes.number.isRequired,
-  }),
-  showLabel: PropTypes.bool,
-  buttonPosition: PropTypes.string,
 };
 
 export default ProductCard;
