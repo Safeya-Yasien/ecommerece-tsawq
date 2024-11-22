@@ -17,16 +17,18 @@ const CheckoutHeader = () => {
       </div>
 
       {/* icons */}
-      <div className="flex items-center gap-10">
+      <div className="flex items-center gap-5 md:gap-10">
         <button className="flex items-center gap-2" aria-label="support chat">
           <PiWechatLogoThin size={25} className="text-custom-blue" />
-          <span className="text-custom-gray font-bold text-lg">
+          <span className="text-custom-gray font-bold text-lg hidden md:block">
             الدعم الفني
           </span>
         </button>
         <button className="flex items-center gap-2" aria-label="support phone">
           <FiPhoneCall size={25} className="text-custom-blue" />
-          <span className="text-custom-gray font-bold text-lg">54841</span>
+          <span className="text-custom-gray font-bold text-lg hidden md:block">
+            54841
+          </span>
         </button>
       </div>
     </header>
