@@ -1,15 +1,16 @@
+import { Link } from "react-router-dom";
 import { memo, useMemo } from "react";
-import PropTypes from "prop-types";
 
-import { CustomTitle } from "@components/ecommerece";
 import { GoArrowUpLeft } from "react-icons/go";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css/free-mode";
-import "swiper/css/pagination";
-import { Link } from "react-router-dom";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import { CustomTitle } from "@components/ecommerece";
 
-import specialOffer from '../../assets/images/special-offer.png'
+import specialOffer from "../../assets/images/special-offer.png";
 
 const SpecialOffersCarousel = () => {
   const offers = useMemo(
@@ -48,41 +49,23 @@ const SpecialOffersCarousel = () => {
     []
   );
 
-  const swiperSettings = {
-    slidesPerView: 4,
-    spaceBetween: 30,
-    freeMode: true,
-    breakpoints: {
-      1280: {
-        slidesPerView: 5,
-      },
-      1024: {
-        slidesPerView: 4,
-      },
-      768: {
-        slidesPerView: 3,
-      },
-      640: {
-        slidesPerView: 2,
-      },
-      0: {
-        slidesPerView: 1,
-      },
-    },
-  };
-
   return (
     <section className="flex flex-col gap-8">
       <CustomTitle title={"عروض خاصة"} />
-      <div className="">
-        <Swiper {...swiperSettings}>
-          {offers.map((offer) => (
-            <SwiperSlide key={offer.id}>
-              <Offer product={offer} />
-            </SwiperSlide>
-          ))}{" "}
-        </Swiper>
-      </div>
+      <Carousel className="w-full relative">
+        <CarouselContent className="-ml-1 gap-[30px]">
+          {offers.map((offer, index) => (
+            <CarouselItem
+              key={offer.id || index}
+              className="pl-1 md:basis-1/2 lg:basis-1/3 xl:basis-1/5"
+            >
+              <div className="p-1 ">
+                <Offer product={offer} />
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
     </section>
   );
 };
@@ -92,7 +75,10 @@ const Offer = memo(({ product }) => {
     <div className="flex flex-col gap-2 bg-[#F6F6F6] rounded-md p-8 col-span-12 lg:col-span-3">
       {/* info */}
       <div className="flex flex-col gap-3">
-        <Link to='/products-list/product' className="font-medium text-[28px] text-custom-dark">
+        <Link
+          to="/products-list/product"
+          className="font-medium text-[28px] text-custom-dark"
+        >
           {product.name}{" "}
         </Link>
         <p className="font-normal text-lg">خصم يصل حتي %{product.discount}</p>
@@ -118,16 +104,5 @@ const Offer = memo(({ product }) => {
     </div>
   );
 });
-
-Offer.displayName = "Offer";
-
-Offer.propTypes = {
-  product: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    imgSrc: PropTypes.string.isRequired,
-    discount: PropTypes.number.isRequired,
-  }),
-};
 
 export default SpecialOffersCarousel;
