@@ -3,11 +3,13 @@ import { Outlet } from "react-router-dom";
 
 const CheckoutLayout = () => {
   return (
-    <div className="flex flex-col h-screen">
+    <div className="h-screen">
       <CheckoutHeader />
-      <main>
+
+      <main className="px-12 py-6">
         <Outlet />
       </main>
+
       <CheckoutFooter />
     </div>
   );
