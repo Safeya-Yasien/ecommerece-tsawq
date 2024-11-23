@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const NavLinkItem = ({ to, label }) => {
+const NavLinkItem = ({ to, label, onclick }) => {
   return (
     <li>
       <NavLink
@@ -14,6 +14,7 @@ const NavLinkItem = ({ to, label }) => {
           }`
         }
         aria-label={label}
+        onClick={onclick}
       >
         {label}
       </NavLink>

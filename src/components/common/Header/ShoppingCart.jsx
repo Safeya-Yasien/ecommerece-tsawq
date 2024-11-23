@@ -20,9 +20,9 @@ const ShoppingCart = () => {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button className="text-[#5F6377] bg-transparent hover:bg-transparent text-2xl ">
+        <Button className="text-[#5F6377] bg-transparent hover:bg-transparent text-2xl hover:text-custom-blue">
           {" "}
-          <CiShoppingCart size={24} className="!w-6 !h-6" />
+          <CiShoppingCart size={24} className="!w-6 !h-6 " />
         </Button>
       </SheetTrigger>
       <SheetContent>

@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { CiMenuBurger } from "react-icons/ci";
-import { Link } from "react-router-dom";
+import NavLinkItem from "./NavLinkItem";
 
-const MobileMenu = () => {
+const MobileMenu = ({ navLinks }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleToggleMenu = () => {
     return setIsMenuOpen(!isMenuOpen);
   };
+
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <div>
@@ -25,29 +27,9 @@ const MobileMenu = () => {
       bg-gray-200"
         >
           <ul className="flex flex-col items-center gap-10 ">
-            <li>
-              <Link to="/" className="text-[#2B2B2B] text-lg font-medium">
-                الصفحة الرئيسية
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="products-list"
-                className="text-custom-gray text-lg font-normal"
-              >
-                منتجاتنا{" "}
-              </Link>
-            </li>
-            <li>
-              <Link to="/" className="text-custom-gray text-lg font-normal">
-                معلومات عنا{" "}
-              </Link>
-            </li>
-            <li>
-              <Link to="/" className="text-custom-gray text-lg font-normal">
-                تواصل معنا{" "}
-              </Link>
-            </li>
+            {navLinks.map(({ to, label }) => (
+              <NavLinkItem key={to} to={to} label={label} onclick={closeMenu} />
+            ))}
           </ul>
         </nav>
       ) : (
