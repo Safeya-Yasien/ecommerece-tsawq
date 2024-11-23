@@ -57,7 +57,7 @@ const SpecialOffersCarousel = () => {
           {offers.map((offer, index) => (
             <CarouselItem
               key={offer.id || index}
-              className="pl-1 md:basis-1/2 lg:basis-1/3 xl:basis-1/5"
+              className="pl-1 sm:basis-1/2 lg:basis-1/3 xl:basis-1/5"
             >
               <div className="p-1 ">
                 <Offer product={offer} />

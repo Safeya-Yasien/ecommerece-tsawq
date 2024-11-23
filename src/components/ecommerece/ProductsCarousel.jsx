@@ -22,7 +22,7 @@ const ProductsCarousel = ({ title, products, showArrows, showLabel }) => {
           {products.map((product, index) => (
             <CarouselItem
               key={product.id || index}
-              className="pl-1 md:basis-1/2 lg:basis-1/3 xl:basis-1/5"
+              className="pl-1 sm:basis-1/2 lg:basis-1/3 xl:basis-1/5"
             >
               <div className="p-1 ">
                 <ProductCard product={product} showLabel={showLabel} />

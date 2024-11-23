@@ -1,4 +1,4 @@
-import MobileMenu from "./MobileMenu";
+import MobileMenu from "../common/Header/MobileMenu";
 import CustomTitle from "./CustomTitle";
 import ProductCard from "./ProductCard";
 import ProductsCarousel from "./ProductsCarousel";

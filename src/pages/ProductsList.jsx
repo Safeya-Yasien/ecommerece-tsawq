@@ -9,49 +9,14 @@ import {
   MdOutlineKeyboardDoubleArrowLeft,
 } from "react-icons/md";
 import { useParams } from "react-router-dom";
+import { categories } from "@/data/categories";
 
 const ProductsList = () => {
   const { categoryName } = useParams();
 
   const [checkCategories, setCheckCategories] = useState([]);
 
-  const categories = useMemo(
-    () => [
-      {
-        id: 1,
-        name: "هواتف",
-      },
-      {
-        id: 2,
-        name: "لابتوب",
-      },
-      {
-        id: 3,
-        name: "ساعات ذكية",
-      },
-      {
-        id: 4,
-        name: "سماعات وايرلس",
-      },
-      {
-        id: 5,
-        name: "ايباد",
-      },
-      {
-        id: 6,
-        name: "تابليت",
-      },
-      {
-        id: 7,
-        name: "شاشات ذكية",
-      },
-      {
-        id: 8,
-        name: "ايربودز",
-      },
-    ],
-    []
-  );
+  const memoizedCategories = useMemo(() => categories, []);
 
   const memoizedProducts = useMemo(() => productsList, []);
 
@@ -79,7 +44,7 @@ const ProductsList = () => {
   };
 
   return (
-    <div className="">
+    <>
       {/* breadcrumb  */}
       <Breadcrumb />
       {/* content */}
@@ -88,7 +53,7 @@ const ProductsList = () => {
         <div className="hidden lg:flex flex-col gap-6 w-[20%] shadow-[0px_4px_23.3px_0px_#0000000D] border border-[#EDEDED] p-8 rounded-2xl  ">
           <h2 className="text-custom-dark font-bold text-[20px] ">الاقسام</h2>
           <div className="flex flex-col gap-4">
-            {categories.map((category) => (
+            {memoizedCategories.map((category) => (
               <div
                 className="flex items-center gap-2 relative"
                 key={category.id}
@@ -107,15 +72,6 @@ const ProductsList = () => {
                 >
                   {category.name}
                 </label>
-                {/* custom checkbox */}
-                {/* <label
-                  htmlFor={category.name}
-                  className="font-normal text-[16px] text-[#5C5C5C] ps-8 relative
-                  before:content-[''] before:absolute before:right-0 before:top-0 before:w-[21px] before:h-[21px] before:border before:border-[#6D6D6D] before:rounded-md 
-                  after:content['\f00c'] after:absolute after:right-0 after:top-1/2 after:w-[12px] after:h-[12px]  after:font-black after:bg-custom-blue after:text-white"
-                >
-                  {category.name}
-                </label> */}
               </div>
             ))}
           </div>
@@ -241,7 +197,7 @@ const ProductsList = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
