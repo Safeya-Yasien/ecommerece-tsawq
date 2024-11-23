@@ -9,6 +9,7 @@ import Product from "@pages/Product";
 import ProductsList from "@pages/ProductsList";
 import ThankYou from "@pages/ThankYou";
 import Error from "@/pages/Error";
+import PaymentFailed from "@/pages/PaymentFailed";
 
 const router = createBrowserRouter(
   [
@@ -50,6 +51,10 @@ const router = createBrowserRouter(
         {
           path: "thank-you",
           element: <ThankYou />,
+        },
+        {
+          path: "payment-failed",
+          element: <PaymentFailed />,
         },
       ],
     },
