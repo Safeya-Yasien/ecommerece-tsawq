@@ -1,74 +1,86 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
+import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
+import { FreeMode, Navigation, Thumbs, Pagination } from "swiper/modules";
 
-import { FreeMode, Thumbs, Navigation, Pagination } from "swiper/modules";
-
-import phoneImage from "../../assets/images/apple-iphone.png";
-
-const ThumbsGallery = () => {
+const ThumbsGallery = ({ productImages, productName }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
-    <div className="flex flex-col gap-14 thumbs-gallery">
-      <div className="border border-[#F6F6F6] shadow-[0px_4px_19.3px_0px_#0000000D] rounded-2xl p-12">
+    <div className="">
+      <div className="border border-[#F6F6F6] shadow-[0px_4px_19.3px_0px_#0000000D] rounded-2xl p-12 relative">
         <Swiper
           spaceBetween={10}
-          navigation={true}
-          pagination={{ clickable: true, }}
+          navigation={{
+            prevEl: ".custom-prev",
+            nextEl: ".custom-next",
+          }}
+          pagination={{ clickable: true }}
           thumbs={thumbsSwiper ? { swiper: thumbsSwiper } : undefined}
-          modules={[FreeMode, Navigation, Pagination, Thumbs]}
-          className="mySwiper2"
-          dir="rtl"
+          modules={[FreeMode, Navigation, Thumbs, Pagination]}
+          className="mySwiper2 h-[80%] w-full !pb-[50px]"
+          dir="ltr"
         >
-          {/* Using local image for SwiperSlide */}
-          <SwiperSlide className="">
-            <img src={phoneImage} alt="Phone Image 1" className=" mx-auto" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={phoneImage} alt="Phone Image 2" className=" mx-auto"  />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={phoneImage} alt="Phone Image 3" className=" mx-auto" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={phoneImage} alt="Phone Image 4" className=" mx-auto" />
-          </SwiperSlide>
+          {productImages.map((image, index) => (
+            <SwiperSlide
+              key={index}
+              className="!flex items-center justify-center !h-[400px]"
+            >
+              <img
+                src={image}
+                className="w-full h-full object-contain"
+                alt={productName}
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
+
+        <div
+          className="custom-prev absolute left-6 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer
+            bg-white w-[32px] h-[32px] rounded-full shadow-[0px_4px_16.3px_0px_#0000001a]
+              flex items-center justify-center "
+        >
+          <IoIosArrowRoundBack size={20} color="#C6C6C6" />
+        </div>
+        <div
+          className="custom-next absolute right-6 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer
+            bg-white w-[32px] h-[32px] rounded-full shadow-[0px_4px_16.3px_0px_#0000001a]
+              flex items-center justify-center "
+        >
+          <IoIosArrowRoundForward size={20} color="#C6C6C6" />
+        </div>
       </div>
 
-      <div>
-        <Swiper
-          onSwiper={setThumbsSwiper}
-          spaceBetween={10}
-          slidesPerView={4}
-          freeMode={true}
-          watchSlidesProgress={true}
-          modules={[FreeMode, Navigation, Thumbs]}
-          dir="rtl"
-          className="mySwiper cursor-pointer"
-        >
-          <SwiperSlide className="border border-[#F6F6F6] rounded-lg p-6  ">
+      {/* thumbs swiper */}
+      <Swiper
+        onSwiper={setThumbsSwiper}
+        spaceBetween={10}
+        slidesPerView={4}
+        freeMode={true}
+        watchSlidesProgress={true}
+        modules={[FreeMode, Navigation, Thumbs]}
+        className="mySwiper h-[20%] py-[10px] mt-14"
+        dir="rtl"
+      >
+        {productImages.map((image, index) => (
+          <SwiperSlide
+            key={index}
+            className="!items-center !justify-center cursor-pointer border border-[#F6F6F6] rounded-lg p-6 !hidden sm:!flex sm:w-[25%]
+            !h-[200px]"
+          >
             <img
-              src={phoneImage}
-              alt="Phone Thumbnail 1"
-              className="object-cover"
+              src={image}
+              className="w-full h-full object-cover block"
+              alt={productName}
             />
           </SwiperSlide>
-          <SwiperSlide className="border border-[#F6F6F6] rounded-lg p-6  ">
-            <img src={phoneImage} alt="Phone Thumbnail 2" />
-          </SwiperSlide>
-          <SwiperSlide className="border border-[#F6F6F6] rounded-lg p-6  ">
-            <img src={phoneImage} alt="Phone Thumbnail 3" />
-          </SwiperSlide>
-          <SwiperSlide className="border border-[#F6F6F6] rounded-lg p-6  ">
-            <img src={phoneImage} alt="Phone Thumbnail 4" />
-          </SwiperSlide>
-        </Swiper>
-      </div>
+        ))}
+      </Swiper>
     </div>
   );
 };
