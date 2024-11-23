@@ -6,7 +6,7 @@ const CheckoutLayout = () => {
     <div className="h-screen">
       <CheckoutHeader />
 
-      <main className="px-12 py-6">
+      <main className="px-12 pt-6 pb-24">
         <Outlet />
       </main>
 
