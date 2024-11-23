@@ -52,7 +52,7 @@ const SpecialOffersCarousel = () => {
   return (
     <section className="flex flex-col gap-8">
       <CustomTitle title={"عروض خاصة"} />
-      <Carousel  className="w-full relative">
+      <Carousel className="w-full relative">
         <CarouselContent className="-ml-1 gap-[30px]">
           {offers.map((offer, index) => (
             <CarouselItem
