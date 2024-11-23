@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import delivery from "../../assets/images/delivery.svg";
 import coupon from "../../assets/images/coupon.svg";
 import money from "../../assets/images/money.svg";
-import headphone from '../../assets/images/headphone.svg'
+import headphone from "../../assets/images/headphone.svg";
 
 const Features = () => {
   const featuresData = useMemo(
@@ -35,7 +35,7 @@ const Features = () => {
 
   return (
     <section className="sm:w-[90%] mx-auto">
-      <div className="flex flex-wrap items-center justify-around gap-8 p-8 bg-white shadow-[0px_4px_29px_0px_#2123280F]">
+      <div className="flex items-center justify-around flex-wrap sm:flex-nowrap gap-4 md:gap-8 p-8 bg-white shadow-[0px_4px_29px_0px_#2123280F]">
         {featuresData.map((feature, index) => (
           <React.Fragment key={index}>
             <Feature
@@ -44,7 +44,7 @@ const Features = () => {
               description={feature.description}
             />
             {index < featuresData.length - 1 && (
-              <div className="hidden md:block border-l border-[#ECECEC] h-16"></div>
+              <div className="hidden sm:block border-l border-[#ECECEC] h-16"></div>
             )}
           </React.Fragment>
         ))}
@@ -65,8 +65,12 @@ const Feature = React.memo(({ iconSrc, title, description }) => {
         />
       </div>
       <div className="flex flex-col">
-        <h2 className="font-bold text-lg text-custom-gray">{title}</h2>
-        <p className="text-sm text-[#787878] font-normal">{description}</p>
+        <h2 className="font-medium md:font-bold text-[10px] md:text-lg text-custom-gray">
+          {title}
+        </h2>
+        <p className="hidden md:block text-sm text-[#787878] font-normal">
+          {description}
+        </p>
       </div>
     </div>
   );

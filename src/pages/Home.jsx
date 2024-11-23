@@ -16,7 +16,7 @@ const Home = () => {
   const memoizedPhonesList = useMemo(() => phonesList, []);
 
   return (
-    <div className="flex flex-col gap-12 px-12 py-4 pb-12">
+    <div className="flex flex-col gap-12 px-6 md:px-12 md:py-9 pb-20">
       <Hero />
       <Features />
       <Suspense fallback={"Loading..."}>
