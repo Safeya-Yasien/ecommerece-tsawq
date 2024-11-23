@@ -10,6 +10,8 @@ import ProductsList from "@pages/ProductsList";
 import ThankYou from "@pages/ThankYou";
 import Error from "@/pages/Error";
 import PaymentFailed from "@/pages/PaymentFailed";
+import About from "@/pages/About";
+import Contact from "@/pages/Contact";
 
 const router = createBrowserRouter(
   [
@@ -31,12 +33,20 @@ const router = createBrowserRouter(
           element: <ProductsList />,
         },
         {
-          path: "products-list/product",
+          path: ":productId",
           element: <Product />,
         },
         {
           path: "cart",
           element: <Cart />,
+        },
+        {
+          path: "about",
+          element: <About />,
+        },
+        {
+          path: "contact",
+          element: <Contact />,
         },
       ],
     },
