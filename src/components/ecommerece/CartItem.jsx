@@ -1,7 +1,9 @@
 import { useState } from "react";
 import phone from "./../../assets/images/apple-iphone.png";
 
-const CartItem = () => {
+import { FaRegTrashAlt } from "react-icons/fa";
+
+const CartItem = ({ showTrashIcon, showQuantityControls }) => {
   const [quantity, setQuantity] = useState(1);
 
   const handleIncrement = () => {
@@ -13,7 +15,7 @@ const CartItem = () => {
 
   return (
     <div className="flex justify-between">
-      <div className="flex flex-col md:flex-row  gap-6">
+      <div className="flex gap-6">
         <div
           className="shadow-[0px_0.76px_3.65px_0px_#0000000D] border border-[#E1E1E1] bg-[#F4F4F4] rounded-2xl p-8
         w-28 h-28 flex items-center justify-center  relative"
@@ -26,33 +28,45 @@ const CartItem = () => {
           />
         </div>
         <div className="flex flex-col gap-4 justify-between ">
-          <h2 className="font-medium text-sm md:text-lg text-[#505255]">
+          <h2 className="font-medium text-sm md:text-lg text-[#505255] w-full xl:w-[300px]">
             آيفون 15 برو ماكس، سعة 256 جيجابايت، تيتانيوم طبيعي
           </h2>
 
-          <div className="flex items-center w-[86px] h-[22px]">
-            <button
-              aria-label="زيادة الكمية"
-              className="bg-custom-blue text-white w-8 h-5 rounded-full"
-              onClick={handleIncrement}
-            >
-              +
-            </button>
-            <input
-              type="number"
-              aria-label="كمية المنتج"
-              min={1}
-              value={quantity}
-              className="outline-none text-center w-full"
-              onChange={() => setQuantity(value)}
-            />
-            <button
-              aria-label="تقليل الكمية"
-              className="bg-[#A1A1A3] text-[#EDEDED] w-8 h-5 rounded-full "
-              onClick={handleDecrement}
-            >
-              -
-            </button>
+          <div className="flex items-center gap-6">
+            {showQuantityControls ? (
+              <div className="flex items-center w-[86px] h-[22px]">
+                <button
+                  aria-label="زيادة الكمية"
+                  className="bg-custom-blue text-white w-[22px] h-[22px] rounded-full"
+                  onClick={handleIncrement}
+                >
+                  +
+                </button>
+                <input
+                  type="number"
+                  aria-label="كمية المنتج"
+                  min={1}
+                  value={quantity}
+                  className="outline-none text-center w-full"
+                  onChange={() => setQuantity(value)}
+                />
+                <button
+                  aria-label="تقليل الكمية"
+                  className="bg-[#A1A1A3] text-[#EDEDED] w-[22px] h-[22px] rounded-full "
+                  onClick={handleDecrement}
+                >
+                  -
+                </button>
+              </div>
+            ) : (
+              ""
+            )}
+
+            {showTrashIcon && (
+              <button className="cursor-pointer">
+                <FaRegTrashAlt size={20} />
+              </button>
+            )}
           </div>
         </div>
       </div>
