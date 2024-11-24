@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 import thankyou from "../assets/images/Confirmed-cuate 1.svg";
 import phone from "../assets/images/apple-iphone.png";
 import { CartItem } from "@/components/ecommerece";
+import { useCart } from "@/context/cart";
 
 const ThankYou = () => {
+  const { cartItems, getCartTotal } = useCart();
+
   return (
     <div className="mx-auto  md:w-[600px] flex flex-col gap-11">
       <div className="flex flex-col gap-4 text-center">
@@ -66,7 +69,15 @@ const ThankYou = () => {
           </div>
         </div> */}
 
-        <CartItem showQuantityControls={false}/>
+        {cartItems.map((item) => (
+          <CartItem
+            key={item.id}
+            showQuantityControls={false}
+            showItemsQuantity={true}
+            showTrashIcon={false}
+            item={item}
+          />
+        ))}
 
         {/* line */}
         <div className="border border-[#E5E9F1]  mt-4"></div>
@@ -95,7 +106,7 @@ const ThankYou = () => {
         {/* total */}
         <div className="flex items-center justify-between text-[#3A4353] font-bold text-[22px]">
           <span className="">إجمالي المبلغ</span>
-          <span className="">6500ج</span>
+          <span className="">{getCartTotal()}ج</span>
         </div>
       </div>
 

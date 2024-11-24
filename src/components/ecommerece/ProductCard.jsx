@@ -3,14 +3,17 @@ import { FaStar } from "react-icons/fa";
 import { CiShoppingCart } from "react-icons/ci";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useCart } from "@/context/cart";
 
 const ProductCard = ({ product, showLabel }) => {
+  const { addItemToCart } = useCart();
+
   return (
     <Card className="bg-white shadow-[0px_4px_26.8px_0px_#0000000D] rounded-lg flex flex-col border-none">
       {/* Image */}
       <div className="p-8 mx-auto relative">
         {showLabel && (
-          <div className="absolute top-2 left-2 text-white font-medium text-sm bg-[#FF2828] w-20 h-6 rounded-2xl flex items-center justify-center">
+          <div className="absolute top-2 right-2 text-white font-medium text-sm bg-[#FF2828] w-20 h-6 rounded-2xl flex items-center justify-center">
             خصم 50%
           </div>
         )}
@@ -23,6 +26,7 @@ const ProductCard = ({ product, showLabel }) => {
         <Button
           aria-label="Add to cart"
           className={`absolute left-0 w-9 h-9 bg-custom-blue rounded-md text-white flex items-center justify-center hover:bg-custom-blue`}
+          onClick={() => addItemToCart(product)}
         >
           <CiShoppingCart size={24} />
         </Button>

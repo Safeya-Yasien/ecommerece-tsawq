@@ -13,8 +13,11 @@ import headphone from "../assets/images/headphone.svg";
 import credit from "../assets/images/credit-card.svg";
 import paypal from "../assets/images/paypal.svg";
 import paymob from "../assets/images/paymob.svg";
+import { useCart } from "@/context/cart";
 
 const Checkout = () => {
+  const { cartItems, getCartTotal } = useCart();
+
   const featuresData = useMemo(
     () => [
       {
@@ -129,7 +132,15 @@ const Checkout = () => {
       {/* left */}
       <div className="h-fit w-full md:w-[50%] flex flex-col gap-4 border border-[#F0F3F6] shadow-[0px_4px_19px_0px_#0000000F] rounded-3xl p-8 ">
         <h2 className="text-[#252534] font-bold text-[26px]">ملخص الطلب </h2>
-        <CartItem showTrashIcon={true} showQuantityControls={true} />
+
+        {cartItems.map((item) => (
+          <CartItem
+            showTrashIcon={false}
+            showQuantityControls={true}
+            showItemsQuantity={false}
+            item={item}
+          />
+        ))}
 
         {/* line */}
         <div className="border border-[#E5E9F1]  mt-4"></div>
@@ -184,11 +195,11 @@ const Checkout = () => {
         {/* total */}
         <div className="flex items-center justify-between text-[#3A4353] font-bold text-[22px]">
           <span className="">إجمالي المبلغ</span>
-          <span className="">6500ج</span>
+          <span className="">{getCartTotal()}ج</span>
         </div>
 
         <Link
-          to="thank-you"
+          to={`thank-you`}
           className="bg-custom-blue text-white flex items-center justify-center flex-nowrap font-bold text-sm md:text-xl rounded-[60px] py-6 px-6 md:px-12 w-fit mx-auto w-full"
         >
           تأكيد الطلب{" "}

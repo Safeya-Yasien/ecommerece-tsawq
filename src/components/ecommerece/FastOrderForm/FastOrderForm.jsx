@@ -3,6 +3,7 @@ import { IoFlash } from "react-icons/io5";
 import OfferTitle from "./OfferTitle";
 import { UserInfoInputs } from "../UserInfoForm";
 import { OfferOptions } from "..";
+import { Link } from "react-router-dom";
 
 const FastOrderForm = () => {
   const productOffers = [
@@ -46,12 +47,13 @@ const FastOrderForm = () => {
         <p className="text-[#3A4353] font-bold text-[22px]">6500ج</p>
       </div>
 
-      <button
+      <Link
+        to="/checkout"
         aria-label="اشترى الان"
         className="text-white font-bold text-[16px] sm:text-[22px] shadow-[0px_4px_19.2px_0px_#3074F066] ring-1 ring-[#ECECEC] rounded-[61px] flex items-center justify-center bg-custom-blue h-[69px]"
       >
         اشتري الان - الدفع عند الاستلام
-      </button>
+      </Link>
     </form>
   );
 };

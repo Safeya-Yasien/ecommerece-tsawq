@@ -73,7 +73,7 @@ const ProductPage = () => {
                 </div>
               </div>
             </div>
-            <CustomizeProduct />
+            <CustomizeProduct item={product}/>
 
             {/* divide line */}
             <div className="flex items-center gap-4 justify-center">
