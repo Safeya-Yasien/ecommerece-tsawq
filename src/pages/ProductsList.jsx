@@ -95,6 +95,27 @@ const ProductsList = () => {
             </div>
 
             {/* seekBar */}
+            <div className="flex items-center justify-center">
+              <label for="price" className="sr-only">
+                price (between 0 and 50):
+              </label>
+              <input
+                type="range"
+                id="price"
+                name="price"
+                min="0"
+                max="50"
+                dir="ltr"
+              />
+              <input
+                type="range"
+                id="price"
+                name="price"
+                min="0"
+                max="50"
+                dir="rtl"
+              />{" "}
+            </div>
           </div>
         </div>
         {/* left: products */}
