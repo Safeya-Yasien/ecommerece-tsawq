@@ -35,7 +35,7 @@ const Features = () => {
 
   return (
     <section className="sm:w-[90%] mx-auto">
-      <div className="flex items-center justify-around flex-wrap sm:flex-nowrap gap-4 md:gap-8 p-8 bg-white shadow-[0px_4px_29px_0px_#2123280F]">
+      <div className="flex items-center justify-around flex-wrap lg:flex-nowrap gap-4 md:gap-8 p-8 bg-white shadow-[0px_4px_29px_0px_#2123280F]">
         {featuresData.map((feature, index) => (
           <React.Fragment key={index}>
             <Feature
@@ -44,7 +44,7 @@ const Features = () => {
               description={feature.description}
             />
             {index < featuresData.length - 1 && (
-              <div className="hidden sm:block border-l border-[#ECECEC] h-16"></div>
+              <div className="hidden lg:block border-l border-[#ECECEC] h-16"></div>
             )}
           </React.Fragment>
         ))}
