@@ -7,9 +7,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import "swiper/css";
+import { CartProvider } from "./context/cart";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AppRouter />
+    <CartProvider>
+      <AppRouter />
+    </CartProvider>
   </StrictMode>
 );
