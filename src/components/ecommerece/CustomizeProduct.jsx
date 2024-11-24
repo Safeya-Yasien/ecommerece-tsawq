@@ -1,6 +1,9 @@
+import { useCart } from "@/context/cart";
 import { CiShoppingCart } from "react-icons/ci";
 
-const CustomizeProduct = () => {
+const CustomizeProduct = ({ item }) => {
+  const { addItemToCart, decreaseItemQuantity } = useCart();
+
   return (
     <>
       {/* size + color */}
@@ -54,7 +57,8 @@ const CustomizeProduct = () => {
           <button
             className="ring-1 ring-[#ECECEC] bg-[#141D2E] px-6 w-full h-[49px] rounded-[61px] flex items-center justify-center
     text-white font-bold text-lg gap-1 flex-nowrap"
-            aria-label="أضف إلى السلة" // Arabic aria label for the button
+            aria-label="أضف إلى السلة"
+            onClick={() => addItemToCart(item)}
           >
             <CiShoppingCart size={22} />
             <span>اضف الي السلة</span>
@@ -67,6 +71,7 @@ const CustomizeProduct = () => {
             <button
               className="w-[12px] text-custom-blue flex items-center justify-center"
               aria-label="زيادة الكمية"
+              onClick={() => addItemToCart(item)}
             >
               +
             </button>
@@ -77,7 +82,8 @@ const CustomizeProduct = () => {
             <input
               id="quantity-input"
               type="number"
-              defaultValue={1}
+              min={1}
+              value={item.quantity}
               aria-label="عدد المنتجات"
               className="text-[#666666] font-medium text-lg outline-none border-none text-center h-full w-[91px]"
             />
@@ -85,6 +91,7 @@ const CustomizeProduct = () => {
             <button
               className="text-[#979797] w-[12px]"
               aria-label="تقليل الكمية"
+              onClick={() => decreaseItemQuantity(item)}
             >
               -
             </button>
