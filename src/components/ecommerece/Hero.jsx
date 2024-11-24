@@ -7,6 +7,8 @@ import {
 
 import { FaStar } from "react-icons/fa";
 
+import hero from '../../assets/images/hero.webp'
+
 export function Hero() {
   return (
     <Carousel className="w-full">
@@ -46,7 +48,7 @@ export function Hero() {
                 {/* img */}
                 <div className="flex flex-1">
                   <img
-                    src="src/assets/images/hero.webp"
+                    src={hero}
                     alt="hero"
                     className="hidden sm:block object-cover h-full w-full"
                     loading="lazy"
