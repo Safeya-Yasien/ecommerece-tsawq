@@ -145,7 +145,7 @@ const Checkout = () => {
         {/* line */}
         <div className="border border-[#E5E9F1]  mt-4"></div>
         {/* copoun */}
-        <div className="flex flex-col sm:flex-row items-center gap-6 ">
+        <div className="flex flex-col lg:flex-row items-center gap-6 ">
           <label className="sr-only" htmlFor="coupon-input">
             ادخل كوبون الخصم الخاص بك
           </label>
@@ -153,7 +153,7 @@ const Checkout = () => {
             <input
               type="number"
               id="coupon-input"
-              className="bg-[#F1F2F3] rounded-xl p-4 w-full outline-none relative pr-[30px]"
+              className="bg-[#F1F2F3] rounded-xl p-4 w-full lg:w-fit outline-none relative pr-[30px]"
               placeholder="ادخل كوبون الخصم الخاص بك"
               aria-label="حقل إدخال كوبون الخصم"
             />
@@ -165,7 +165,7 @@ const Checkout = () => {
           </div>
           <button
             aria-label="تطبيق كوبون الخصم"
-            className="flex items-center justify-center rounded-[28px] bg-custom-blue font-bold text-xs md:text-xl text-white py-3 px-12 w-full sm:w-fit"
+            className="flex items-center justify-center rounded-[28px] bg-custom-blue font-bold text-xs md:text-xl text-white py-3 px-12 w-full lg:w-fit"
           >
             تطبيق
           </button>
