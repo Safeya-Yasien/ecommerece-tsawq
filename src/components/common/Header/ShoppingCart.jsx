@@ -1,58 +1,89 @@
-import { CiSearch, CiShoppingCart } from "react-icons/ci";
-import { MobileMenu } from "@components/ecommerece";
-import { Logo } from "..";
+import { CartItem } from "@/components/ecommerece";
+import { useCart } from "@/context/cart";
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { CiShoppingCart } from "react-icons/ci";
+
 import {
   Sheet,
   SheetClose,
   SheetContent,
-  SheetDescription,
   SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const ShoppingCart = () => {
+  const { cartItems, getCartTotal } = useCart();
+
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button className="text-[#5F6377] bg-transparent hover:bg-transparent text-2xl hover:text-custom-blue">
-          {" "}
+        <Button className="relative text-[#5F6377] bg-transparent hover:bg-transparent text-2xl hover:text-custom-blue">
           <CiShoppingCart size={24} className="!w-6 !h-6 " />
+          <span
+            className="font-medium text-xs text-white bg-[#E74747] w-[21px] h-[21px] rounded-full flex items-center justify-center
+          absolute -top-1 right-2"
+          >
+            {cartItems.length}
+          </span>
         </Button>
       </SheetTrigger>
       <SheetContent>
-        <SheetHeader>
+        <SheetHeader className="border-b border-b-[#E5E9F1]">
           <SheetTitle>
-            السلة <span>(1)</span>
+            السلة{" "}
+            <span className="font-normal text-[20px] text-[#393948]">
+              ( {cartItems.length})
+            </span>
           </SheetTitle>
-          <SheetDescription>
-            Make changes to your profile here. Click save when you're done.
-          </SheetDescription>
         </SheetHeader>
         <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
-            </Label>
-            <Input id="name" value="Pedro Duarte" className="col-span-3" />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Username
-            </Label>
-            <Input id="username" value="@peduarte" className="col-span-3" />
+          {cartItems.map((item) => (
+            <CartItem
+              key={item.id}
+              showTrashIcon={true}
+              showQuantityControls={true}
+              showItemsQuantity={false}
+              item={item}
+            />
+          ))}
+          <div
+            className={
+              "flex items-center border-t border-t-[#E5E9F1] mt-4 pt-4 !justify-between text-[#3A4353] font-bold text-[22px]"
+            }
+          >
+            <span className="">إجمالي السلة:</span>
+            <span className="">{getCartTotal()}ج</span>
           </div>
         </div>
-        <SheetFooter>
-          <SheetClose asChild>
-            <Button type="submit">Save changes</Button>
-          </SheetClose>
-        </SheetFooter>
+
+        <div className="flex items-center justify-between gap-2">
+          <SheetFooter className="w-full">
+            <SheetClose asChild>
+              <Link
+                to="/checkout"
+                className=" w-full bg-custom-blue text-white rounded-[40px] flex items-center justify-center font-bold text-lg
+                py-[6px]"
+              >
+                إتمام الشراء
+              </Link>
+            </SheetClose>
+          </SheetFooter>
+
+          <SheetFooter className="">
+            <SheetClose asChild>
+              <Button
+                className="w-full bg-white text-custom-blue rounded-[40px] flex items-center justify-center font-bold text-lg border border-custom-blue !ml-0
+                hover:bg-custom-blue hover:text-white"
+              >
+                متابعة التسوق
+              </Button>
+            </SheetClose>
+          </SheetFooter>
+        </div>
       </SheetContent>
     </Sheet>
   );

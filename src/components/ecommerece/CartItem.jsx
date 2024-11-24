@@ -1,35 +1,40 @@
-import { useState } from "react";
-import phone from "./../../assets/images/apple-iphone.png";
-
 import { FaRegTrashAlt } from "react-icons/fa";
+import { useCart } from "@/context/cart";
 
-const CartItem = ({ showTrashIcon, showQuantityControls }) => {
-  const [quantity, setQuantity] = useState(1);
-
-  const handleIncrement = () => {
-    setQuantity(quantity + 1);
-  };
-  const handleDecrement = () => {
-    setQuantity(quantity > 1 ? quantity - 1 : 1);
-  };
+const CartItem = ({
+  showTrashIcon,
+  showQuantityControls,
+  item,
+  showItemsQuantity,
+}) => {
+  const { cartItems, addItemToCart, removeItemFromCart, decreaseItemQuantity } =
+    useCart();
 
   return (
     <div className="flex justify-between">
       <div className="flex gap-6">
         <div
-          className="shadow-[0px_0.76px_3.65px_0px_#0000000D] border border-[#E1E1E1] bg-[#F4F4F4] rounded-2xl p-8
-        w-28 h-28 flex items-center justify-center  relative"
+          className="relative shadow-[0px_0.76px_3.65px_0px_#0000000D] border border-[#E1E1E1] bg-[#F4F4F4] rounded-2xl p-8
+        w-28 h-28 flex items-center justify-center  "
         >
           <img
-            src={phone}
-            alt="phone"
+            src={item.imgSrc}
+            alt={item.name}
             loading="lazy"
             className="w-[100px] h-[100px]"
           />
+          {showItemsQuantity && (
+            <span className="absolute -top-3 -right-2 text-white bg-[#D9D9D9] font-bold text-[22px] w-[27px] h-[27px] rounded-full flex items-center justify-center">
+              {item.quantity}
+            </span>
+          )}
+          <span className="absolute -top-3 -right-2 text-white bg-[#D9D9D9] font-bold text-[22px] w-[27px] h-[27px] rounded-full flex items-center justify-center">
+            {cartItems.length}
+          </span>
         </div>
         <div className="flex flex-col gap-4 justify-between ">
-          <h2 className="font-medium text-sm md:text-lg text-[#505255] w-full xl:w-[300px]">
-            آيفون 15 برو ماكس، سعة 256 جيجابايت، تيتانيوم طبيعي
+          <h2 className="font-medium text-sm md:text-lg text-[#505255] w-full ">
+            {item.name}{" "}
           </h2>
 
           <div className="flex items-center gap-6">
@@ -38,7 +43,7 @@ const CartItem = ({ showTrashIcon, showQuantityControls }) => {
                 <button
                   aria-label="زيادة الكمية"
                   className="bg-custom-blue text-white w-[22px] h-[22px] rounded-full"
-                  onClick={handleIncrement}
+                  onClick={() => addItemToCart(item)}
                 >
                   +
                 </button>
@@ -46,14 +51,13 @@ const CartItem = ({ showTrashIcon, showQuantityControls }) => {
                   type="number"
                   aria-label="كمية المنتج"
                   min={1}
-                  value={quantity}
+                  value={item.quantity}
                   className="outline-none text-center w-full"
-                  onChange={() => setQuantity(value)}
                 />
                 <button
                   aria-label="تقليل الكمية"
                   className="bg-[#A1A1A3] text-[#EDEDED] w-[22px] h-[22px] rounded-full "
-                  onClick={handleDecrement}
+                  onClick={() => decreaseItemQuantity(item)}
                 >
                   -
                 </button>
@@ -63,7 +67,10 @@ const CartItem = ({ showTrashIcon, showQuantityControls }) => {
             )}
 
             {showTrashIcon && (
-              <button className="cursor-pointer">
+              <button
+                className="cursor-pointer"
+                onClick={() => removeItemFromCart(item)}
+              >
                 <FaRegTrashAlt size={20} />
               </button>
             )}
@@ -72,10 +79,12 @@ const CartItem = ({ showTrashIcon, showQuantityControls }) => {
       </div>
 
       {/* price */}
-      <div className="flex items-center justify-center flex-col md:flex-row">
-        <span className="text-custom-gray font-bold text-[22px]">6500ج</span>{" "}
+      <div className="flex items-center justify-center flex-col 3xl:flex-row">
+        <span className="text-custom-gray font-bold text-[22px]">
+          {item.price}ج
+        </span>{" "}
         <span className="text-[#808080] font-normal  text-[16px] line-through">
-          7000
+          {item.originalPrice}
         </span>
       </div>
     </div>

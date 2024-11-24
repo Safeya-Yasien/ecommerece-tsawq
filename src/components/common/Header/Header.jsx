@@ -46,7 +46,7 @@ const Header = () => {
           <CiSearch size={24} />
         </button>
 
-        <ShoppingCart />
+        <ShoppingCart/>
       </div>
     </header>
   );
