@@ -4,9 +4,20 @@ import { CiShoppingCart } from "react-icons/ci";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/context/cart";
+import { useToast } from "@/hooks/use-toast";
 
 const ProductCard = ({ product, showLabel }) => {
   const { addItemToCart } = useCart();
+
+  const { toast } = useToast();
+
+  const notifyAddedToCart = () => {
+    toast({
+      title: "تمت إضافة المنتج بنجاح",
+      description: `${product.name}`,
+      variant: "success",
+    });
+  };
 
   return (
     <Card className="bg-white shadow-[0px_4px_26.8px_0px_#0000000D] rounded-lg flex flex-col border-none">
@@ -26,7 +37,10 @@ const ProductCard = ({ product, showLabel }) => {
         <Button
           aria-label="Add to cart"
           className={`absolute left-0 w-9 h-9 bg-custom-blue rounded-md text-white flex items-center justify-center hover:bg-custom-blue`}
-          onClick={() => addItemToCart(product)}
+          onClick={() => {
+            addItemToCart(product);
+            notifyAddedToCart();
+          }}
         >
           <CiShoppingCart size={24} />
         </Button>
