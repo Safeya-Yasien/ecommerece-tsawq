@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import thankyou from "../assets/images/Confirmed-cuate 1.svg";
 import phone from "../assets/images/apple-iphone.png";
+import { CartItem } from "@/components/ecommerece";
 
 const ThankYou = () => {
   return (
@@ -28,7 +29,7 @@ const ThankYou = () => {
 
       <div className="flex flex-col gap-4 bg-white shadow-[0px_4px_24px_0px_#0000000D] rounded-3xl p-8">
         <h2 className="font-bold text-[26px] text-[#252534]">ملخص الطلب</h2>
-
+        {/* 
         <div className="flex justify-between">
           <div className="flex flex-col md:flex-row  gap-6">
             <div
@@ -55,7 +56,6 @@ const ThankYou = () => {
             </div>
           </div>
 
-          {/* price */}
           <div className="flex items-center justify-center flex-col md:flex-row">
             <span className="text-custom-gray font-bold text-[22px]">
               6500ج
@@ -64,7 +64,9 @@ const ThankYou = () => {
               7000
             </span>
           </div>
-        </div>
+        </div> */}
+
+        <CartItem showQuantityControls={false}/>
 
         {/* line */}
         <div className="border border-[#E5E9F1]  mt-4"></div>
