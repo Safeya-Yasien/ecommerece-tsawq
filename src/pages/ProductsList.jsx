@@ -46,7 +46,7 @@ const ProductsList = () => {
   return (
     <>
       {/* breadcrumb  */}
-      <Breadcrumb />
+      <Breadcrumb currentPage="منتجاتنا" /> 
       {/* content */}
       <div className="px-12 py-8 flex justify-between gap-8">
         {/* right: filter */}

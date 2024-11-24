@@ -1,6 +1,11 @@
+import { Breadcrumb } from "@/components/ecommerece";
+
 const About = () => {
   return (
-    <div>About</div>
-  )
-}
-export default About
+    <>
+      {" "}
+      <Breadcrumb currentPage="معلومات عنا" />
+    </>
+  );
+};
+export default About;

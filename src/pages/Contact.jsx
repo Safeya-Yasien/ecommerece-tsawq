@@ -1,6 +1,10 @@
+import { Breadcrumb } from "@/components/ecommerece";
+
 const Contact = () => {
   return (
-    <div>Contact</div>
-  )
-}
-export default Contact
+    <>
+      <Breadcrumb currentPage="تواصل معنا" />
+    </>
+  );
+};
+export default Contact;
