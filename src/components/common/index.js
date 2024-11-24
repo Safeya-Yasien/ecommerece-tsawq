@@ -4,6 +4,8 @@ import Logo from "./Logo";
 
 import CheckoutHeader from "./CheckoutHeader";
 import CheckoutFooter from "./CheckoutFooter";
-CheckoutFooter;
 
-export { Header, Footer, CheckoutFooter, CheckoutHeader, Logo };
+
+import ScrollToTop from "./ScrollToTop";
+
+export { Header, Footer, CheckoutFooter, CheckoutHeader, Logo,ScrollToTop };
