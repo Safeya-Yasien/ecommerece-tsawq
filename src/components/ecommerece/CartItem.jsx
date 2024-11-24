@@ -12,7 +12,7 @@ const CartItem = ({
 
   return (
     <div className="flex justify-between">
-      <div className="flex gap-6">
+      <div className="flex gap-6 flex-wrap md:flex-nowrap">
         <div
           className="relative shadow-[0px_0.76px_3.65px_0px_#0000000D] border border-[#E1E1E1] bg-[#F4F4F4] rounded-2xl p-8
         w-28 h-28 flex items-center justify-center  "

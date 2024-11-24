@@ -65,8 +65,8 @@ const ShoppingCart = () => {
             <SheetClose asChild>
               <Link
                 to="/checkout"
-                className=" w-full bg-custom-blue text-white rounded-[40px] flex items-center justify-center font-bold text-lg
-                py-[6px]"
+                className=" w-full bg-custom-blue text-white rounded-[40px] flex items-center justify-center font-bold text-sm md:text-lg
+                px-4 py-3 md:py-2 whitespace-nowrap"
               >
                 إتمام الشراء
               </Link>
