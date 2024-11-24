@@ -7,8 +7,7 @@ const CartItem = ({
   item,
   showItemsQuantity,
 }) => {
-  const { cartItems, addItemToCart, removeItemFromCart, decreaseItemQuantity } =
-    useCart();
+  const { addItemToCart, removeItemFromCart, decreaseItemQuantity } = useCart();
 
   return (
     <div className="flex justify-between">
