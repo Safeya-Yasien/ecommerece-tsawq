@@ -55,7 +55,7 @@ const Features = () => {
 
 const Feature = React.memo(({ iconSrc, title, description }) => {
   return (
-    <div className="flex gap-4">
+    <div className="flex gap-4 items-center lg:items-start">
       <div className="w-12">
         <img
           src={iconSrc}

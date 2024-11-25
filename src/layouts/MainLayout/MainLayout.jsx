@@ -1,7 +1,6 @@
 import { Outlet } from "react-router-dom";
 
 import { Header, Footer, ScrollToTop } from "@/components/common";
-import { Toaster } from "@/components/ui/toaster";
 
 const MainLayout = () => {
   return (
@@ -9,7 +8,6 @@ const MainLayout = () => {
       <ScrollToTop />
       <Header />
       <main className="">
-        <Toaster />
         <Outlet />
       </main>
       <Footer />
