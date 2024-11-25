@@ -25,7 +25,9 @@ const Home = () => {
           products={memoizedProductsList}
           showArrows={true}
           showLabel={true}
+          showCountdown={true}
         />
+
       </Suspense>
       <CategoriesCarousel />
       <Suspense fallback={"Loading..."}>
@@ -43,6 +45,7 @@ const Home = () => {
           products={memoizedPhonesList}
           showArrows={false}
           showLabel={false}
+
           buttonPosition={"-left-[15px]"}
         />
       </Suspense>

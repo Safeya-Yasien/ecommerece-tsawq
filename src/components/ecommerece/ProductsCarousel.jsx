@@ -12,7 +12,13 @@ import {
 import { GoArrowLeft } from "react-icons/go";
 import CountdownTimer from "../CountdownTimer/CountdownTimer";
 
-const ProductsCarousel = ({ title, products, showArrows, showLabel }) => {
+const ProductsCarousel = ({
+  title,
+  products,
+  showArrows,
+  showLabel,
+  showCountdown,
+}) => {
   const THREE_DAYS_IN_MS = 3 * 24 * 60 * 60 * 1000;
   const NOW_IN_MS = new Date().getTime();
 
@@ -23,7 +29,9 @@ const ProductsCarousel = ({ title, products, showArrows, showLabel }) => {
       <div className="flex items-center gap-3 flex-wrap lg:flex-nowrap">
         <CustomTitle title={title} />
         {/* countdown */}
-        <CountdownTimer targetDate={dateTimeAfterThreeDays} />
+        {showCountdown && (
+          <CountdownTimer targetDate={dateTimeAfterThreeDays} />
+        )}
       </div>
 
       <Carousel className="w-full relative">
