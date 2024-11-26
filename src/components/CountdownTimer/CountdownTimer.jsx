@@ -15,18 +15,13 @@ const ShowCounter = ({ hours, minutes, seconds }) => {
   return (
     <div className="flex items-center gap-2 ">
       <span className="text-custom-gray font-normal text-lg">ينتهي في</span>
-      <a
-        href="https://tapasadhikary.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex justify-center items-center gap-2   text-[#FF2C2C] "
-      >
+      <div className="flex justify-center items-center gap-2   text-[#FF2C2C] ">
         <DateTimeDisplay value={seconds} isDanger={false} />
         <p>:</p>
         <DateTimeDisplay value={minutes} isDanger={false} />
         <p>:</p>
         <DateTimeDisplay value={hours} isDanger={false} />
-      </a>
+      </div>
     </div>
   );
 };
