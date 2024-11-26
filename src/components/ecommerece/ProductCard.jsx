@@ -7,7 +7,7 @@ import { useCart } from "@/context/cart";
 import { useToast } from "@/hooks/use-toast";
 
 const ProductCard = ({ product, showLabel }) => {
-  const { addItemToCart } = useCart();
+  const { addItemToCart, openCartDrawer} = useCart();
 
   const { toast } = useToast();
 
@@ -28,21 +28,24 @@ const ProductCard = ({ product, showLabel }) => {
             خصم 50%
           </div>
         )}
-        <img
-          src={product.imgSrc}
-          alt={product.name}
-          loading="lazy"
-          className="object-cover w-full h-48 rounded-t-lg"
-        />
+        <div className="w-full h-48 overflow-hidden">
+          <img
+            src={product.imgSrc}
+            alt={product.name}
+            loading="lazy"
+            className="object-cover  rounded-t-lg w-full"
+          />
+        </div>
         <Button
           aria-label="Add to cart"
-          className={`absolute left-0 w-9 h-9 bg-custom-blue rounded-md text-white flex items-center justify-center hover:bg-custom-blue`}
+          className={`absolute left-0 w-9 h-9 !p-0 bg-custom-blue rounded-md text-white flex items-center justify-center hover:bg-custom-blue`}
           onClick={() => {
             addItemToCart(product);
             notifyAddedToCart();
+            openCartDrawer();
           }}
         >
-          <CiShoppingCart size={24} />
+          <CiShoppingCart className="!h-[30px] !w-[40px]" />
         </Button>
       </div>
 
@@ -50,7 +53,7 @@ const ProductCard = ({ product, showLabel }) => {
       <CardContent className="flex flex-col gap-4 p-4">
         <Link
           to={`/${product.id}`}
-          className="font-normal text-lg text-custom-gray line-clamp-2 h-14"
+          className="font-normal text-lg text-custom-gray line-clamp-2 h-14 w-full"
         >
           {product.name}
         </Link>

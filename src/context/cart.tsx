@@ -9,6 +9,14 @@ export const CartProvider = ({ children }) => {
       ? JSON.parse(localStorage.getItem("cartItems"))
       : []
   );
+  const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false);
+
+  const openCartDrawer = () => {
+    setIsCartDrawerOpen(true);
+  };
+  const closeCartDrawer = () => {
+    setIsCartDrawerOpen(false);
+  };
 
   const addItemToCart = (item) => {
     const isItemInCart = cartItems.find((cartItem) => cartItem.id === item.id);
@@ -80,6 +88,9 @@ export const CartProvider = ({ children }) => {
         removeItemFromCart,
         clearCart,
         getCartTotal,
+        isCartDrawerOpen,
+        openCartDrawer,
+        closeCartDrawer,
       }}
     >
       {children}
