@@ -21,7 +21,7 @@ const Header = () => {
     <header className="h-24 flex items-center justify-between md:border-b border-[#EBEEFF] px-4 md:px-12">
       <div className="flex items-center gap-4">
         {/* mobile menu */}
-        <MobileMenu navLinks={navLinks}/>
+        <MobileMenu navLinks={navLinks} />
         {/* logo */}
         <div className="h-full flex items-center ">
           <Logo isLogoWhite={false} />
@@ -39,14 +39,7 @@ const Header = () => {
 
       {/* icons */}
       <div className="flex items-center gap-4">
-        <button
-          className="text-[#5F6377] hover:text-custom-blue"
-          aria-label="Search"
-        >
-          <CiSearch size={24} />
-        </button>
-
-        <ShoppingCart/>
+        <ShoppingCart />
       </div>
     </header>
   );
