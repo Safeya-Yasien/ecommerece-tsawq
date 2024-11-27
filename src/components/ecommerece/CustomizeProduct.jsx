@@ -57,7 +57,7 @@ const CustomizeProduct = ({ item }) => {
         </div>
 
         {/* add to cart */}
-        <div className="flex flex-col-reverse sm:flex-row items-center gap-4">
+        <div className="flex flex-col-reverse sm:flex-row items-center gap-4  mt-8">
           <button
             className="ring-1 ring-[#ECECEC] bg-[#141D2E] px-6 w-full h-[49px] rounded-[61px] flex items-center justify-center
     text-white font-bold text-lg gap-1 flex-nowrap"
