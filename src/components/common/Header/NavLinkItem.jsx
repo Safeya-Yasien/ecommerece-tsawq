@@ -9,7 +9,7 @@ const NavLinkItem = ({ to, label, onclick }) => {
         className={({ isActive }) =>
           `text-lg ${
             isActive
-              ? "text-custom-blue "
+              ? "text-custom-blue font-bold"
               : "text-custom-gray  font-normal"
           }`
         }
