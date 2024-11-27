@@ -74,7 +74,7 @@ const ShoppingCart = () => {
           ))}
           <div
             className={
-              "flex items-center border-t border-t-[#E5E9F1] mt-4 pt-4 !justify-between text-[#3A4353] "
+              "flex items-center   !justify-between text-[#3A4353] "
             }
           >
             <span className="font-bold text-[16px] md:text-[20px]">

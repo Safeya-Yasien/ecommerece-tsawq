@@ -10,7 +10,7 @@ const CartItem = ({
   const { addItemToCart, removeItemFromCart, decreaseItemQuantity } = useCart();
 
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between border-b pb-4 border-t-[#E5E9F1]">
       <div className="flex gap-4  ">
         <div className="relative">
           {/* img */}
