@@ -40,7 +40,7 @@ const ThumbsGallery = ({ productImages, productName }) => {
           ))}
         </Swiper>
 
-{/* pagination */}
+        {/* pagination */}
         <div
           className="custom-prev absolute left-6 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer
             bg-white w-[32px] h-[32px] rounded-full shadow-[0px_4px_16.3px_0px_#0000001a]
