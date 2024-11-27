@@ -144,7 +144,7 @@ const Checkout = () => {
 
         {/* line */}
         <div className="border border-[#E5E9F1]  mt-4"></div>
-        {/* copoun */}
+        {/* coupon */}
         <div className="flex flex-col lg:flex-row items-center gap-6 ">
           <label className="sr-only" htmlFor="coupon-input">
             ادخل كوبون الخصم الخاص بك
