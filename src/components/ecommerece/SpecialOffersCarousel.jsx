@@ -10,8 +10,6 @@ import ipad from "../../assets/images/special_offers/ipad.webp";
 import smartScreen from "../../assets/images/special_offers/smart_screen.webp";
 import iphone from "../../assets/images/special_offers/iphone.webp";
 
-// handle responsive
-
 const SpecialOffersCarousel = () => {
   const offers = useMemo(() => [
     {
