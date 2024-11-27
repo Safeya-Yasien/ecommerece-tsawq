@@ -29,11 +29,14 @@ const ProductPage = () => {
   return (
     <div>
       <Breadcrumb />
-      <div className="px-12 py-8 flex flex-col gap-12">
+      <div className="px-4 md:px-12 mb-12 py-8 flex flex-col gap-12">
         <div className="flex flex-col justify-between lg:flex-row gap-8">
           {/* right side */}
           <div className="w-full lg:w-[50%]">
-            <ThumbsGallery productImages={product?.images || []} productName={product.name} />
+            <ThumbsGallery
+              productImages={product?.images || []}
+              productName={product.name}
+            />
             {/* <ThumbsGallery/> */}
           </div>
           {/* left side */}
@@ -73,7 +76,7 @@ const ProductPage = () => {
                 </div>
               </div>
             </div>
-            <CustomizeProduct item={product}/>
+            <CustomizeProduct item={product} />
 
             {/* divide line */}
             <div className="flex items-center gap-4 justify-center">
@@ -87,7 +90,7 @@ const ProductPage = () => {
             </div>
 
             {/* description */}
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-4">
               <h4 className="font-normal md:font-medium text-sm md:text-[20px] text-custom-gray">
                 تفاصيل عن المنتج:
               </h4>
