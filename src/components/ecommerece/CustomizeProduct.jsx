@@ -2,7 +2,11 @@ import { useCart } from "@/context/cart";
 import { CiShoppingCart } from "react-icons/ci";
 
 const CustomizeProduct = ({ item }) => {
-  const { addItemToCart, decreaseItemQuantity } = useCart();
+  const { cartItems, addItemToCart, decreaseItemQuantity, openCartDrawer } =
+    useCart();
+
+  const currentItem = cartItems.find((cartItem) => cartItem.id === item.id);
+  const quantity = currentItem ? currentItem.quantity : 1;
 
   return (
     <>
@@ -58,7 +62,10 @@ const CustomizeProduct = ({ item }) => {
             className="ring-1 ring-[#ECECEC] bg-[#141D2E] px-6 w-full h-[49px] rounded-[61px] flex items-center justify-center
     text-white font-bold text-lg gap-1 flex-nowrap"
             aria-label="أضف إلى السلة"
-            onClick={() => addItemToCart(item)}
+            onClick={() => {
+              addItemToCart(item);
+              openCartDrawer();
+            }}
           >
             <CiShoppingCart size={22} />
             <span>اضف الي السلة</span>
@@ -83,7 +90,7 @@ const CustomizeProduct = ({ item }) => {
               id="quantity-input"
               type="number"
               min={1}
-              value={item.quantity}
+              value={quantity}
               aria-label="عدد المنتجات"
               className="text-[#666666] font-medium text-lg outline-none border-none text-center h-full w-[91px]"
             />
