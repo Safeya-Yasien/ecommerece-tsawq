@@ -28,11 +28,11 @@ const ShoppingCart = () => {
 
   return (
     <Sheet
-      className="!w-[85%]"
+      className=""
       open={isCartDrawerOpen}
       onOpenChange={isCartDrawerOpen ? closeCartDrawer : openCartDrawer}
     >
-      <SheetTrigger asChild className="!w-[90%]">
+      <SheetTrigger asChild className="">
         <Button className="relative text-[#5F6377] bg-transparent hover:bg-transparent text-2xl hover:text-custom-blue">
           <CiShoppingCart size={24} className="!w-6 !h-6 " />
           <span
