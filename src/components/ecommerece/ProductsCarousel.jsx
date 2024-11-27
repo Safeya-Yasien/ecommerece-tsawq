@@ -31,10 +31,13 @@ const ProductsCarousel = ({
       nextEl: ".custom-next",
     },
     spaceBetween: 20,
-    slidesPerView: 2,
+    slidesPerView: 1,
     breakpoints: {
-      768: {
+      340: {
         slidesPerView: 2,
+      },
+      768: {
+        slidesPerView: 3,
       },
       1024: {
         slidesPerView: 5,
