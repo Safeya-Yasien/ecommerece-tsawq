@@ -14,6 +14,7 @@ export const CartProvider = ({ children }) => {
   const openCartDrawer = () => {
     setIsCartDrawerOpen(true);
   };
+
   const closeCartDrawer = () => {
     setIsCartDrawerOpen(false);
   };
