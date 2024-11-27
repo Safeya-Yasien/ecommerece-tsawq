@@ -11,8 +11,8 @@ import { Logo } from ".";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#141D2E]  text-white flex flex-col gap-16">
-      <div className="p-12">
+    <footer className="bg-[#141D2E]  text-white flex flex-col gap-4 md:gap-16">
+      <div className="p-4 md:p-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 lg:gap-10">
           {/* first col: logo */}
           <div className="col-span-12 lg:col-span-4 flex flex-col gap-8">
