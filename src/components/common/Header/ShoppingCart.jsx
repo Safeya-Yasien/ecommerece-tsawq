@@ -7,6 +7,7 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
+  SheetDescription,
   SheetFooter,
   SheetHeader,
   SheetTitle,
@@ -16,11 +17,19 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const ShoppingCart = () => {
-  const { cartItems, getCartTotal, isCartDrawerOpen, closeCartDrawer } =
-    useCart();
+  const {
+    cartItems,
+    getCartTotal,
+    isCartDrawerOpen,
+    openCartDrawer,
+    closeCartDrawer,
+  } = useCart();
 
   return (
-    <Sheet open={isCartDrawerOpen} onOpenChange={closeCartDrawer}>
+    <Sheet
+      open={isCartDrawerOpen}
+      onOpenChange={isCartDrawerOpen ? closeCartDrawer : openCartDrawer}
+    >
       <SheetTrigger asChild>
         <Button className="relative text-[#5F6377] bg-transparent hover:bg-transparent text-2xl hover:text-custom-blue">
           <CiShoppingCart size={24} className="!w-6 !h-6 " />
@@ -32,7 +41,7 @@ const ShoppingCart = () => {
           </span>
         </Button>
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent side="left">
         <SheetHeader className="border-b border-b-[#E5E9F1]">
           <SheetTitle>
             السلة{" "}
@@ -40,6 +49,9 @@ const ShoppingCart = () => {
               ( {cartItems.length})
             </span>
           </SheetTitle>
+          <SheetDescription className="sr-only">
+            هنا يمكنك مراجعة العناصر في سلتك وإتمام عملية الشراء.
+          </SheetDescription>
         </SheetHeader>
         <div className="grid gap-4 py-4">
           {cartItems.map((item) => (
