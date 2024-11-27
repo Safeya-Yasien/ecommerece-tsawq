@@ -6,7 +6,7 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import { Link } from "react-router-dom";
 
-import category from '../../assets/images/category.png'
+import category from "../../assets/images/category.png";
 
 const CategoriesCarousel = () => {
   const swiperSettings = {
@@ -91,7 +91,10 @@ const CategoriesCarousel = () => {
 
 const Category = memo(({ category }) => {
   return (
-    <div className="bg-[#F6F6F6] rounded-lg p-6 gap-2 flex flex-col items-center justify-center">
+    <Link
+      to={`/products-list/${category.name}`}
+      className="bg-[#F6F6F6] rounded-lg p-6 gap-2 flex flex-col items-center justify-center"
+    >
       <img
         src={category.imgSrc}
         alt={category.name}
@@ -104,7 +107,7 @@ const Category = memo(({ category }) => {
       >
         {category.name}
       </Link>
-    </div>
+    </Link>
   );
 });
 
