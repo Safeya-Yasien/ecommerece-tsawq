@@ -11,6 +11,18 @@ import {
 import { useParams } from "react-router-dom";
 import { categories } from "@/data/categories";
 
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+
 const ProductsList = () => {
   const { categoryName } = useParams();
 
@@ -48,10 +60,10 @@ const ProductsList = () => {
       {/* breadcrumb  */}
       <Breadcrumb currentPage="منتجاتنا" />
       {/* content */}
-      <div className="px-12 py-8 mb-24 flex justify-between gap-8">
+      <div className="px-4 md:px-12 py-8 mb-24 flex flex-col md:flex-row justify-between gap-8">
         {/* right: filter */}
-        <div className=" w-[20%] sticky top-0 right-0">
-          <div className="hidden lg:flex flex-col gap-6 shadow-[0px_4px_23.3px_0px_#0000000D] border border-[#EDEDED] p-8 rounded-2xl  ">
+        <div className="hidden lg:block  w-[20%] sticky top-0 right-0">
+          <div className="flex flex-col gap-6 shadow-[0px_4px_23.3px_0px_#0000000D] border border-[#EDEDED] p-8 rounded-2xl  ">
             <h2 className="text-custom-dark font-bold text-[20px] ">الاقسام</h2>
             <div className="flex flex-col gap-4">
               {memoizedCategories.map((category) => (
@@ -101,7 +113,7 @@ const ProductsList = () => {
 
               {/* seekBar */}
               <div className="flex items-center justify-center">
-                <label for="price" className="sr-only">
+                <label htmlFor="price" className="sr-only">
                   price (between 0 and 50):
                 </label>
                 <input
@@ -127,13 +139,16 @@ const ProductsList = () => {
 
         {/* left: products */}
         <div className="w-full lg:w-[80%] flex flex-col gap-8">
-          {/* title */}
+          {/* title & filter */}
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1">
-              <h2 className="text-custom-dark text-2xl font-medium">
+              <h2 className="text-custom-dark text-2xl font-medium text-[20px] md:text-[24px]">
                 قائمة المنتجات
               </h2>
-              <span className="text-[#767676] font-medium text-lg"> (230)</span>
+              <span className="text-[#767676] font-medium text-[14px] md:text-lg">
+                {" "}
+                (230)
+              </span>
             </div>
             <div className="hidden lg:flex items-center gap-2">
               <span className="font-normal text-[16px] text-[#5C5C5C]">
@@ -146,10 +161,47 @@ const ProductsList = () => {
                 <option className="">الاعلي تقييماً</option>
               </select>
             </div>
+
+            {/* filter */}
             <div className="lg:hidden flex items-center gap-2">
-              <button className="border-[1.08px] border-[#F4F4F4] w-[35px] h-[35px] rounded-lg bg-white shadow-[0px_4.33px_13px_0px_#0000000D] flex items-center justify-center">
-                <CiFilter size={20} color="#54585E" />
-              </button>
+              <div className="lg:hidden">
+                <Sheet>
+                  <SheetTrigger asChild>
+                    <button className="border-[1.08px] border-[#F4F4F4] w-[35px] h-[35px] rounded-lg bg-white shadow-[0px_4.33px_13px_0px_#0000000D] flex items-center justify-center">
+                      <CiFilter color="#54585E" />
+                    </button>
+                  </SheetTrigger>
+
+                  <SheetContent side="bottom">
+                    <h2 className="text-custom-dark font-bold text-2xl mb-4">
+                      الاقسام
+                    </h2>
+                    <div className="flex flex-col gap-4">
+                      {categories.map((category) => (
+                        <div
+                          className="flex items-center gap-2"
+                          key={category.id}
+                        >
+                          <input
+                            type="checkbox"
+                            id={category.name}
+                            checked={checkCategories.includes(category.name)}
+                            onChange={() => handleOnChange(category.name)}
+                            className="w-5 h-5"
+                          />
+                          <label
+                            htmlFor={category.name}
+                            className="text-gray-700"
+                          >
+                            {category.name}
+                          </label>
+                        </div>
+                      ))}
+                    </div>
+                  </SheetContent>
+                </Sheet>
+              </div>
+
               <button className="border-[1.08px] border-[#F4F4F4] w-[35px] h-[35px] rounded-lg bg-white shadow-[0px_4.33px_13px_0px_#0000000D] flex items-center justify-center">
                 <TbArrowsDownUp size={20} color="#54585E" />
               </button>
