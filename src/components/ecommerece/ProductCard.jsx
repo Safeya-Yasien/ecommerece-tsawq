@@ -7,7 +7,7 @@ import { useCart } from "@/context/cart";
 import { useToast } from "@/hooks/use-toast";
 
 const ProductCard = ({ product, showLabel }) => {
-  const { addItemToCart, openCartDrawer} = useCart();
+  const { addItemToCart, openCartDrawer } = useCart();
 
   const { toast } = useToast();
 
@@ -20,25 +20,28 @@ const ProductCard = ({ product, showLabel }) => {
   };
 
   return (
-    <Card className="bg-white shadow-[0px_4px_26.8px_0px_#0000000D] rounded-lg flex flex-col border-none">
+    <Card
+      className="bg-white shadow-[0px_4px_26.8px_0px_#0000000D] rounded-lg flex flex-col border-none
+    "
+    >
       {/* Image */}
-      <div className="p-8 mx-auto relative">
+      <div className="relative flex items-center justify-center w-full h-[300px]">
         {showLabel && (
           <div className="absolute top-2 right-2 text-white font-medium text-sm bg-[#FF2828] w-20 h-6 rounded-2xl flex items-center justify-center">
             خصم 50%
           </div>
         )}
-        <div className="w-full h-48 overflow-hidden">
+        <div className="w-[200px] h-[200px] overflow-hidden">
           <img
             src={product.imgSrc}
             alt={product.name}
             loading="lazy"
-            className="object-cover  rounded-t-lg w-full"
+            className="object-cover h-auto w-full "
           />
         </div>
         <Button
           aria-label="Add to cart"
-          className={`absolute left-0 w-9 h-9 !p-0 bg-custom-blue rounded-md text-white flex items-center justify-center hover:bg-custom-blue`}
+          className={`!absolute left-3 bottom-0 w-9 h-9 !p-0 bg-custom-blue rounded-md text-white flex items-center justify-center hover:bg-custom-blue`}
           onClick={() => {
             addItemToCart(product);
             notifyAddedToCart();
