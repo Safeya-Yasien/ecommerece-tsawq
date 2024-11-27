@@ -82,3 +82,7 @@ input::-webkit-inner-spin-button {
     --radius: 0.5rem;
   }
 }
+
+.scrollbar-hide::-webkit-scrollbar{
+display: none;
+}

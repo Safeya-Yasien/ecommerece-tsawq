@@ -3,14 +3,11 @@ import { memo, useMemo } from "react";
 
 import { GoArrowUpLeft } from "react-icons/go";
 
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
 import { CustomTitle } from "@components/ecommerece";
 
 import specialOffer from "../../assets/images/special-offer.png";
+
+// handle responsive
 
 const SpecialOffersCarousel = () => {
   const offers = useMemo(
@@ -52,27 +49,18 @@ const SpecialOffersCarousel = () => {
   return (
     <section className="flex flex-col gap-8">
       <CustomTitle title={"عروض خاصة"} />
-      <Carousel className="w-full relative">
-        <CarouselContent className="-ml-1 gap-[30px]">
-          {offers.map((offer, index) => (
-            <CarouselItem
-              key={offer.id || index}
-              className="pl-1 sm:basis-1/2 lg:basis-1/3 xl:basis-1/5"
-            >
-              <div className="p-1 ">
-                <Offer product={offer} />
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      </Carousel>
+      <div className="w-full relative overflow-x-auto scrollbar-hide flex items-center gap-5 ">
+        {offers.map((offer, index) => (
+          <Offer product={offer} key={offer.id || index} />
+        ))}
+      </div>
     </section>
   );
 };
 
 const Offer = memo(({ product }) => {
   return (
-    <div className="flex flex-col gap-2 bg-[#F6F6F6] rounded-md p-8 col-span-12 lg:col-span-3">
+    <div className="flex flex-col gap-2 bg-[#F6F6F6] rounded-md p-8 w-full sm:w-[50%] md:w-[33.3%] lg:w-[20%]">
       {/* info */}
       <div className="flex flex-col gap-3">
         <Link
@@ -93,12 +81,12 @@ const Offer = memo(({ product }) => {
         </a>
       </div>
       {/* img */}
-      <div className="">
+      <div className="w-[200px] h-[200px]">
         <img
           src={specialOffer}
           alt="special offers"
           loading="lazy"
-          className="object-cover"
+          className="object-cover w-full h-auto"
         />
       </div>
     </div>
