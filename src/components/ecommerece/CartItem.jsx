@@ -12,17 +12,19 @@ const CartItem = ({
   return (
     <div className="flex justify-between">
       <div className="flex gap-4  ">
-        {/* img */}
-        <div
-          className="relative overflow-hidden shadow-[0px_0.76px_3.65px_0px_#0000000D] border border-[#E1E1E1] bg-[#F4F4F4] rounded-2xl p-2
+        <div className="relative">
+          {/* img */}
+          <div
+            className=" overflow-hidden shadow-[0px_0.76px_3.65px_0px_#0000000D] border border-[#E1E1E1] bg-[#F4F4F4] rounded-2xl p-2
         w-[110px] h-[90px] flex items-center justify-center  "
-        >
-          <img
-            src={item.imgSrc}
-            alt={item.name}
-            loading="lazy"
-            className="w-full h-auto object-cover"
-          />
+          >
+            <img
+              src={item.imgSrc}
+              alt={item.name}
+              loading="lazy"
+              className="w-full h-auto object-cover"
+            />
+          </div>
           {/* show number of products */}
           {showItemsQuantity && (
             <span className="absolute -top-3 -right-2 text-white bg-[#D9D9D9] font-bold text-[22px] w-[27px] h-[27px] rounded-full flex items-center justify-center">
@@ -30,6 +32,7 @@ const CartItem = ({
             </span>
           )}
         </div>
+
         {/* info */}
         <div className="flex flex-col gap-4  ">
           <h2 className="font-medium text-xs md:text-[16px] text-[#505255] leading-[17px] md:leading-[22px]">
