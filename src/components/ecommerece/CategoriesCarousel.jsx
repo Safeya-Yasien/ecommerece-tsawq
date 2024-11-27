@@ -6,7 +6,11 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import { Link } from "react-router-dom";
 
-import category from "../../assets/images/category.png";
+import category_1 from "../../assets/images/category_1.webp";
+import category_2 from "../../assets/images/category_2.webp";
+import category_3 from "../../assets/images/apple-iphone.webp";
+import category_4 from "../../assets/images/category_4.webp";
+import category_5 from "../../assets/images/category_5.webp";
 
 const CategoriesCarousel = () => {
   const swiperSettings = {
@@ -37,37 +41,28 @@ const CategoriesCarousel = () => {
       {
         id: 1,
         name: "هواتف",
-        imgSrc: category,
+        imgSrc: category_1,
       },
       {
         id: 2,
         name: "لابتوب",
-        imgSrc: category,
+        imgSrc: category_2,
       },
       {
         id: 3,
         name: "تابليت",
-        imgSrc: category,
+        imgSrc: category_3,
       },
       {
         id: 4,
         name: "سماعات",
-        imgSrc: category,
+        imgSrc: category_4,
       },
+
       {
         id: 5,
-        name: "ايباد",
-        imgSrc: category,
-      },
-      {
-        id: 6,
         name: "لابتوب",
-        imgSrc: category,
-      },
-      {
-        id: 7,
-        name: "لابتوب",
-        imgSrc: category,
+        imgSrc: category_5,
       },
     ],
     []
@@ -93,14 +88,17 @@ const Category = memo(({ category }) => {
   return (
     <Link
       to={`/products-list/${category.name}`}
-      className="bg-[#F6F6F6] rounded-lg p-6 gap-2 flex flex-col items-center justify-center"
+      className="bg-[#F6F6F6] rounded-lg p-6 gap-2 flex flex-col items-center justify-around
+      h-[250px] "
     >
-      <img
-        src={category.imgSrc}
-        alt={category.name}
-        loading="lazy"
-        className="object-cover"
-      />
+      <div className="w-[150px] h-[150px] overflow-hidden">
+        <img
+          src={category.imgSrc}
+          alt={category.name}
+          loading="lazy"
+          className="object-cover w-full h-auto"
+        />
+      </div>
       <Link
         to={`/products-list/${category.name}`}
         className="text-custom-dark font-bold text-[20px]"

@@ -1,11 +1,14 @@
-import phoneSection from "../assets/images/phone-section.webp";
 import iphone from "../assets/images/apple-iphone.webp";
+
+import phone_1 from "../assets/images/phone_1.webp";
+import phone_2 from "../assets/images/phone_2.webp";
+import phone_3 from "../assets/images/phone_3.webp";
 import phone from "../assets/images/phone.webp";
 
 export const phonesList = [
   {
     id: 1,
-    imgSrc: phoneSection,
+    imgSrc: phone_1,
     name: "هواوي P40 برو 128 جيجا",
     price: 6500,
     originalPrice: 7000,
@@ -14,7 +17,7 @@ export const phonesList = [
   },
   {
     id: 2,
-    imgSrc: phoneSection,
+    imgSrc: iphone,
     name: "هواوي P40 برو 128 جيجا",
     price: 12000,
     originalPrice: 13000,
@@ -23,7 +26,7 @@ export const phonesList = [
   },
   {
     id: 3,
-    imgSrc: phoneSection,
+    imgSrc: phone,
     name: "هواوي P40 برو 128 جيجا",
     price: 9800,
     originalPrice: 10500,
@@ -32,7 +35,7 @@ export const phonesList = [
   },
   {
     id: 4,
-    imgSrc: phoneSection,
+    imgSrc: phone_2,
     name: "هواوي P40 برو 128 جيجا",
     price: 7400,
     originalPrice: 7800,
@@ -41,20 +44,11 @@ export const phonesList = [
   },
   {
     id: 5,
-    imgSrc: phoneSection,
+    imgSrc: phone_3,
     name: "هواوي P40 برو 128 جيجا",
     price: 5500,
     originalPrice: 6000,
     rating: 4.1,
-    category: "هواتف",
-  },
-  {
-    id: 6,
-    imgSrc: phoneSection,
-    name: "هواوي P40 برو 128 جيجا",
-    price: 6200,
-    originalPrice: 6600,
-    rating: 4.4,
     category: "هواتف",
   },
 ];
@@ -68,7 +62,7 @@ export const productsList = [
     originalPrice: 7000,
     rating: 4.2,
     category: "هواتف",
-    images: [phone, iphone, phoneSection, phone],
+    images: [phone, iphone, phone_1, phone],
   },
   {
     id: "2",
@@ -78,17 +72,17 @@ export const productsList = [
     originalPrice: 13000,
     rating: 4.8,
     category: "لابتوب",
-    images: [phone, iphone, phoneSection, iphone],
+    images: [phone, iphone, phone_1, iphone],
   },
   {
     id: "3",
-    imgSrc: phoneSection,
+    imgSrc: phone_1,
     name: "هواوي P40 برو 128 جيجا",
     price: 9800,
     originalPrice: 10500,
     rating: 4.5,
     category: "سماعات",
-    images: [phone, iphone, phoneSection, phone],
+    images: [phone, iphone, phone_1, phone],
   },
   {
     id: "4",
@@ -108,16 +102,16 @@ export const productsList = [
     originalPrice: 6000,
     rating: 4.1,
     category: "هواتف",
-    images: [phone, iphone, iphone, phoneSection],
+    images: [phone, iphone, iphone, phone_1],
   },
   {
     id: "6",
-    imgSrc: phoneSection,
+    imgSrc: phone_1,
     name: "ريلمي 8 برو 128 جيجا",
     price: 6200,
     originalPrice: 6600,
     rating: 4.4,
     category: "هواتف",
-    images: [phoneSection, iphone, iphone, phone],
+    images: [phone_1, iphone, iphone, phone],
   },
 ];

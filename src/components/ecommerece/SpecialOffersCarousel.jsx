@@ -11,32 +11,35 @@ import smartScreen from "../../assets/images/special_offers/smart_screen.webp";
 import iphone from "../../assets/images/special_offers/iphone.webp";
 
 const SpecialOffersCarousel = () => {
-  const offers = useMemo(() => [
-    {
-      id: 1,
-      name: "سماعات وايرلس",
-      imgSrc: headphone,
-      discount: 50,
-    },
-    {
-      id: 2,
-      name: "سماعات وايرلس",
-      imgSrc: ipad,
-      discount: 50,
-    },
-    {
-      id: 3,
-      name: "سماعات وايرلس",
-      imgSrc: smartScreen,
-      discount: 20,
-    },
-    {
-      id: 4,
-      name: "سماعات وايرلس",
-      imgSrc: iphone,
-      discount: 70,
-    },
-  ]);
+  const offers = useMemo(
+    () => [
+      {
+        id: 1,
+        name: "سماعات وايرلس",
+        imgSrc: headphone,
+        discount: 50,
+      },
+      {
+        id: 2,
+        name: "سماعات وايرلس",
+        imgSrc: ipad,
+        discount: 50,
+      },
+      {
+        id: 3,
+        name: "سماعات وايرلس",
+        imgSrc: smartScreen,
+        discount: 20,
+      },
+      {
+        id: 4,
+        name: "سماعات وايرلس",
+        imgSrc: iphone,
+        discount: 70,
+      },
+    ],
+    []
+  );
 
   return (
     <section className="flex flex-col gap-8">
