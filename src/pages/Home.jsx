@@ -19,7 +19,7 @@ const Home = () => {
     <div className="flex flex-col gap-12 px-6 md:px-12 md:py-9 pb-20">
       <Hero />
       <Features />
-      <Suspense fallback={"Loading..."}>
+      {/* <Suspense fallback={"Loading..."}> */}
         <ProductsCarousel
           title="خصم لفترة محدودة"
           products={memoizedProductsList}
@@ -28,7 +28,7 @@ const Home = () => {
           showCountdown={true}
         />
 
-      </Suspense>
+      {/* </Suspense> */}
       <CategoriesCarousel />
       <Suspense fallback={"Loading..."}>
         <ProductsCarousel
