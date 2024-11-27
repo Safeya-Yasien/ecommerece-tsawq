@@ -18,8 +18,8 @@ export function Hero() {
       <SwiperSlide className="relative ">
         <div className="bg-[#F8F9FF] p-6 relative z-20">
           {/* before & after */}
-          <div className="absolute -left-[150px] -top-[250px] border-[60px] bg-transparent border-[#EAEDFF]  w-[635px] h-[635px] rounded-full -z-10"></div>
-          <div className="absolute -right-[200px] -bottom-[500px] border-[60px] bg-transparent border-[#EAEDFF]  w-[635px] h-[635px] rounded-full -z-10"></div>
+          <div className="hidden md:block  absolute -left-[150px] -top-[250px] border-[60px] bg-transparent border-[#EAEDFF]  w-[635px] h-[635px] rounded-full -z-10"></div>
+          <div className="hidden md:block  absolute -right-[200px] -bottom-[500px] border-[60px] bg-transparent border-[#EAEDFF]  w-[635px] h-[635px] rounded-full -z-10"></div>
 
           <div className="sm:!flex items-center justify-between h-full">
             <div className="flex flex-col gap-4 flex-1">
@@ -35,7 +35,7 @@ export function Hero() {
                 </span>
               </div>
 
-              <h1 className="font-bold text-lg md:text-[50px] text-custom-dark leading-[75px]">
+              <h1 className="font-bold text-lg md:text-[50px] text-custom-dark md:leading-[75px]">
                 تشكيلة من سماعات الرأس اللاسلكية للالعاب
               </h1>
               <p className="text-lg text-[#787878] font-normal">
@@ -63,11 +63,11 @@ export function Hero() {
         </div>
       </SwiperSlide>
 
-      <SwiperSlide className="relative overflow-hidden ">
+      <SwiperSlide className="relative ">
         <div className="bg-[#F8F9FF] p-6 relative z-20">
           {/* before & after */}
-          <div className="absolute -left-[150px] -top-[250px] border-[60px] bg-transparent border-[#EAEDFF]  w-[635px] h-[635px] rounded-full -z-10"></div>
-          <div className="absolute -right-[200px] -bottom-[500px] border-[60px] bg-transparent border-[#EAEDFF]  w-[635px] h-[635px] rounded-full -z-10"></div>
+          <div className="hidden md:block  absolute -left-[150px] -top-[250px] border-[60px] bg-transparent border-[#EAEDFF]  w-[635px] h-[635px] rounded-full -z-10"></div>
+          <div className="hidden md:block  absolute -right-[200px] -bottom-[500px] border-[60px] bg-transparent border-[#EAEDFF]  w-[635px] h-[635px] rounded-full -z-10"></div>
 
           <div className="sm:!flex items-center justify-between h-full">
             <div className="flex flex-col gap-4 flex-1">
@@ -83,7 +83,7 @@ export function Hero() {
                 </span>
               </div>
 
-              <h1 className="font-bold text-lg md:text-[50px] text-custom-dark leading-[75px]">
+              <h1 className="font-bold text-lg md:text-[50px] text-custom-dark md:leading-[75px]">
                 تشكيلة من سماعات الرأس اللاسلكية للالعاب
               </h1>
               <p className="text-lg text-[#787878] font-normal">
