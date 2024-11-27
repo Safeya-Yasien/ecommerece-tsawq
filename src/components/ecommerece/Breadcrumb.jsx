@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Breadcrumb = ({ currentPage }) => {
   return (
-    <div className="bg-[#F5F5F5]  h-[54px] w-full px-12 ">
+    <div className="bg-[#F5F5F5]  h-[54px] w-full px-4 md:px-12 ">
       <div className="flex items-center justify-between h-full">
         <div className="flex gap-4">
           <Link to="/" className="text-[#767676] font-normal text-[16px]">
