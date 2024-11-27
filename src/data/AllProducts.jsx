@@ -1,6 +1,6 @@
-import phoneSection from "../assets/images/phone-section.png";
-import iphone from "../assets/images/apple-iphone.png";
-import phone from "../assets/images/phone.png";
+import phoneSection from "../assets/images/phone-section.webp";
+import iphone from "../assets/images/apple-iphone.webp";
+import phone from "../assets/images/phone.webp";
 
 export const phonesList = [
   {

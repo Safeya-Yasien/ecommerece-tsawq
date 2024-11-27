@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import thankyou from "../assets/images/Confirmed-cuate 1.svg";
-import phone from "../assets/images/apple-iphone.png";
+import phone from "../assets/images/apple-iphone.webp";
 import { CartItem } from "@/components/ecommerece";
 import { useCart } from "@/context/cart";
 
