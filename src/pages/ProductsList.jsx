@@ -46,78 +46,85 @@ const ProductsList = () => {
   return (
     <>
       {/* breadcrumb  */}
-      <Breadcrumb currentPage="منتجاتنا" /> 
+      <Breadcrumb currentPage="منتجاتنا" />
       {/* content */}
-      <div className="px-12 py-8 flex justify-between gap-8">
+      <div className="px-12 py-8 mb-24 flex justify-between gap-8">
         {/* right: filter */}
-        <div className="hidden lg:flex flex-col gap-6 w-[20%] shadow-[0px_4px_23.3px_0px_#0000000D] border border-[#EDEDED] p-8 rounded-2xl  ">
-          <h2 className="text-custom-dark font-bold text-[20px] ">الاقسام</h2>
-          <div className="flex flex-col gap-4">
-            {memoizedCategories.map((category) => (
-              <div
-                className="flex items-center gap-2 relative"
-                key={category.id}
-              >
-                <input
-                  type="checkbox"
-                  id={category.name}
-                  checked={checkCategories.includes(category.name)}
-                  name={category.name}
-                  onChange={() => handleOnChange(category.name)}
-                  className="w-[21px] h-[21px] border border-[#6D6D6D] rounded-lg!  cursor-pointer"
-                />
-                <label
-                  htmlFor={category.name}
-                  className="font-normal text-[16px] text-[#5C5C5C] relative  cursor-pointer"
+        <div className=" w-[20%] sticky top-0 right-0">
+          <div className="hidden lg:flex flex-col gap-6 shadow-[0px_4px_23.3px_0px_#0000000D] border border-[#EDEDED] p-8 rounded-2xl  ">
+            <h2 className="text-custom-dark font-bold text-[20px] ">الاقسام</h2>
+            <div className="flex flex-col gap-4">
+              {memoizedCategories.map((category) => (
+                <div
+                  className="flex items-center gap-2 relative"
+                  key={category.id}
                 >
-                  {category.name}
-                </label>
-              </div>
-            ))}
-          </div>
-          <div className="border border-[#EEEEEE] w-full" />
-          {/* price */}
-          <div className="flex flex-col gap-6">
-            <h2 className="text-custom-dark font-bold text-[20px] ">السعر</h2>
-            <div className="flex items-center justify-between gap-8">
-              <div className="flex flex-col p-2 flex-1 rounded-lg border border-[#EAEAEA]">
-                <span className="font-normal text-[12px] text-[#454545] ">
-                  من
-                </span>
-                <p className="font-medium text-[16px] text-[#454545] ">600ج</p>
-              </div>
-              <div className="flex flex-col p-2 flex-1 rounded-lg border border-[#EAEAEA]">
-                <span className="font-normal text-[12px] text-[#454545] ">
-                  حتي
-                </span>
-                <p className="font-medium text-[16px] text-[#454545] ">6500ج</p>
-              </div>
+                  <input
+                    type="checkbox"
+                    id={category.name}
+                    checked={checkCategories.includes(category.name)}
+                    name={category.name}
+                    onChange={() => handleOnChange(category.name)}
+                    className="w-[21px] h-[21px] border border-[#6D6D6D] rounded-lg!  cursor-pointer"
+                  />
+                  <label
+                    htmlFor={category.name}
+                    className="font-normal text-[16px] text-[#5C5C5C] relative  cursor-pointer"
+                  >
+                    {category.name}
+                  </label>
+                </div>
+              ))}
             </div>
+            <div className="border border-[#EEEEEE] w-full" />
+            {/* price */}
+            <div className="flex flex-col gap-6">
+              <h2 className="text-custom-dark font-bold text-[20px] ">السعر</h2>
+              <div className="flex items-center justify-between gap-8">
+                <div className="flex flex-col p-2 flex-1 rounded-lg border border-[#EAEAEA]">
+                  <span className="font-normal text-[12px] text-[#454545] ">
+                    من
+                  </span>
+                  <p className="font-medium text-[16px] text-[#454545] ">
+                    600ج
+                  </p>
+                </div>
+                <div className="flex flex-col p-2 flex-1 rounded-lg border border-[#EAEAEA]">
+                  <span className="font-normal text-[12px] text-[#454545] ">
+                    حتي
+                  </span>
+                  <p className="font-medium text-[16px] text-[#454545] ">
+                    6500ج
+                  </p>
+                </div>
+              </div>
 
-            {/* seekBar */}
-            <div className="flex items-center justify-center">
-              <label for="price" className="sr-only">
-                price (between 0 and 50):
-              </label>
-              <input
-                type="range"
-                id="price"
-                name="price"
-                min="0"
-                max="50"
-                dir="ltr"
-              />
-              <input
-                type="range"
-                id="price"
-                name="price"
-                min="0"
-                max="50"
-                dir="rtl"
-              />{" "}
+              {/* seekBar */}
+              <div className="flex items-center justify-center">
+                <label for="price" className="sr-only">
+                  price (between 0 and 50):
+                </label>
+                <input
+                  type="range"
+                  id="price"
+                  name="price"
+                  min="0"
+                  max="50"
+                  dir="ltr"
+                />
+                <input
+                  type="range"
+                  id="price"
+                  name="price"
+                  min="0"
+                  max="50"
+                  dir="rtl"
+                />{" "}
+              </div>
             </div>
           </div>
         </div>
+
         {/* left: products */}
         <div className="w-full lg:w-[80%] flex flex-col gap-8">
           {/* title */}
