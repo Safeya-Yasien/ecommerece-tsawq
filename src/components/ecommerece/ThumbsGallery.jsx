@@ -50,10 +50,10 @@ const ThumbsGallery = ({ productImages, productName }) => {
         </div>
         <div
           className="custom-next absolute right-6 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer
-            bg-white w-[32px] h-[32px] rounded-full shadow-[0px_4px_16.3px_0px_#0000001a]
+            bg-custom-blue w-[32px] h-[32px] rounded-full shadow-[0px_4px_16.3px_0px_#0000001a]
               flex items-center justify-center "
         >
-          <IoIosArrowRoundForward size={20} color="#C6C6C6" />
+          <IoIosArrowRoundForward size={20} color="#fff" />
         </div>
       </div>
 

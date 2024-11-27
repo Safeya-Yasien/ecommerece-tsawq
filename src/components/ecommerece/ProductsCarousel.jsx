@@ -11,6 +11,7 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import { FreeMode, Navigation } from "swiper/modules";
+import { useRef } from "react";
 
 const ProductsCarousel = ({
   title,
@@ -45,6 +46,20 @@ const ProductsCarousel = ({
     },
   };
 
+  const swiperRef = useRef(null);
+
+  const goToNextSlide = () => {
+    if (swiperRef.current) {
+      swiperRef.current.swiper.slideNext();
+    }
+  };
+
+  const goToPrevSlide = () => {
+    if (swiperRef.current) {
+      swiperRef.current.swiper.slidePrev();
+    }
+  };
+
   return (
     <section className="flex flex-col gap-8 relative">
       <div className="flex items-center gap-6 flex-wrap lg:flex-nowrap">
@@ -52,9 +67,42 @@ const ProductsCarousel = ({
         {showCountdown && (
           <CountdownTimer targetDate={dateTimeAfterThreeDays} />
         )}
+
+        {showArrows ? (
+          <>
+            <div
+              className="custom-prev absolute left-6 z-10 cursor-pointer
+                   bg-white w-[32px] h-[32px] rounded-full shadow-[0px_4px_16.3px_0px_#0000001a]
+                     flex items-center justify-center "
+            >
+              <IoIosArrowRoundBack size={20} color="#C6C6C6" />
+            </div>
+            <div
+              className="custom-next absolute left-20 z-10 cursor-pointer
+                  bg-custom-blue text-white w-[32px] h-[32px] rounded-full shadow-[0px_4px_16.3px_0px_#0000001a]
+                     flex items-center justify-center "
+            >
+              <IoIosArrowRoundForward size={20} color="#fff" />
+            </div>
+          </>
+        ) : (
+          <Link
+            to=""
+            className="flex items-center text-custom-blue gap-1 underline absolute left-0 "
+          >
+            عرض المزيد{" "}
+            <span>
+              <GoArrowLeft />
+            </span>
+          </Link>
+        )}
       </div>
 
-      <Swiper {...swiperSettings} className="w-full h-full !py-4 !pr-1">
+      <Swiper
+        {...swiperSettings}
+        ref={swiperRef}
+        className="w-full h-full !py-4 !pr-1"
+      >
         {products.map((product) => (
           <SwiperSlide key={product.id}>
             <ProductCard
@@ -64,34 +112,6 @@ const ProductsCarousel = ({
             />{" "}
           </SwiperSlide>
         ))}
-        {showArrows ? (
-          <>
-            <div
-              className="custom-prev absolute left-6 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer
-                   bg-white w-[32px] h-[32px] rounded-full shadow-[0px_4px_16.3px_0px_#0000001a]
-                     flex items-center justify-center "
-            >
-              <IoIosArrowRoundBack size={20} color="#C6C6C6" />
-            </div>
-            <div
-              className="custom-next absolute right-6 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer
-                   bg-white w-[32px] h-[32px] rounded-full shadow-[0px_4px_16.3px_0px_#0000001a]
-                     flex items-center justify-center "
-            >
-              <IoIosArrowRoundForward size={20} color="#C6C6C6" />
-            </div>
-          </>
-        ) : (
-          <Link
-            to=""
-            className="flex items-center text-custom-blue gap-1 underline absolute left-0 -top-[53px] transform -translate-y-1/2"
-          >
-            عرض المزيد{" "}
-            <span>
-              <GoArrowLeft />
-            </span>
-          </Link>
-        )}
       </Swiper>
     </section>
   );
