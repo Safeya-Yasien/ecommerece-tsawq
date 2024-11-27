@@ -3,19 +3,12 @@ import { Link } from "react-router-dom";
 
 const Logo = ({ isLogoWhite }) => {
   return (
-    <Link to="/" className="flex items-center gap-2">
+    <Link to="/" className="flex items-center gap-2 w-[130px] h-[50px]">
       <img
-        src="/logo.svg"
+        src={isLogoWhite ? "/white-logo.svg" : "/black-logo.svg"}
         alt="شعار موقع تسوق"
-        className="w-[41px] h-[41px] "
+        className=" "
       />
-      <span
-        className={`font-bold text-[30px] ${
-          isLogoWhite ? "text-white" : "text-custom-dark"
-        }`}
-      >
-        تسوق
-      </span>
     </Link>
   );
 };
