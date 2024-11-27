@@ -149,18 +149,18 @@ const Checkout = () => {
           <label className="sr-only" htmlFor="coupon-input">
             ادخل كوبون الخصم الخاص بك
           </label>
-          <div className="relative flex-1 ">
+          <div className="relative w-full">
             <input
               type="number"
               id="coupon-input"
-              className="bg-[#F1F2F3] rounded-xl p-4 w-full lg:w-fit outline-none relative pr-[30px]"
+              className="bg-[#F1F2F3] rounded-xl p-4 w-full  outline-none  pr-[50px]"
               placeholder="ادخل كوبون الخصم الخاص بك"
               aria-label="حقل إدخال كوبون الخصم"
             />
             <RiCoupon3Line
               width={24}
               color="#A1A2A5"
-              className="absolute right-2 top-1/2 -translate-y-1/2 -mt-1"
+              className="absolute right-5 top-1/2 -translate-y-1/2 mt-[3px]"
             />
           </div>
           <button
