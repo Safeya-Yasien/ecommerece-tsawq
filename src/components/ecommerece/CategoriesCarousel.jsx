@@ -99,12 +99,9 @@ const Category = memo(({ category }) => {
           className="object-cover w-full h-auto"
         />
       </div>
-      <Link
-        to={`/products-list/${category.name}`}
-        className="text-custom-dark font-bold text-[20px]"
-      >
+      <h2 className="text-custom-dark font-bold text-[20px]">
         {category.name}
-      </Link>
+      </h2>
     </Link>
   );
 });
