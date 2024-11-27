@@ -12,7 +12,7 @@ const ThumbsGallery = ({ productImages, productName }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
-    <div className="">
+    <div className="sticky top-0">
       <div className="border border-[#F6F6F6] shadow-[0px_4px_19.3px_0px_#0000000D] rounded-2xl p-12 relative">
         <Swiper
           spaceBetween={10}
