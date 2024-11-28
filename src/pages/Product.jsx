@@ -49,11 +49,16 @@ const ProductPage = () => {
               <ul className="flex items-center gap-2">
                 {Array.from({ length: 5 }, (_, index) => (
                   <li key={index}>
-                    <FaStar color={index < 4 ? "#FFAF13" : "#DBDBDB"} size={17} />
+                    <FaStar
+                      color={index < 4 ? "#FFAF13" : "#DBDBDB"}
+                      size={17}
+                    />
                   </li>
                 ))}
               </ul>
-              <span className="text-[#808080] font-normal text-lg">(بناء علي 45 تقييم)</span>
+              <span className="text-[#808080] font-normal text-lg">
+                (بناء علي 45 تقييم)
+              </span>
             </div>
             <div className="flex flex-col gap-4">
               <h2 className="text-custom-gray text-lg md:text-3xl font-medium">
@@ -71,7 +76,10 @@ const ProductPage = () => {
                 </div>
               </div>
             </div>
-            <CustomizeProduct item={product} onCustomizationChange={handleCustomizationChange} />
+            <CustomizeProduct
+              item={product}
+              onCustomizationChange={handleCustomizationChange}
+            />
             <div className="flex items-center gap-4 justify-center">
               <div className="border border-[#CACFE1] w-[266px]"></div>
               <span className="font-normal text-lg border-[#6E768F] ">او</span>

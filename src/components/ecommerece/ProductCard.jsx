@@ -55,7 +55,7 @@ const ProductCard = ({ product, showLabel }) => {
       {/* Product Info */}
       <CardContent className="flex flex-col gap-4 p-4">
         <Link
-          to={`/${product.id}`}
+          to={`/products-list/${product.id}`}
           className="font-normal text-lg text-custom-gray line-clamp-2 h-14 w-full"
         >
           {product.name}
