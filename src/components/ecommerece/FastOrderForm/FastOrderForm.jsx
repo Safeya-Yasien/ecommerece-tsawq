@@ -1,18 +1,19 @@
 import { IoFlash } from "react-icons/io5";
-
 import OfferTitle from "./OfferTitle";
 import { UserInfoInputs } from "../UserInfoForm";
 import { OfferOptions } from "..";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const FastOrderForm = () => {
+  const [selectedOfferId, setSelectedOfferId] = useState(1);
+
   const productOffers = [
     {
       id: 1,
       label: "منتج واحد فقط",
       price: 6500,
       originalPrice: 7000,
-      isSelected: true,
     },
     {
       id: 2,
@@ -28,6 +29,10 @@ const FastOrderForm = () => {
     },
   ];
 
+  const handleOfferSelect = (offerId) => {
+    setSelectedOfferId(offerId);
+  };
+
   return (
     <form className="flex flex-col gap-6">
       <OfferTitle
@@ -39,7 +44,11 @@ const FastOrderForm = () => {
 
       <OfferTitle title={"عروض التوفير"} icon={IoFlash} />
 
-      <OfferOptions offers={productOffers} />
+      <OfferOptions
+        offers={productOffers}
+        selectedOfferId={selectedOfferId}
+        onOfferSelect={handleOfferSelect}
+      />
 
       <div className="ring-1 ring-[#E5E9F1] w-full mt-2"></div>
       <div className="flex items-center justify-between">
@@ -57,4 +66,5 @@ const FastOrderForm = () => {
     </form>
   );
 };
+
 export default FastOrderForm;

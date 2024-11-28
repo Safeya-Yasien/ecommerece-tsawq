@@ -1,6 +1,5 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Suspense, useEffect, useMemo, useState } from "react";
-
 import { FaStar } from "react-icons/fa";
 
 import {
@@ -17,18 +16,24 @@ import { phonesList, productsList } from "@/data/AllProducts";
 
 const ProductPage = () => {
   const [product, setProduct] = useState({});
+  const { productId } = useParams();
+  const navigate = useNavigate();
 
   const memoizedPhonesList = useMemo(() => phonesList, []);
-
-  const { productId } = useParams();
 
   useEffect(() => {
     setProduct(productsList.find((p) => p.id === productId));
   }, [productId]);
 
+  const handleCustomizationChange = (key, value) => {
+    const newSearchParams = new URLSearchParams(window.location.search);
+    newSearchParams.set(key, value);
+    navigate(`?${newSearchParams.toString()}`, { replace: true });
+  };
+
   return (
     <div>
-      <Breadcrumb />
+      <Breadcrumb currentPage={`${product.name}`} />
       <div className="px-4 md:px-12 mb-12 py-8 flex flex-col gap-12">
         <div className="flex flex-col justify-between lg:flex-row gap-8">
           {/* right side */}
@@ -37,35 +42,25 @@ const ProductPage = () => {
               productImages={product?.images || []}
               productName={product.name}
             />
-            {/* <ThumbsGallery/> */}
           </div>
           {/* left side */}
           <div className="w-full lg:w-[50%] flex flex-col gap-6 border border-[#F6F6F6] shadow-[0px_4px_19.3px_0px_#0000000D] rounded-2xl p-4 md:p-8">
-            {/* rating */}
             <div className="flex items-center gap-2">
               <ul className="flex items-center gap-2">
                 {Array.from({ length: 5 }, (_, index) => (
                   <li key={index}>
-                    {index < 5 - 1 ? (
-                      <FaStar color="#FFAF13" size={17} />
-                    ) : (
-                      <FaStar color="#DBDBDB" size={17} />
-                    )}
+                    <FaStar color={index < 4 ? "#FFAF13" : "#DBDBDB"} size={17} />
                   </li>
                 ))}
               </ul>
-              <span className="text-[#808080] font-normal text-lg">
-                (بناء علي 45 تقييم)
-              </span>
+              <span className="text-[#808080] font-normal text-lg">(بناء علي 45 تقييم)</span>
             </div>
-
-            {/* title + price */}
             <div className="flex flex-col gap-4">
               <h2 className="text-custom-gray text-lg md:text-3xl font-medium">
-                {product.name}{" "}
+                {product.name}
               </h2>
               <div className="flex items-center gap-6 leading-[25px]">
-                <p className="text-custom-dark font-bold text-[20px] md:text-[32px] ">
+                <p className="text-custom-dark font-bold text-[20px] md:text-[32px]">
                   {product.price}ج
                   <span className="pr-1 line-through text-[#808080] font-normal text-xs md:text-[22px]">
                     {product.originalPrice}ج
@@ -76,33 +71,21 @@ const ProductPage = () => {
                 </div>
               </div>
             </div>
-            <CustomizeProduct item={product} />
-
-            {/* divide line */}
+            <CustomizeProduct item={product} onCustomizationChange={handleCustomizationChange} />
             <div className="flex items-center gap-4 justify-center">
               <div className="border border-[#CACFE1] w-[266px]"></div>
               <span className="font-normal text-lg border-[#6E768F] ">او</span>
               <div className="border border-[#CACFE1] w-[266px]"></div>
             </div>
-
-            <div className="flex flex-col gap-6">
-              <FastOrderForm />
-            </div>
-
-            {/* description */}
+            <FastOrderForm />
             <div className="flex flex-col gap-4">
               <h4 className="font-normal md:font-medium text-sm md:text-[20px] text-custom-gray">
                 تفاصيل عن المنتج:
               </h4>
               <p className="text-[#787878] font-normal text-lg leading-[26px]">
-                آيفون 15 برو ماكس، سعة 256 جيجابايت، تيتانيوم طبيعي، 5G مع تطبيق
-                FaceTime - إصدار الشرق آيفون 15 برو ماكس، سعة 256 جيجابايت،
-                تيتانيوم طبيعي، 5G مع تطبيق FaceTime - إصدار الشرق آيفون 15 برو
-                ماكس، سعة 256 جيجابايت، تيتانيوم طبيعي، 5G مع تطبيق FaceTime -
-                إصدار الشرق الأوسط
+                {product.description}
               </p>
             </div>
-
             <PaymentPolicyAccordion />
           </div>
         </div>
@@ -114,7 +97,7 @@ const ProductPage = () => {
             showArrows={true}
             showLabel={false}
           />
-        </Suspense>{" "}
+        </Suspense>
       </div>
     </div>
   );
