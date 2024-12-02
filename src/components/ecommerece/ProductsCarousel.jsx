@@ -78,7 +78,7 @@ const ProductsCarousel = ({
               <IoIosArrowRoundBack size={20} color="#C6C6C6" />
             </div>
             <div
-              className="custom-next absolute left-20 z-10 cursor-pointer
+              className="custom-next absolute left-16 z-10 cursor-pointer
                   bg-custom-blue text-white w-[32px] h-[32px] rounded-full shadow-[0px_4px_16.3px_0px_#0000001a]
                      !flex items-center justify-center "
             >

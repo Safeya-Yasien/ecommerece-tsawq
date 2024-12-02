@@ -43,7 +43,7 @@ export function Hero() {
                 للالعاب. عروض وخصومات في انتظارك
               </p>
               <button
-                className="bg-custom-blue text-white rounded-3xl font-bold text-xs md:text-lg leading-[26px] w-[121px] h-[43px]"
+                className="bg-custom-blue text-white rounded-md font-bold text-xs md:text-lg leading-[26px] w-[121px] h-[43px]"
                 aria-label="اطلب الان"
               >
                 أطلب الان
