@@ -31,7 +31,7 @@ const CustomizeProduct = ({ item, onCustomizationChange }) => {
             <li
               key={size}
               onClick={() => handleSizeClick(size)}
-              className={`px-5 py-1 cursor-pointer rounded-lg font-medium text-xs md:text-lg ${
+              className={` w-[100px] h-[45px] flex items-center justify-center cursor-pointer rounded-lg font-medium text-xs md:text-lg ${
                 selectedSize === size
                   ? "ring-2 ring-custom-blue text-custom-blue"
                   : "ring-1 ring-[#CFD7E5] text-[#6E768F]"
@@ -51,7 +51,7 @@ const CustomizeProduct = ({ item, onCustomizationChange }) => {
             <li
               key={color}
               onClick={() => handleColorClick(color)}
-              className={`px-5 py-1 cursor-pointer rounded-lg font-medium text-xs md:text-lg ${
+              className={`w-[100px] h-[45px] flex items-center justify-center cursor-pointer rounded-lg font-medium text-xs md:text-lg ${
                 selectedColor === color
                   ? "ring-2 ring-custom-blue text-custom-blue"
                   : "ring-1 ring-[#CFD7E5] text-[#6E768F]"
