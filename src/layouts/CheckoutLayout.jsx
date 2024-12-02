@@ -9,7 +9,7 @@ const CheckoutLayout = () => {
 
       <CheckoutHeader />
 
-      <main className="px-12 pt-6 pb-24">
+      <main className="px-4 md:px-12 pt-6 pb-24">
         <Outlet />
       </main>
 
