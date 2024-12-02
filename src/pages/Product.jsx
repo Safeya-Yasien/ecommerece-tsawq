@@ -16,6 +16,7 @@ import { phonesList, productsList } from "@/data/AllProducts";
 
 const ProductPage = () => {
   const [product, setProduct] = useState({});
+
   const { productId } = useParams();
   const navigate = useNavigate();
 
