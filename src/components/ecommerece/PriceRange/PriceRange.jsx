@@ -18,24 +18,24 @@ const PriceRange = () => {
     <div className="flex flex-col gap-6">
       <h2 className="text-custom-dark font-bold text-[20px]">السعر</h2>
       <div className="flex items-center justify-between gap-4">
-        <div className="flex flex-col items-center flex-1">
+        <div className="flex flex-col flex-1 border border-[#EAEAEA] rounded-lg px-2 py-1">
           <label className="font-normal text-[12px] text-[#454545]">من</label>
           <input
             type="number"
             value={minPrice}
             onChange={handleMinChange}
-            className="w-full px-2 py-1 text-center border border-[#EAEAEA] rounded-lg"
+            className="w-full outline-none"
             min={0}
             max={maxPrice - 100}
           />
         </div>
-        <div className="flex flex-col items-center flex-1">
+        <div className="flex flex-col flex-1 border border-[#EAEAEA] rounded-lg px-2 py-1">
           <label className="font-normal text-[12px] text-[#454545]">حتي</label>
           <input
             type="number"
             value={maxPrice}
             onChange={handleMaxChange}
-            className="w-full px-2 py-1 text-center border border-[#EAEAEA] rounded-lg"
+            className="w-full  outline-none"
             min={minPrice + 100}
             max={10000}
           />
