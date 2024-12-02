@@ -98,7 +98,7 @@ const Checkout = () => {
             {offers.map((offer) => (
               <div
                 key={offer.id}
-                onClick={() => handleOfferClick(offer.id)} // Click event to select offer
+                onClick={() => handleOfferClick(offer.id)} 
                 className={`rounded-lg cursor-pointer ${
                   offer.id === selectedOfferId
                     ? "border-2 border-custom-blue"
