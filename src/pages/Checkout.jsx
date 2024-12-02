@@ -93,12 +93,14 @@ const Checkout = () => {
 
         {/* Payment Options */}
         <div className="flex flex-col gap-4 border border-[#F0F3F6] shadow-lg rounded-3xl p-8">
-          <h2 className="text-[#252534] font-bold text-[26px]">اختر طريقة الدفع</h2>
+          <h2 className="text-[#252534] font-bold text-[26px]">
+            اختر طريقة الدفع
+          </h2>
           <div className="flex flex-col gap-6">
             {offers.map((offer) => (
               <div
                 key={offer.id}
-                onClick={() => handleOfferClick(offer.id)} 
+                onClick={() => handleOfferClick(offer.id)}
                 className={`rounded-lg cursor-pointer ${
                   offer.id === selectedOfferId
                     ? "border-2 border-custom-blue"
@@ -145,7 +147,7 @@ const Checkout = () => {
         <div className="border border-[#E5E9F1] mt-4"></div>
 
         {/* Coupon Section */}
-        <div className="flex flex-col lg:flex-row items-center gap-6">
+        <div className="flex flex-row items-center gap-6">
           <label className="sr-only" htmlFor="coupon-input">
             ادخل كوبون الخصم الخاص بك
           </label>
@@ -153,7 +155,7 @@ const Checkout = () => {
             <input
               type="text"
               id="coupon-input"
-              className="bg-[#F1F2F3] rounded-xl p-4 w-full outline-none pr-[50px]"
+              className="bg-[#F1F2F3] rounded-xl p-4 w-full outline-none pr-[50px] "
               placeholder="ادخل كوبون الخصم الخاص بك"
               aria-label="حقل إدخال كوبون الخصم"
             />
@@ -164,7 +166,8 @@ const Checkout = () => {
           </div>
           <button
             aria-label="تطبيق كوبون الخصم"
-            className="flex items-center justify-center rounded-[28px] bg-custom-blue font-bold text-xs md:text-xl text-white py-3 px-12 w-full lg:w-fit"
+            className="flex items-center justify-center rounded-[28px] bg-custom-blue font-bold text-xs md:text-xl text-white py-3 px-12 
+          w-[85px] h-[40px]  md:w-[150px] md:h-[55px]"
           >
             تطبيق
           </button>
@@ -177,11 +180,15 @@ const Checkout = () => {
             <span className="text-[#8B939F] font-medium text-lg">6500ج</span>
           </li>
           <li className="flex items-center justify-between">
-            <span className="text-[#8B939F] font-medium text-lg">مصاريف الشحن</span>
+            <span className="text-[#8B939F] font-medium text-lg">
+              مصاريف الشحن
+            </span>
             <span className="text-[#8B939F] font-medium text-lg">00.00</span>
           </li>
           <li className="flex items-center justify-between">
-            <span className="text-[#8B939F] font-medium text-lg">كوبون الخصم</span>
+            <span className="text-[#8B939F] font-medium text-lg">
+              كوبون الخصم
+            </span>
             <span className="text-[#8B939F] font-medium text-lg">00.00</span>
           </li>
         </ul>
@@ -197,7 +204,7 @@ const Checkout = () => {
 
         <Link
           to="thank-you"
-          className="bg-custom-blue text-white flex items-center justify-center font-bold text-sm md:text-xl rounded-[60px] py-6 px-6 md:px-12 w-full"
+          className="bg-custom-blue text-white flex items-center justify-center shadow-[0px_4px_19.2px_0px_#3074F066] font-bold text-sm md:text-xl rounded-[60px] py-6 px-6 md:px-12 w-full"
         >
           تأكيد الطلب
         </Link>
@@ -205,11 +212,16 @@ const Checkout = () => {
         {/* Features */}
         <ul className="flex justify-between items-center gap-4 mt-6 flex-wrap">
           {featuresData.map((feature) => (
-            <li key={feature.title} className="flex items-center flex-col gap-2">
+            <li
+              key={feature.title}
+              className="flex items-center flex-col gap-2"
+            >
               <div className="bg-[#3074F01A] rounded-full h-16 w-16 flex items-center justify-center">
                 <img src={feature.icon} alt={feature.title} loading="lazy" />
               </div>
-              <h3 className="font-bold text-[16px] text-custom-gray">{feature.title}</h3>
+              <h3 className="font-bold text-[16px] text-custom-gray">
+                {feature.title}
+              </h3>
             </li>
           ))}
         </ul>
