@@ -87,7 +87,7 @@ const CategoriesCarousel = () => {
 const Category = memo(({ category }) => {
   return (
     <Link
-      to={`/products-list/${category.name}`}
+      to={`/products-list/category/${category.name}`}
       className="bg-[#F6F6F6] rounded-lg p-6 gap-2 flex flex-col items-center justify-around
       h-[250px] "
     >
@@ -96,7 +96,7 @@ const Category = memo(({ category }) => {
           src={category.imgSrc}
           alt={category.name}
           loading="lazy"
-          className="object-cover w-full h-auto"
+          className="object-contain w-full h-full"
         />
       </div>
       <h2 className="text-custom-dark font-bold text-[20px]">

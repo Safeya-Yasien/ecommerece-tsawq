@@ -26,11 +26,9 @@ import { PriceRange } from "@/components/ecommerece";
 
 const ProductsList = () => {
   const { categoryName } = useParams();
-
   const [checkCategories, setCheckCategories] = useState([]);
 
   const memoizedCategories = useMemo(() => categories, []);
-
   const memoizedProducts = useMemo(() => productsList, []);
 
   const filteredProducts = useMemo(() => {

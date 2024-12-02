@@ -55,15 +55,15 @@ const SpecialOffersCarousel = () => {
 
 const Offer = memo(({ product }) => {
   return (
-    <div className="flex flex-col gap-2 bg-[#F6F6F6] rounded-md p-8 w-full sm:w-[50%] md:w-[33.3%] lg:w-[25%]">
+    <Link
+      to={`/`}
+      className="flex flex-col gap-2 bg-[#F6F6F6] rounded-md p-8 w-full sm:w-[50%] md:w-[33.3%] lg:w-[25%]"
+    >
       {/* info */}
       <div className="flex flex-col gap-3">
-        <Link
-          to="/products-list/product"
-          className="font-medium text-[28px] text-custom-dark"
-        >
+        <h2 className="font-medium text-[28px] text-custom-dark">
           {product.name}{" "}
-        </Link>
+        </h2>
         <p className="font-normal text-lg">خصم يصل حتي %{product.discount}</p>
         <a
           href="#"
@@ -84,7 +84,7 @@ const Offer = memo(({ product }) => {
           className="object-cover w-full h-auto"
         />
       </div>
-    </div>
+    </Link>
   );
 });
 

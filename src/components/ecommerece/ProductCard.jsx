@@ -31,14 +31,17 @@ const ProductCard = ({ product, showLabel }) => {
             خصم 50%
           </div>
         )}
-        <div className="w-[200px] h-[200px] overflow-hidden">
+        <Link
+          to={`/products-list/product/${product.id}`}
+          className="w-[200px] h-[200px] overflow-hidden"
+        >
           <img
             src={product.imgSrc}
             alt={product.name}
             loading="lazy"
-            className="object-cover h-auto w-full "
+            className="object-contain h-full w-full "
           />
-        </div>
+        </Link>
         <Button
           aria-label="Add to cart"
           className={`!absolute left-3 bottom-0 w-9 h-9 !p-0 bg-custom-blue rounded-md text-white flex items-center justify-center hover:bg-custom-blue`}
@@ -55,7 +58,7 @@ const ProductCard = ({ product, showLabel }) => {
       {/* Product Info */}
       <CardContent className="flex flex-col gap-4 p-4">
         <Link
-          to={`/products-list/${product.id}`}
+          to={`/products-list/product/${product.id}`}
           className="font-normal text-lg text-custom-gray line-clamp-2 h-14 w-full"
         >
           {product.name}
