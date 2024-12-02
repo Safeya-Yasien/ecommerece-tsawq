@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
@@ -10,6 +9,7 @@ import { FreeMode, Navigation, Thumbs, Pagination } from "swiper/modules";
 
 const ThumbsGallery = ({ productImages, productName }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [activeThumbIndex, setActiveThumbIndex] = useState(0); 
 
   return (
     <div className="sticky top-0">
@@ -21,11 +21,11 @@ const ThumbsGallery = ({ productImages, productName }) => {
             nextEl: ".custom-next",
           }}
           pagination={{ clickable: true }}
-          // thumbs={thumbsSwiper ? { swiper: thumbsSwiper } : undefined}
           thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
           modules={[FreeMode, Navigation, Thumbs, Pagination]}
           className="mySwiper2 h-[80%] w-full !pb-[50px]"
           dir="ltr"
+          onSlideChange={(swiper) => setActiveThumbIndex(swiper.activeIndex)} // Update active thumbnail index
         >
           {productImages.map((image, index) => (
             <SwiperSlide
@@ -41,7 +41,7 @@ const ThumbsGallery = ({ productImages, productName }) => {
           ))}
         </Swiper>
 
-        {/* pagination */}
+        {/* Pagination buttons */}
         <div
           className="custom-prev absolute left-6 top-1/2 transform -translate-y-1/2 z-10 cursor-pointer
             bg-white w-[32px] h-[32px] rounded-full shadow-[0px_4px_16.3px_0px_#0000001a]
@@ -58,7 +58,7 @@ const ThumbsGallery = ({ productImages, productName }) => {
         </div>
       </div>
 
-      {/* thumbs swiper */}
+      {/* Thumbnails swiper */}
       <Swiper
         onSwiper={setThumbsSwiper}
         spaceBetween={10}
@@ -72,8 +72,8 @@ const ThumbsGallery = ({ productImages, productName }) => {
         {productImages.map((image, index) => (
           <SwiperSlide
             key={index}
-            className="!items-center !justify-center cursor-pointer border border-[#F6F6F6] rounded-lg p-6 !hidden sm:!flex sm:w-[25%]
-            !h-[200px]"
+            className={`!items-center !justify-center cursor-pointer border border-[#F6F6F6] rounded-lg p-6 !hidden sm:!flex sm:w-[25%] !h-[200px]
+            ${activeThumbIndex === index ? "border-2 border-custom-blue" : ""}`} // Highlight active thumbnail
           >
             <img
               src={image}
