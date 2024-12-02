@@ -15,7 +15,7 @@ const ClientReviews = () => {
   return (
     <>
       {/* our customer reviews */}
-      <div className="flex flex-col lg:flex-row justify-between lg:items-center gap-8 relative">
+      <div className="flex flex-col lg:flex-row justify-between lg:items-center gap-8 mt-24 relative">
         <div className="flex flex-col gap-3 flex-1">
           <CustomTitle title={"تقييمات عملائنا"} />
           <p className="text-[#787878] font-normal text-lg">
