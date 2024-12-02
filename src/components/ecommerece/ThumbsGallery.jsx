@@ -21,7 +21,8 @@ const ThumbsGallery = ({ productImages, productName }) => {
             nextEl: ".custom-next",
           }}
           pagination={{ clickable: true }}
-          thumbs={thumbsSwiper ? { swiper: thumbsSwiper } : undefined}
+          // thumbs={thumbsSwiper ? { swiper: thumbsSwiper } : undefined}
+          thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
           modules={[FreeMode, Navigation, Thumbs, Pagination]}
           className="mySwiper2 h-[80%] w-full !pb-[50px]"
           dir="ltr"
