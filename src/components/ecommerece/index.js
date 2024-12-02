@@ -12,6 +12,8 @@ import CustomizeProduct from "./CustomizeProduct";
 import ClientReviews from "./ClientReviews/ClientReviews";
 import OfferOptions from "./OfferOptions";
 import CartItem from "./CartItem";
+import PriceRange from "./PriceRange/PriceRange";
+
 
 export {
   MobileMenu,
@@ -28,4 +30,5 @@ export {
   ClientReviews,
   OfferOptions,
   CartItem,
+  PriceRange
 };

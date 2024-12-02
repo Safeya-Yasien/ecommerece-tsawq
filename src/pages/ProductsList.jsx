@@ -22,6 +22,7 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { PriceRange } from "@/components/ecommerece";
 
 const ProductsList = () => {
   const { categoryName } = useParams();
@@ -89,51 +90,9 @@ const ProductsList = () => {
               ))}
             </div>
             <div className="border border-[#EEEEEE] w-full" />
-            {/* price */}
-            <div className="flex flex-col gap-6">
-              <h2 className="text-custom-dark font-bold text-[20px] ">السعر</h2>
-              <div className="flex items-center justify-between gap-8">
-                <div className="flex flex-col p-2 flex-1 rounded-lg border border-[#EAEAEA]">
-                  <span className="font-normal text-[12px] text-[#454545] ">
-                    من
-                  </span>
-                  <p className="font-medium text-[16px] text-[#454545] ">
-                    600ج
-                  </p>
-                </div>
-                <div className="flex flex-col p-2 flex-1 rounded-lg border border-[#EAEAEA]">
-                  <span className="font-normal text-[12px] text-[#454545] ">
-                    حتي
-                  </span>
-                  <p className="font-medium text-[16px] text-[#454545] ">
-                    6500ج
-                  </p>
-                </div>
-              </div>
 
-              {/* seekBar */}
-              <div className="flex items-center justify-center">
-                <label htmlFor="price" className="sr-only">
-                  price (between 0 and 50):
-                </label>
-                <input
-                  type="range"
-                  id="price"
-                  name="price"
-                  min="0"
-                  max="50"
-                  dir="ltr"
-                />
-                <input
-                  type="range"
-                  id="price"
-                  name="price"
-                  min="0"
-                  max="50"
-                  dir="rtl"
-                />{" "}
-              </div>
-            </div>
+            {/* price range or seekbar*/}
+            <PriceRange />
           </div>
         </div>
 
