@@ -59,7 +59,11 @@ const FastOrderForm = () => {
       <Link
         to="/checkout"
         aria-label="اشترى الان"
-        className="text-white font-bold text-[16px] sm:text-[22px] shadow-[0px_4px_19.2px_0px_#3074F066] ring-1 ring-[#ECECEC] rounded-[61px] flex items-center justify-center bg-custom-blue h-[69px]"
+        className="text-white font-bold text-[16px] sm:text-[22px] shadow-[0px_4px_19.2px_0px_#3074F066] ring-1 ring-[#ECECEC] rounded-[61px] flex items-center justify-center h-[69px]"
+        style={{
+          background:
+            "linear-gradient(268.03deg, #3074F0 2.44%, #659CFF 142.11%)",
+        }}
       >
         اشتري الان - الدفع عند الاستلام
       </Link>

@@ -205,6 +205,10 @@ const Checkout = () => {
         <Link
           to="thank-you"
           className="bg-custom-blue text-white flex items-center justify-center shadow-[0px_4px_19.2px_0px_#3074F066] font-bold text-sm md:text-xl rounded-[60px] py-6 px-6 md:px-12 w-full"
+          style={{
+            background:
+              "linear-gradient(268.03deg, #3074F0 2.44%, #659CFF 142.11%)",
+          }}
         >
           تأكيد الطلب
         </Link>
