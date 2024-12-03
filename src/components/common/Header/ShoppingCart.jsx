@@ -73,9 +73,7 @@ const ShoppingCart = () => {
             />
           ))}
           <div
-            className={
-              "flex items-center   !justify-between text-[#3A4353] "
-            }
+            className={"flex items-center   !justify-between text-[#3A4353] "}
           >
             <span className="font-bold text-[16px] md:text-[20px]">
               إجمالي المبلغ:

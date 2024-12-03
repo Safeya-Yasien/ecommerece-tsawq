@@ -1,23 +1,15 @@
 import { Link } from "react-router-dom";
+
 import { FaStar } from "react-icons/fa";
 import { CiShoppingCart } from "react-icons/ci";
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+
 import { useCart } from "@/context/cart";
-import { useToast } from "@/hooks/use-toast";
 
 const ProductCard = ({ product, showLabel }) => {
   const { addItemToCart, openCartDrawer } = useCart();
-
-  const { toast } = useToast();
-
-  const notifyAddedToCart = () => {
-    toast({
-      title: "تمت إضافة المنتج بنجاح",
-      description: `${product.name}`,
-      variant: "success",
-    });
-  };
 
   return (
     <Card
@@ -47,7 +39,6 @@ const ProductCard = ({ product, showLabel }) => {
           className={`!absolute left-3 bottom-0 w-9 h-9 !p-0 bg-custom-blue rounded-md text-white flex items-center justify-center hover:bg-custom-blue`}
           onClick={() => {
             addItemToCart(product);
-            notifyAddedToCart();
             openCartDrawer();
           }}
         >
