@@ -119,20 +119,28 @@ const ProductsList = () => {
               </select>
             </div>
 
-            {/* filter */}
+            {/* Filter as Sheet for small screens */}
             <div className="lg:hidden flex items-center gap-2">
-              <div className="lg:hidden">
-                <Sheet>
+              <div className="lg:hidden ">
+                <Sheet className="">
                   <SheetTrigger asChild>
-                    <button className="border-[1.08px] border-[#F4F4F4] w-[35px] h-[35px] rounded-lg bg-white shadow-[0px_4.33px_13px_0px_#0000000D] flex items-center justify-center">
-                      <CiFilter color="#54585E" />
+                    <button className="border-[1.08px] border-[#F4F4F4] w-[35px] h-[35px] rounded-lg bg-white shadow-md flex items-center justify-center">
+                      <CiFilter size={24} color="#54585E" />
                     </button>
                   </SheetTrigger>
-
-                  <SheetContent side="bottom">
-                    <h2 className="text-custom-dark font-bold text-2xl mb-4">
-                      الاقسام
+                  <SheetContent
+                    side="bottom"
+                    className="p-6 rounded-tl-[40px] rounded-tr-[40px]"
+                  >
+                    <h2 className="font-bold text-[20px] text-[#252534] text-center mb-8">
+                      تصنيفات
                     </h2>
+
+                    <h3 className="text-custom-dark font-bold text-lg lg:text-2xl mb-4">
+                      الاقسام
+                    </h3>
+
+                    {/* Categories List */}
                     <div className="flex flex-col gap-4">
                       {categories.map((category) => (
                         <div
@@ -155,6 +163,16 @@ const ProductsList = () => {
                         </div>
                       ))}
                     </div>
+
+                    {/* Price Range Component */}
+                    <div className="mt-6">
+                      <PriceRange />
+                    </div>
+
+                    {/* Action Button */}
+                    <button className="bg-custom-blue text-white font-bold w-full py-3 mt-6 rounded-3xl">
+                      تطبيق
+                    </button>
                   </SheetContent>
                 </Sheet>
               </div>
