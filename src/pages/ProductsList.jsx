@@ -124,7 +124,11 @@ const ProductsList = () => {
                 aria-label="Sort by rating"
                 className="text-[#5C5C5C] font-normal text-[16px] border border-[#EDEDED] outline-none rounded-lg w-[150px] h-10 px-2"
               >
-                <option className="">الاعلي تقييماً</option>
+                {filterOptions.map((option) => (
+                  <option key={option.value} className="">
+                    {option.value}{" "}
+                  </option>
+                ))}
               </select>
             </div>
 
