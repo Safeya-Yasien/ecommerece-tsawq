@@ -1,29 +1,29 @@
 import { useEffect, useMemo, useState } from "react";
+import { useParams } from "react-router-dom";
+
 import { CiFilter } from "react-icons/ci";
 import { TbArrowsDownUp } from "react-icons/tb";
-import { productsList } from "@data/AllProducts";
-import { Breadcrumb, ProductCard } from "@components/ecommerece";
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
 import {
   MdOutlineKeyboardDoubleArrowRight,
   MdOutlineKeyboardDoubleArrowLeft,
 } from "react-icons/md";
-import { useParams } from "react-router-dom";
-import { categories } from "@/data/categories";
-
-import { PriceRange } from "@/components/ecommerece";
 
 import { Button } from "@/components/ui/button";
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
-  DrawerDescription,
   DrawerFooter,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+
+import { productsList } from "@data/AllProducts";
+import { categories } from "@/data/categories";
+
+import { Breadcrumb, ProductCard } from "@components/ecommerece";
+import { PriceRange } from "@/components/ecommerece";
 
 const ProductsList = () => {
   const { categoryName } = useParams();
