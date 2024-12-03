@@ -55,6 +55,14 @@ const ProductsList = () => {
     }
   };
 
+  const filterOptions = [
+    { label: "الاعلى تقيما", value: "الاعلى تقيما" },
+    { label: "المضاف حديثا", value: "المضاف حديثا" },
+    { label: "الاعلى سعرا", value: "الاعلى سعرا" },
+    { label: "من (أ) الي (ي)", value: "من (أ) الي (ي)" },
+    { label: "من (ي) الي (أ)", value: "من (ي) الي (أ)" },
+  ];
+
   return (
     <>
       {/* breadcrumb  */}
@@ -122,66 +130,111 @@ const ProductsList = () => {
 
             {/* Filter as Sheet for small screens */}
             <div className="lg:hidden flex items-center gap-2">
-              <div className="lg:hidden ">
-                <Drawer>
-                  <DrawerTrigger asChild>
-                    <button className="border-[1.08px] border-[#F4F4F4] w-[35px] h-[35px] rounded-lg bg-white shadow-md flex items-center justify-center">
-                      <CiFilter size={24} color="#54585E" />
-                    </button>
-                  </DrawerTrigger>
-                  <DrawerContent>
-                    <div className="p-6">
-                      <DrawerHeader>
-                        <DrawerTitle>تصنيفات</DrawerTitle>
-                      </DrawerHeader>
+              <Drawer>
+                <DrawerTrigger asChild>
+                  <button className="border-[1.08px] border-[#F4F4F4] w-[35px] h-[35px] rounded-lg bg-white shadow-md flex items-center justify-center">
+                    <CiFilter size={24} color="#54585E" />
+                  </button>
+                </DrawerTrigger>
+                <DrawerContent>
+                  <div className="p-6">
+                    <DrawerHeader>
+                      <DrawerTitle className="text-center text-[#252534] font-bold text-xl">
+                        تصنيفات
+                      </DrawerTitle>
+                    </DrawerHeader>
 
-                      <h3 className="text-custom-dark font-bold text-lg lg:text-2xl mb-4">
-                        الاقسام
-                      </h3>
+                    <h3 className="text-custom-dark font-bold text-lg lg:text-2xl mb-4">
+                      الاقسام
+                    </h3>
 
-                      {/* Categories List */}
-                      <div className="flex flex-col gap-4">
-                        {categories.map((category) => (
-                          <div
-                            className="flex items-center gap-2"
-                            key={category.id}
+                    {/* Categories List */}
+                    <div className="flex flex-col gap-4">
+                      {categories.map((category) => (
+                        <div
+                          className="flex items-center gap-2"
+                          key={category.id}
+                        >
+                          <input
+                            type="checkbox"
+                            id={category.name}
+                            checked={checkCategories.includes(category.name)}
+                            onChange={() => handleOnChange(category.name)}
+                            className="w-5 h-5"
+                          />
+                          <label
+                            htmlFor={category.name}
+                            className="text-gray-700"
                           >
-                            <input
-                              type="checkbox"
-                              id={category.name}
-                              checked={checkCategories.includes(category.name)}
-                              onChange={() => handleOnChange(category.name)}
-                              className="w-5 h-5"
-                            />
-                            <label
-                              htmlFor={category.name}
-                              className="text-gray-700"
-                            >
-                              {category.name}
-                            </label>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Price Range Component */}
-                      <div className="mt-6">
-                        <PriceRange />
-                      </div>
-
-                      {/* Footer Action Buttons */}
-                      <DrawerFooter>
-                        <Button className="w-full bg-custom-blue text-white rounded-3xl">
-                          تطبيق
-                        </Button>
-                      </DrawerFooter>
+                            {category.name}
+                          </label>
+                        </div>
+                      ))}
                     </div>
-                  </DrawerContent>
-                </Drawer>
-              </div>
 
-              <button className="border-[1.08px] border-[#F4F4F4] w-[35px] h-[35px] rounded-lg bg-white shadow-[0px_4.33px_13px_0px_#0000000D] flex items-center justify-center">
-                <TbArrowsDownUp size={20} color="#54585E" />
-              </button>
+                    <div className="border border-[#F0F3F8] mt-8"></div>
+
+                    {/* Price Range Component */}
+                    <div className="mt-6">
+                      <PriceRange />
+                    </div>
+
+                    {/* Footer Action Buttons */}
+                    <DrawerFooter>
+                      <Button className="w-full bg-custom-blue text-white rounded-3xl mt-8">
+                        تطبيق
+                      </Button>
+                    </DrawerFooter>
+                  </div>
+                </DrawerContent>
+              </Drawer>
+
+              {/* Radio Button List for Sorting Options */}
+              <Drawer>
+                <DrawerTrigger asChild>
+                  <button className="border-[1.08px] border-[#F4F4F4] w-[35px] h-[35px] rounded-lg bg-white shadow-[0px_4.33px_13px_0px_#0000000D] flex items-center justify-center">
+                    <TbArrowsDownUp size={20} color="#54585E" />
+                  </button>
+                </DrawerTrigger>
+                <DrawerContent>
+                  <div className="p-6">
+                    <DrawerHeader>
+                      <DrawerTitle className="text-center text-[#252534] font-bold text-xl">
+                        ترتيب حسب
+                      </DrawerTitle>
+                    </DrawerHeader>
+
+                    <div className="flex flex-col gap-4">
+                      {filterOptions.map((option) => (
+                        <div
+                          className="flex items-center gap-2"
+                          key={option.value}
+                        >
+                          <input
+                            type="radio"
+                            id={option.value}
+                            name="filterOption"
+                            className="w-5 h-5"
+                          />
+                          <label
+                            htmlFor={option.value}
+                            className="text-gray-700"
+                          >
+                            {option.label}
+                          </label>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Footer Action Buttons */}
+                    <DrawerFooter className="mt-8">
+                      <Button className="w-full bg-custom-blue text-white rounded-3xl">
+                        تطبيق
+                      </Button>
+                    </DrawerFooter>
+                  </div>
+                </DrawerContent>
+              </Drawer>
             </div>
           </div>
 
