@@ -16,7 +16,7 @@ export function Hero() {
       className="w-full h-full"
     >
       <SwiperSlide className="relative overflow-hidden ">
-        <div className="bg-[#F8F9FF] p-6 relative z-20">
+        <div className="bg-[#F8F9FF] pb-10 p-6 relative z-20">
           {/* before & after */}
           <div className="hidden md:block  absolute -left-[150px] -top-[250px] border-[60px] bg-transparent border-[#EAEDFF]  w-[635px] h-[635px] rounded-full -z-10"></div>
           <div className="hidden md:block  absolute -right-[200px] -bottom-[500px] border-[60px] bg-transparent border-[#EAEDFF]  w-[635px] h-[635px] rounded-full -z-10"></div>
