@@ -22,7 +22,7 @@ const CartItem = ({
               src={item.imgSrc}
               alt={item.name}
               loading="lazy"
-              className="w-full h-auto object-cover"
+              className="w-full h-full object-contain"
             />
           </div>
           {/* show number of products */}
