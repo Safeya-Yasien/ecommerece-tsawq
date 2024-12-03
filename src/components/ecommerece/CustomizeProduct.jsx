@@ -76,7 +76,7 @@ const CustomizeProduct = ({ item, onCustomizationChange }) => {
           <span>اضف الي السلة</span>
         </button>
 
-        <div className="flex items-center ring-1 ring-[#ECECEC] h-[49px] rounded-[61px] px-4 w-full sm:w-auto justify-between">
+        <div className="flex items-center gap-4 ring-1 ring-[#ECECEC] h-[49px] rounded-[61px] px-4 w-full sm:w-auto justify-between">
           <button
             className="w-[12px] text-custom-blue flex items-center justify-center"
             onClick={() => addItemToCart(item)}
@@ -87,7 +87,8 @@ const CustomizeProduct = ({ item, onCustomizationChange }) => {
             type="number"
             min={1}
             value={quantity}
-            className="text-[#666666] font-medium text-lg outline-none border-none text-center h-full w-[91px]"
+            className="text-[#666666] font-medium text-lg outline-none text-center h-full w-[91px]
+            border-r border-l border-r-[#ECECEC] border-l-[#ECECEC]"
           />
           <button
             className="text-[#979797] w-[12px]"

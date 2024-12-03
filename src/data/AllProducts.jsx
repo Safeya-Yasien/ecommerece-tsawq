@@ -7,7 +7,7 @@ import phone from "../assets/images/phone.webp";
 
 export const phonesList = [
   {
-    id: 1,
+    id: "1",
     imgSrc: phone_1,
     name: "هواوي P40 برو 128 جيجا",
     price: 6500,
@@ -16,7 +16,7 @@ export const phonesList = [
     category: "هواتف",
   },
   {
-    id: 2,
+    id: "2",
     imgSrc: iphone,
     name: "هواوي P40 برو 128 جيجا",
     price: 12000,
@@ -25,7 +25,7 @@ export const phonesList = [
     category: "هواتف",
   },
   {
-    id: 3,
+    id: "3",
     imgSrc: phone,
     name: "هواوي P40 برو 128 جيجا",
     price: 9800,
@@ -34,7 +34,7 @@ export const phonesList = [
     category: "هواتف",
   },
   {
-    id: 4,
+    id: "4",
     imgSrc: phone_2,
     name: "هواوي P40 برو 128 جيجا",
     price: 7400,
@@ -43,7 +43,7 @@ export const phonesList = [
     category: "هواتف",
   },
   {
-    id: 5,
+    id: "5",
     imgSrc: phone_3,
     name: "هواوي P40 برو 128 جيجا",
     price: 5500,

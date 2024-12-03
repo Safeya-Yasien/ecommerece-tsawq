@@ -56,9 +56,7 @@ const ShoppingCart = () => {
           </SheetDescription>
 
           <SheetClose className="!mt-0">
-            <button className="">
               <AiOutlineClose />
-            </button>
           </SheetClose>
         </SheetHeader>
 
