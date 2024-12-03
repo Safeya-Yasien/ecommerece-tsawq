@@ -11,8 +11,9 @@ import {
 import { useParams } from "react-router-dom";
 import { categories } from "@/data/categories";
 
-import { Button } from "@/components/ui/button"; 
+import { PriceRange } from "@/components/ecommerece";
 
+import { Button } from "@/components/ui/button";
 import {
   Drawer,
   DrawerClose,
@@ -23,8 +24,6 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import { Sheet, SheetContent, SheetTrigger ,SheetClose} from "@/components/ui/sheet";
-import { PriceRange } from "@/components/ecommerece";
 
 const ProductsList = () => {
   const { categoryName } = useParams();
@@ -123,58 +122,62 @@ const ProductsList = () => {
 
             {/* Filter as Sheet for small screens */}
             <div className="lg:hidden flex items-center gap-2">
-                {/* Sheet for Small Screens */}
-        <div className="lg:hidden">
-          <Sheet>
-            <SheetTrigger asChild>
-              <button className="border-[1.08px] border-[#F4F4F4] w-[35px] h-[35px] rounded-lg bg-white shadow-md flex items-center justify-center">
-                <CiFilter size={24} color="#54585E" />
-              </button>
-            </SheetTrigger>
-            <SheetContent
-              side="bottom"
-              className="p-6 rounded-tl-[40px] rounded-tr-[40px]"
-            >
-              <h2 className="font-bold text-[20px] text-[#252534] text-center mb-8">
-                تصنيفات
-              </h2>
-              <h3 className="text-custom-dark font-bold text-lg lg:text-2xl mb-4">
-                الاقسام
-              </h3>
-              <div className="flex flex-col gap-4">
-                {memoizedCategories.map((category) => (
-                  <div className="flex items-center gap-2" key={category.id}>
-                    <input
-                      type="checkbox"
-                      id={category.name}
-                      checked={checkCategories.includes(category.name)}
-                      onChange={() => handleOnChange(category.name)}
-                      className="w-5 h-5"
-                    />
-                    <label htmlFor={category.name} className="text-gray-700">
-                      {category.name}
-                    </label>
-                  </div>
-                ))}
-              </div>
+              <div className="lg:hidden ">
+                <Drawer>
+                  <DrawerTrigger asChild>
+                    <button className="border-[1.08px] border-[#F4F4F4] w-[35px] h-[35px] rounded-lg bg-white shadow-md flex items-center justify-center">
+                      <CiFilter size={24} color="#54585E" />
+                    </button>
+                  </DrawerTrigger>
+                  <DrawerContent>
+                    <div className="p-6">
+                      <DrawerHeader>
+                        <DrawerTitle>تصنيفات</DrawerTitle>
+                      </DrawerHeader>
 
-              {/* Price Range Component */}
-              <div className="mt-6">
-                <PriceRange />
-              </div>
+                      <h3 className="text-custom-dark font-bold text-lg lg:text-2xl mb-4">
+                        الاقسام
+                      </h3>
 
-              {/* Footer with Close Button */}
-              <div className="mt-6 flex justify-end gap-4">
-                <SheetClose asChild>
-                  <Button variant="outline">إلغاء</Button>
-                </SheetClose>
-                <Button className="bg-custom-blue text-white" onClick={() => console.log("Apply filters")}>
-                  تطبيق
-                </Button>
+                      {/* Categories List */}
+                      <div className="flex flex-col gap-4">
+                        {categories.map((category) => (
+                          <div
+                            className="flex items-center gap-2"
+                            key={category.id}
+                          >
+                            <input
+                              type="checkbox"
+                              id={category.name}
+                              checked={checkCategories.includes(category.name)}
+                              onChange={() => handleOnChange(category.name)}
+                              className="w-5 h-5"
+                            />
+                            <label
+                              htmlFor={category.name}
+                              className="text-gray-700"
+                            >
+                              {category.name}
+                            </label>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Price Range Component */}
+                      <div className="mt-6">
+                        <PriceRange />
+                      </div>
+
+                      {/* Footer Action Buttons */}
+                      <DrawerFooter>
+                        <Button className="w-full bg-custom-blue text-white rounded-3xl">
+                          تطبيق
+                        </Button>
+                      </DrawerFooter>
+                    </div>
+                  </DrawerContent>
+                </Drawer>
               </div>
-            </SheetContent>
-          </Sheet>
-        </div>
 
               <button className="border-[1.08px] border-[#F4F4F4] w-[35px] h-[35px] rounded-lg bg-white shadow-[0px_4.33px_13px_0px_#0000000D] flex items-center justify-center">
                 <TbArrowsDownUp size={20} color="#54585E" />
