@@ -65,15 +65,12 @@ const Offer = memo(({ product }) => {
           {product.name}{" "}
         </h2>
         <p className="font-normal text-lg">خصم يصل حتي %{product.discount}</p>
-        <a
-          href="#"
-          className="underline text-custom-blue font-medium text-lg flex items-center gap-1"
-        >
+        <button className="underline text-custom-blue font-medium text-lg flex items-center gap-1">
           أطلب الأن
           <span>
             <GoArrowUpLeft />
           </span>
-        </a>
+        </button>
       </div>
 
       {/* img */}
