@@ -13,6 +13,7 @@ import ClientReviews from "./ClientReviews/ClientReviews";
 import OfferOptions from "./OfferOptions";
 import CartItem from "./CartItem";
 import PriceRange from "./PriceRange/PriceRange";
+import CategoriesFilter from "./CategoriesFilter";
 
 
 export {
@@ -30,5 +31,6 @@ export {
   ClientReviews,
   OfferOptions,
   CartItem,
-  PriceRange
+  PriceRange,
+  CategoriesFilter
 };

@@ -23,7 +23,7 @@ import { productsList } from "@data/AllProducts";
 import { categories } from "@/data/categories";
 
 import { Breadcrumb, ProductCard } from "@components/ecommerece";
-import { PriceRange } from "@/components/ecommerece";
+import { CategoriesFilter, PriceRange } from "@/components/ecommerece";
 
 const ProductsList = () => {
   const { categoryName } = useParams();
@@ -73,35 +73,18 @@ const ProductsList = () => {
         <div className="hidden lg:block  w-[20%] sticky top-0 right-0">
           <div className="flex flex-col gap-6 shadow-[0px_4px_23.3px_0px_#0000000D] border border-[#EDEDED] p-8 rounded-2xl  ">
             <h2 className="text-custom-dark font-bold text-[20px] ">الاقسام</h2>
-            <div className="flex flex-col gap-4">
-              {memoizedCategories.map((category) => (
-                <div
-                  className="flex items-center gap-2 relative"
-                  key={category.id}
-                >
-                  <input
-                    type="checkbox"
-                    id={category.name}
-                    checked={checkCategories.includes(category.name)}
-                    name={category.name}
-                    onChange={() => handleOnChange(category.name)}
-                    className="w-[21px] h-[21px] border border-[#6D6D6D] rounded-lg!  cursor-pointer"
-                  />
-                  <label
-                    htmlFor={category.name}
-                    className="font-normal text-[16px] text-[#5C5C5C] relative  cursor-pointer"
-                  >
-                    {category.name}
-                  </label>
-                </div>
-              ))}
-            </div>
+            <CategoriesFilter
+              categories={memoizedCategories}
+              selectedCategories={checkCategories}
+              onCategoryChange={handleOnChange}
+            />
             <div className="border border-[#EEEEEE] w-full" />
 
             {/* price range or seekbar*/}
             <PriceRange />
           </div>
         </div>
+
 
         {/* left: products */}
         <div className="w-full lg:w-[80%] flex flex-col gap-8">
