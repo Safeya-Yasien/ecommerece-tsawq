@@ -16,6 +16,9 @@ import { phonesList, productsList } from "@/data/AllProducts";
 
 const ProductPage = () => {
   const [product, setProduct] = useState({});
+  const [isFormValid, setIsFormValid] = useState(false);
+  const [selectedSize, setSelectedSize] = useState(null);
+  const [selectedColor, setSelectedColor] = useState(null);
 
   const { productId } = useParams();
   const navigate = useNavigate();
@@ -26,11 +29,20 @@ const ProductPage = () => {
     setProduct(productsList.find((p) => p.id === productId));
   }, [productId]);
 
+  // Update customization state
   const handleCustomizationChange = (key, value) => {
+    if (key === "size") setSelectedSize(value);
+    if (key === "color") setSelectedColor(value);
     const newSearchParams = new URLSearchParams(window.location.search);
     newSearchParams.set(key, value);
     navigate(`?${newSearchParams.toString()}`, { replace: true });
   };
+
+  const isButtonEnabled = isFormValid && selectedSize && selectedColor;
+  console.log("isButtonEnabled", isButtonEnabled);
+  console.log("isFormValid", isFormValid);
+  console.log("selectedSize", selectedSize);
+  console.log("selectedColor", selectedColor);
 
   return (
     <div>
@@ -86,7 +98,7 @@ const ProductPage = () => {
               <span className="font-normal text-lg border-[#6E768F] ">او</span>
               <div className="border border-[#CACFE1] w-[266px]"></div>
             </div>
-            <FastOrderForm />
+            <FastOrderForm onFormValidityChange={setIsFormValid} />
 
             <div className="ring-1 ring-[#E5E9F1] w-full mt-2"></div>
             <div className="flex items-center justify-between">
@@ -97,13 +109,20 @@ const ProductPage = () => {
             </div>
 
             <Link
-              to="/checkout"
+              to={isButtonEnabled ? "/checkout" : "#"}
               aria-label="اشترى الان"
-              className="text-white font-bold text-[16px] sm:text-[22px] shadow-[0px_4px_19.2px_0px_#3074F066] ring-1 ring-[#ECECEC] rounded-[61px] flex items-center justify-center h-[69px]"
+              className={`text-white font-bold text-[16px] sm:text-[22px] shadow-[0px_4px_19.2px_0px_#3074F066] ring-1 ring-[#ECECEC] rounded-[61px] flex items-center justify-center h-[69px]
+                ${
+                  isButtonEnabled
+                    ? "bg-custom-blue"
+                    : "bg-gray-400 cursor-not-allowed"
+                }`}
               style={{
-                background:
-                  "linear-gradient(268.03deg, #3074F0 2.44%, #659CFF 142.11%)",
+                background: isButtonEnabled
+                  ? "linear-gradient(268.03deg, #3074F0 2.44%, #659CFF 142.11%)"
+                  : "#9CA3AF",
               }}
+              aria-disabled={!isButtonEnabled}
             >
               اشتري الان - الدفع عند الاستلام
             </Link>

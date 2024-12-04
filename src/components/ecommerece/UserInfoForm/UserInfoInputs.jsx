@@ -4,7 +4,7 @@ import { FiPhone } from "react-icons/fi";
 
 import InputField from "./InputField";
 
-const UserInfoInputs = () => {
+const UserInfoInputs = ({ onInputChange }) => {
   return (
     <div className="flex flex-col gap-3">
       <InputField
@@ -13,6 +13,7 @@ const UserInfoInputs = () => {
         type={"text"}
         placeholder={"ادخل اسمك بالكامل"}
         icon={AiOutlineUser}
+        onChange={(e) => onInputChange("name", e.target.value)}
       />
       <InputField
         id={"phone-number"}
@@ -20,6 +21,7 @@ const UserInfoInputs = () => {
         type={"text"}
         placeholder={"ادخل رقم الهاتف الخاص بك"}
         icon={FiPhone}
+        onChange={(e) => onInputChange("phone", e.target.value)}
       />
       <InputField
         id={"address"}
@@ -27,6 +29,7 @@ const UserInfoInputs = () => {
         type={"text"}
         placeholder={"ادخل عنوانك بالتفصيل"}
         icon={CiLocationOn}
+        onChange={(e) => onInputChange("address", e.target.value)}
       />
     </div>
   );

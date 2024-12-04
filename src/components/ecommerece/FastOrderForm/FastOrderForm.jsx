@@ -4,8 +4,13 @@ import { UserInfoInputs } from "../UserInfoForm";
 import { OfferOptions } from "..";
 import { useState } from "react";
 
-const FastOrderForm = () => {
+const FastOrderForm = ({ onFormValidityChange }) => {
   const [selectedOfferId, setSelectedOfferId] = useState(1);
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    address: "",
+  });
 
   const productOffers = [
     {
@@ -32,6 +37,17 @@ const FastOrderForm = () => {
     setSelectedOfferId(offerId);
   };
 
+  const handleInputChange = (field, value) => {
+    const updatedData = { ...formData, [field]: value };
+    setFormData(updatedData);
+    validateForm(updatedData);
+  };
+
+  const validateForm = (data) => {
+    const isValid = data.name && data.phone && data.address && selectedOfferId;
+    onFormValidityChange(isValid);
+  };
+
   return (
     <form className="flex flex-col gap-6">
       <OfferTitle
@@ -39,7 +55,7 @@ const FastOrderForm = () => {
         icon={IoFlash}
       />
 
-      <UserInfoInputs />
+      <UserInfoInputs onInputChange={handleInputChange} />
 
       <OfferTitle title={"عروض التوفير"} icon={IoFlash} />
 
