@@ -1,4 +1,3 @@
-import { CiSearch } from "react-icons/ci";
 import { MobileMenu } from "@components/ecommerece";
 import { Logo } from "..";
 
