@@ -33,7 +33,10 @@ const ShoppingCart = () => {
       onOpenChange={isCartDrawerOpen ? closeCartDrawer : openCartDrawer}
     >
       <SheetTrigger asChild className="">
-        <Button className="relative text-[#5F6377] bg-transparent hover:bg-transparent text-2xl hover:text-custom-blue">
+        <Button
+          onClick={(e) => e.preventDefault()}
+          className="relative text-[#5F6377] bg-transparent hover:bg-transparent text-2xl hover:text-custom-blue"
+        >
           <CiShoppingCart size={24} className="!w-6 !h-6 " />
           <span
             className="font-medium text-xs text-white bg-[#E74747] w-[21px] h-[21px] rounded-full flex items-center justify-center
@@ -56,7 +59,7 @@ const ShoppingCart = () => {
           </SheetDescription>
 
           <SheetClose className="!mt-0">
-              <AiOutlineClose />
+            <AiOutlineClose />
           </SheetClose>
         </SheetHeader>
 

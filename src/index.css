@@ -27,6 +27,10 @@
   font-style: normal;
 }
 
+html {
+  scroll-behavior: auto !important;
+}
+
 body {
   font-family: "DIN Next LT W23", sans-serif;
   font-display: swap;
@@ -83,6 +87,6 @@ input::-webkit-inner-spin-button {
   }
 }
 
-.scrollbar-hide::-webkit-scrollbar{
-display: none;
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
