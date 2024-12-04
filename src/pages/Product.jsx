@@ -15,13 +15,21 @@ import { PaymentPolicyAccordion } from "@components/ecommerece/PaymentPolicyAcco
 import { phonesList, productsList } from "@/data/AllProducts";
 
 const ProductPage = () => {
-  const [product, setProduct] = useState({});
-  const [isFormValid, setIsFormValid] = useState(false);
-  const [selectedSize, setSelectedSize] = useState(null);
-  const [selectedColor, setSelectedColor] = useState(null);
-
   const { productId } = useParams();
   const navigate = useNavigate();
+  const queryParams = new URLSearchParams(window.location.search);
+
+  const initialSize = queryParams.get("size");
+  const initialColor = queryParams.get("color");
+  const initialOfferId = queryParams.get("offer")
+    ? Number(queryParams.get("offer"))
+    : 1;
+
+  const [product, setProduct] = useState({});
+  const [isFormValid, setIsFormValid] = useState(false);
+  const [selectedSize, setSelectedSize] = useState(initialSize);
+  const [selectedColor, setSelectedColor] = useState(initialColor);
+  const [selectedOffer, setSelectedOffer] = useState(initialOfferId);
 
   const memoizedPhonesList = useMemo(() => phonesList, []);
 
@@ -31,18 +39,17 @@ const ProductPage = () => {
 
   // Update customization state
   const handleCustomizationChange = (key, value) => {
-    if (key === "size") setSelectedSize(value);
-    if (key === "color") setSelectedColor(value);
     const newSearchParams = new URLSearchParams(window.location.search);
     newSearchParams.set(key, value);
+
+    if (key === "size") setSelectedSize(value);
+    if (key === "color") setSelectedColor(value);
+    if (key === "offer") setSelectedOffer(value);
+
     navigate(`?${newSearchParams.toString()}`, { replace: true });
   };
 
   const isButtonEnabled = isFormValid && selectedSize && selectedColor;
-  console.log("isButtonEnabled", isButtonEnabled);
-  console.log("isFormValid", isFormValid);
-  console.log("selectedSize", selectedSize);
-  console.log("selectedColor", selectedColor);
 
   return (
     <div>
@@ -92,13 +99,21 @@ const ProductPage = () => {
             <CustomizeProduct
               item={product}
               onCustomizationChange={handleCustomizationChange}
+              selectedSize={selectedSize}
+              selectedColor={selectedColor}
             />
             <div className="flex items-center gap-4 justify-center">
               <div className="border border-[#CACFE1] w-[266px]"></div>
               <span className="font-normal text-lg border-[#6E768F] ">او</span>
               <div className="border border-[#CACFE1] w-[266px]"></div>
             </div>
-            <FastOrderForm onFormValidityChange={setIsFormValid} />
+            <FastOrderForm
+              onFormValidityChange={setIsFormValid}
+              initialOfferId={initialOfferId}
+              onOfferChange={(offerId) =>
+                handleCustomizationChange("offer", offerId)
+              }
+            />
 
             <div className="ring-1 ring-[#E5E9F1] w-full mt-2"></div>
             <div className="flex items-center justify-between">

@@ -1,23 +1,22 @@
-import { useState } from "react";
 import { CiShoppingCart } from "react-icons/ci";
 import { useCart } from "@/context/cart";
 
-const CustomizeProduct = ({ item, onCustomizationChange }) => {
-  const [selectedSize, setSelectedSize] = useState(null);
-  const [selectedColor, setSelectedColor] = useState(null);
-
+const CustomizeProduct = ({
+  item,
+  onCustomizationChange,
+  selectedSize,
+  selectedColor,
+}) => {
   const { cartItems, addItemToCart, decreaseItemQuantity, openCartDrawer } =
     useCart();
   const currentItem = cartItems.find((cartItem) => cartItem.id === item.id);
   const quantity = currentItem ? currentItem.quantity : 1;
 
   const handleSizeClick = (size) => {
-    setSelectedSize(size);
     onCustomizationChange("size", size);
   };
 
   const handleColorClick = (color) => {
-    setSelectedColor(color);
     onCustomizationChange("color", color);
   };
 
@@ -31,7 +30,7 @@ const CustomizeProduct = ({ item, onCustomizationChange }) => {
             <li
               key={size}
               onClick={() => handleSizeClick(size)}
-              className={` w-[100px] h-[45px] flex items-center justify-center cursor-pointer rounded-lg font-medium text-xs md:text-lg ${
+              className={`w-[100px] h-[45px] flex items-center justify-center cursor-pointer rounded-lg font-medium text-xs md:text-lg ${
                 selectedSize === size
                   ? "ring-2 ring-custom-blue text-custom-blue"
                   : "ring-1 ring-[#CFD7E5] text-[#6E768F]"
@@ -87,8 +86,8 @@ const CustomizeProduct = ({ item, onCustomizationChange }) => {
             type="number"
             min={1}
             value={quantity}
-            className="text-[#666666] font-medium text-lg outline-none text-center h-full w-[91px]
-            border-r border-l border-r-[#ECECEC] border-l-[#ECECEC]"
+            readOnly
+            className="text-[#666666] font-medium text-lg outline-none text-center h-full w-[91px] border-r border-l border-r-[#ECECEC] border-l-[#ECECEC]"
           />
           <button
             className="text-[#979797] w-[12px]"
