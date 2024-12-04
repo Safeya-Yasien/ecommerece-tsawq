@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { Suspense, useEffect, useMemo, useState } from "react";
 import { FaStar } from "react-icons/fa";
 
@@ -87,7 +87,28 @@ const ProductPage = () => {
               <div className="border border-[#CACFE1] w-[266px]"></div>
             </div>
             <FastOrderForm />
-            <div className="flex flex-col gap-4">
+
+            <div className="ring-1 ring-[#E5E9F1] w-full mt-2"></div>
+            <div className="flex items-center justify-between">
+              <p className="text-[#3A4353] font-bold text-[20px]">
+                إجمالي المبلغ:
+              </p>
+              <p className="text-[#3A4353] font-bold text-[22px]">6500ج</p>
+            </div>
+
+            <Link
+              to="/checkout"
+              aria-label="اشترى الان"
+              className="text-white font-bold text-[16px] sm:text-[22px] shadow-[0px_4px_19.2px_0px_#3074F066] ring-1 ring-[#ECECEC] rounded-[61px] flex items-center justify-center h-[69px]"
+              style={{
+                background:
+                  "linear-gradient(268.03deg, #3074F0 2.44%, #659CFF 142.11%)",
+              }}
+            >
+              اشتري الان - الدفع عند الاستلام
+            </Link>
+
+            <div className="flex flex-col gap-4 mt-8">
               <h4 className="font-normal md:font-medium text-sm md:text-[20px] text-custom-gray">
                 تفاصيل عن المنتج:
               </h4>

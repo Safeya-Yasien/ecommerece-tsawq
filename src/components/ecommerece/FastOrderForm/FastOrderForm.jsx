@@ -2,7 +2,6 @@ import { IoFlash } from "react-icons/io5";
 import OfferTitle from "./OfferTitle";
 import { UserInfoInputs } from "../UserInfoForm";
 import { OfferOptions } from "..";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const FastOrderForm = () => {
@@ -49,24 +48,6 @@ const FastOrderForm = () => {
         selectedOfferId={selectedOfferId}
         onOfferSelect={handleOfferSelect}
       />
-
-      <div className="ring-1 ring-[#E5E9F1] w-full mt-2"></div>
-      <div className="flex items-center justify-between">
-        <p className="text-[#3A4353] font-bold text-[20px]">إجمالي المبلغ:</p>
-        <p className="text-[#3A4353] font-bold text-[22px]">6500ج</p>
-      </div>
-
-      <Link
-        to="/checkout"
-        aria-label="اشترى الان"
-        className="text-white font-bold text-[16px] sm:text-[22px] shadow-[0px_4px_19.2px_0px_#3074F066] ring-1 ring-[#ECECEC] rounded-[61px] flex items-center justify-center h-[69px]"
-        style={{
-          background:
-            "linear-gradient(268.03deg, #3074F0 2.44%, #659CFF 142.11%)",
-        }}
-      >
-        اشتري الان - الدفع عند الاستلام
-      </Link>
     </form>
   );
 };
