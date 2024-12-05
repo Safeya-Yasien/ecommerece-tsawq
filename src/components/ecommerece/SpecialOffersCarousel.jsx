@@ -57,7 +57,7 @@ const Offer = memo(({ product }) => {
   return (
     <Link
       to={`/`}
-      className="flex-shrink-0 w-full sm:w-[50%] md:w-[33.33%] lg:w-[25%] flex flex-col gap-2 bg-[#F6F6F6] rounded-[6px] p-8 h-[388px] relative"
+      className="flex-shrink-0 w-full sm:w-[50%] md:w-[33.33%] lg:w-[25%] flex flex-col gap-2 bg-[#F6F6F6] rounded-[6px] p-8 h-[400px] relative"
     >
       {/* info */}
       <div className="flex flex-col gap-3">
@@ -74,12 +74,12 @@ const Offer = memo(({ product }) => {
       </div>
 
       {/* img */}
-      <div className="flex justify-center items-center mt-auto">
+      <div className="absolute left-[30px] bottom-0  mt-auto">
         <img
           src={product.imgSrc}
           alt={product.name}
           loading="lazy"
-          className="object-cover w-[80%] h-auto max-w-[200px] max-h-[200px]"
+          className="object-cover w-[100%]"
         />
       </div>
     </Link>
