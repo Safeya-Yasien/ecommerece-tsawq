@@ -13,7 +13,7 @@ const ExpiredNotice = () => {
 
 const ShowCounter = ({ hours, minutes, seconds }) => {
   return (
-    <div className="flex items-center gap-3 self-start">
+    <div className="flex items-center gap-3 self-center">
       <span className="text-custom-gray font-normal text-lg">ينتهي في</span>
       <div className="flex justify-center items-center gap-2   text-[#FF2C2C] ">
         <DateTimeDisplay value={seconds} isDanger={false} />

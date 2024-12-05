@@ -32,19 +32,18 @@ const ShoppingCart = () => {
       open={isCartDrawerOpen}
       onOpenChange={isCartDrawerOpen ? closeCartDrawer : openCartDrawer}
     >
-      <SheetTrigger asChild className="">
-        <Button
-          className="relative text-[#5F6377] bg-transparent hover:bg-transparent text-2xl hover:text-custom-blue"
-        >
-          <CiShoppingCart size={24} className="!w-6 !h-6 " />
-          <span
-            className="font-medium text-xs text-white bg-[#E74747] w-[21px] h-[21px] rounded-full flex items-center justify-center
+      <Button
+        className="relative text-[#5F6377] bg-transparent hover:bg-transparent text-2xl hover:text-custom-blue"
+        onClick={openCartDrawer}
+      >
+        <CiShoppingCart size={24} className="!w-6 !h-6 " />
+        <span
+          className="font-medium text-xs text-white bg-[#E74747] w-[21px] h-[21px] rounded-full flex items-center justify-center
           absolute -top-1 right-2"
-          >
-            {cartItems.length}
-          </span>
-        </Button>
-      </SheetTrigger>
+        >
+          {cartItems.length}
+        </span>
+      </Button>
       <SheetContent side="left">
         <SheetHeader className="!flex !flex-row !justify-between items-center border-b border-b-[#E5E9F1] !text-start pb-2">
           <SheetTitle>
