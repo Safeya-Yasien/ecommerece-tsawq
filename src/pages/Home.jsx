@@ -18,8 +18,9 @@ const Home = () => {
   return (
     <div className="flex flex-col gap-12 px-6 md:px-12 md:py-9 pb-20">
       <Hero />
+
       <Features />
-      {/* <Suspense fallback={"Loading..."}> */}
+      <Suspense fallback={"loading..."}>
         <ProductsCarousel
           title="خصم لفترة محدودة"
           products={memoizedProductsList}
@@ -27,10 +28,10 @@ const Home = () => {
           showLabel={true}
           showCountdown={true}
         />
+      </Suspense>
 
-      {/* </Suspense> */}
       <CategoriesCarousel />
-      <Suspense fallback={"Loading..."}>
+      <Suspense fallback={"loading..."}>
         <ProductsCarousel
           title="أفضل المبيعات"
           products={memoizedProductsList}
@@ -45,7 +46,6 @@ const Home = () => {
           products={memoizedPhonesList}
           showArrows={false}
           showLabel={false}
-
           buttonPosition={"-left-[15px]"}
         />
       </Suspense>
